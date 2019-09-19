@@ -5,9 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { PersonaldataComponent } from './personaldata/personaldata.component';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
+  { path: 'personal-data', component: PersonaldataComponent },
   { path: '',
     redirectTo: '/welcome',
     pathMatch: 'full'
@@ -17,7 +21,8 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    PersonaldataComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -26,7 +31,9 @@ const appRoutes: Routes = [
     ),
     MDBBootstrapModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

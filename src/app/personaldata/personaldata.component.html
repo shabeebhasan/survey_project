@@ -1,0 +1,81 @@
+
+
+<div class="row" role="main">
+  <h1 class="jumbotron-heading">STEP 1</h1>
+
+<mdb-card class="col-md-12">
+
+  <mdb-card-header class="info-color white-text text-center py-12">
+    <h5>
+      <strong>Personal Questionnaire</strong>
+    </h5>
+  </mdb-card-header>
+
+  <mdb-card-body class="col-md-12">
+
+    <form class="text-center" style="color: #757575;" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <div class="md-form mt-3">
+            <input type="text" formControlName="contactFormName" id="materialContactFormName" class="form-control"
+              mdbInput>
+            <label for="materialContactFormName">Name</label>
+        </div>
+        
+      <div class="md-form mt-3">
+        <input type="text" formControlName="contactFormName" id="materialContactFormName" class="form-control"
+          mdbInput>
+        <label for="materialContactFormName">Nationality</label>
+      </div>
+      
+      <div class="md-form mt-3">
+          <input type="text" formControlName="contactFormName" id="materialContactFormName" class="form-control"
+            mdbInput>
+          <label for="materialContactFormName">Occupation</label>
+      </div>
+
+      <div class="md-form mt-3">
+          <input type="text" formControlName="contactFormName" id="materialContactFormName" class="form-control"
+            mdbInput>
+          <label for="materialContactFormName">Education</label>
+      </div>
+
+      <div class="md-form mt-3">
+          <select formControlName="contactFormSubjects" class="form-control">
+            <option value="" disabled>Gender</option>
+            <option value="male" selected>Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+      
+
+      <div class="md-form mt-3">
+        <select formControlName="contactFormSubjects" class="form-control">
+          <option value="" disabled>AGE</option>
+          <option value="1" selected>10 to 20</option>
+          <option value="2">20 to 25</option>
+          <option value="3">25 to 35</option>
+          <option value="4">35 to 45</option>
+          <option value="5">45 to above</option>
+        </select>
+      </div>
+    
+      <div class="md-form mt-3">
+        <select formControlName="contactFormSubjects" class="form-control">
+          <option value="" disabled>How often do you play video games?</option>
+          <option value="daily" selected>Daily</option>
+          <option value="week">Once a week</option>
+          <option value="month">Once a month</option>
+          <option value="never">Never</option>
+        </select>
+      </div>
+      
+
+      <button mdbBtn color="info" outline="true" rounded="true" block="true" class="z-depth-0 my-4 waves-effect"
+        mdbWavesEffect type="submit" [disabled]="disabledSubmitButton">Send</button>
+
+    </form>
+
+  </mdb-card-body>
+
+</mdb-card>
+</div>
