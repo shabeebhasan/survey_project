@@ -20,7 +20,7 @@ const appRoutes: Routes = [
   { path: 'questions-one', component: QuestionsOneComponent },
   { path: 'personal-data', component: PersonaldataComponent },
   { path: 'image-data', component: ImageQuestionsComponent },
-  { path: 'motivation-data', component: ImageQuestionsComponent },
+  { path: 'motivation-data', component: MotivationQuestionsComponent },
   { path: '',
     redirectTo: '/welcome',
     pathMatch: 'full'

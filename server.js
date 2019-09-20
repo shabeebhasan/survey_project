@@ -37,7 +37,15 @@ con.connect(function(err) {
 app.get('/questions-one', function (req, res) {
   con.query("SELECT * FROM player_survey_1_questions", function (err, result, fields) {
     if (err) throw err;
-    console.log(result);
+    //console.log(result);
+    res.end( JSON.stringify(result) );
+  });
+})
+
+app.get('/motivations-survey', function (req, res) {
+  con.query("SELECT * FROM motivation_question", function (err, result, fields) {
+    if (err) throw err;
+    //console.log(result);
     res.end( JSON.stringify(result) );
   });
 })

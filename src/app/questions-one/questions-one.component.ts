@@ -99,7 +99,7 @@ export class QuestionsOneComponent implements OnInit {
                                 "More or less disagree", "Disagree", "Strongly Disagree"
                             ],
                             isRequired: true,
-                            name: value.type + value.id,
+                            name: value.type + '_' + value.id,
                             question:value,
                             title: value.question_eng
                           }

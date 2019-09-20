@@ -10,4 +10,8 @@ export class ApiService {
     return this.http.get('http://localhost:8081/questions-one');
   }
 
+  public getMotivationQuestion(){
+    return this.http.get('http://localhost:8081/motivations-survey');
+  }
+
 }

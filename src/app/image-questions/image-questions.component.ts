@@ -30,6 +30,7 @@ export class ImageQuestionsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.items = '';
     this.tagCount = 0;
     this.arrayIndex = 0;
     this.imgeShuffleArray = this.shuffle();
@@ -47,6 +48,8 @@ export class ImageQuestionsComponent implements OnInit {
       console.log('onSubmit:: ',this.tagCount);
       this.items = '';
       this.setImage();
+    }else{
+      this.router.navigateByUrl('/motivation-data');
     }
   }
   
