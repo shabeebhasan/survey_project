@@ -1,3 +1,22 @@
+#REQUIRED 
+- PHPMYADMIN
+- NODEJS
+- NPM
+- ANGULAR CLI
+
+npm install
+
+# DATABASE Setup in MYSQL
+
+import the "survey_db.sql" in phpmyadmin after creating a database with name "survey_db"
+
+# SERVER START
+node .\server.js
+
+# FRONTEND ANGULAR RUN
+
+ng serve --open
+
 # MyApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.4.
