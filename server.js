@@ -1,6 +1,7 @@
 var mysql = require('mysql');
 var express = require('express');
 var app = express();
+var shuffle = require('shuffle-array');
 
 // Add headers
 app.use(function (req, res, next) {
@@ -37,16 +38,18 @@ con.connect(function(err) {
 app.get('/questions-one', function (req, res) {
   con.query("SELECT * FROM player_survey_1_questions", function (err, result, fields) {
     if (err) throw err;
-    //console.log(result);
-    res.end( JSON.stringify(result) );
+    shuffle(result);
+    result = JSON.stringify(result);
+    res.end(result);
   });
 })
 
 app.get('/motivations-survey', function (req, res) {
   con.query("SELECT * FROM motivation_question", function (err, result, fields) {
     if (err) throw err;
-    //console.log(result);
-    res.end( JSON.stringify(result) );
+    shuffle(result);
+    result = JSON.stringify(result);
+    res.end(result);
   });
 })
 
