@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-personaldata',
@@ -10,10 +10,10 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class PersonaldataComponent implements OnInit {
 
   contactForm: FormGroup;
-  disabledSubmitButton: boolean = true;
+  disabledSubmitButton: boolean = false;
   optionsSelect: Array<any>;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,private router: Router) {
 
   this.contactForm = fb.group({
     'contactFormName': ['', Validators.required],
@@ -35,7 +35,6 @@ export class PersonaldataComponent implements OnInit {
   }
 
   onSubmit() {
-    
-    alert('Your message has been sent.');
+    this.router.navigateByUrl('/questions-one');
   }
 }

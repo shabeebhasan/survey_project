@@ -6,11 +6,14 @@ import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { PersonaldataComponent } from './personaldata/personaldata.component';
-
+import { HttpClientModule  } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { QuestionsOneComponent } from './questions-one/questions-one.component';
+import { ApiService } from './api.service';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
+  { path: 'questions-one', component: QuestionsOneComponent },
   { path: 'personal-data', component: PersonaldataComponent },
   { path: '',
     redirectTo: '/welcome',
@@ -22,9 +25,11 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     WelcomeComponent,
-    PersonaldataComponent
+    PersonaldataComponent,
+    QuestionsOneComponent
   ],
   imports: [
+    HttpClientModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
@@ -35,7 +40,7 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
