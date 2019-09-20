@@ -95,8 +95,8 @@ export class QuestionsOneComponent implements OnInit {
                           {
                             type: "radiogroup",
                             choices: [
-                                "Strong agree", "agree", "More or less agree", "undecided",
-                                "More or less disagree", "Disagree", "Strongly Disagree"
+                              "Strongly Disagree","Disagree","More or less disagree","undecided",
+                               "More or less agree",, "agree",  "Strong agree"
                             ],
                             isRequired: true,
                             name: value.type + '_' + value.id,

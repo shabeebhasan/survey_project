@@ -14,6 +14,7 @@ import { ImageQuestionsComponent } from './image-questions/image-questions.compo
 import { TagInputModule } from 'ngx-chips';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MotivationQuestionsComponent } from './motivation-questions/motivation-questions.component';
+import { SatisfactionQustionsComponent } from './satisfaction-qustions/satisfaction-qustions.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
@@ -21,6 +22,7 @@ const appRoutes: Routes = [
   { path: 'personal-data', component: PersonaldataComponent },
   { path: 'image-data', component: ImageQuestionsComponent },
   { path: 'motivation-data', component: MotivationQuestionsComponent },
+  { path: 'satisfaction-data', component: SatisfactionQustionsComponent },
   { path: '',
     redirectTo: '/welcome',
     pathMatch: 'full'
@@ -34,7 +36,8 @@ const appRoutes: Routes = [
     PersonaldataComponent,
     QuestionsOneComponent,
     ImageQuestionsComponent,
-    MotivationQuestionsComponent
+    MotivationQuestionsComponent,
+    SatisfactionQustionsComponent
   ],
   imports: [
     HttpClientModule,

@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class MotivationQuestionsComponent implements OnInit {
 
-  getMotivationQuestion : any;
+    getMotivationQuestion : any;
 
     constructor(private apiService : ApiService, private http : HttpClient,private router: Router) {
         this.getMotivationQuestion = apiService.getMotivationQuestion;
@@ -26,7 +26,7 @@ export class MotivationQuestionsComponent implements OnInit {
                 .subscribe((data) => {
                     console.log('QuestionsOneComponent:: ', data);
                     let surveyJSON = {
-                      title: "Player type questionnaire - Survey 1",
+                      title: "Motivation questionnaire",
                       pages:[]
                     };
                     data.forEach(function(value, key) {
@@ -36,8 +36,8 @@ export class MotivationQuestionsComponent implements OnInit {
                           {
                             type: "radiogroup",
                             choices: [
-                                "Strong agree", "agree", "More or less agree", "undecided",
-                                "More or less disagree", "Disagree", "Strongly Disagree"
+                               "Strongly Disagree","Disagree","More or less disagree","undecided",
+                                "More or less agree",, "agree",  "Strong agree"
                             ],
                             isRequired: true,
                             name: 'id_'+ value.id,
@@ -53,6 +53,7 @@ export class MotivationQuestionsComponent implements OnInit {
                         survey.onComplete.add((survey)=>{
                           var resultAsString = JSON.stringify(survey.data);
                           console.log(resultAsString);
+                          router.navigateByUrl('/satisfaction-data');
                         });
                       }
                     });
