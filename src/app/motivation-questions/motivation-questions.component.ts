@@ -37,7 +37,7 @@ export class MotivationQuestionsComponent implements OnInit {
                             type: "radiogroup",
                             choices: [
                                "Strongly Disagree","Disagree","More or less disagree","undecided",
-                                "More or less agree",, "agree",  "Strong agree"
+                                "More or less agree", "agree",  "Strong agree"
                             ],
                             isRequired: true,
                             name: 'id_'+ value.id,
