@@ -111,9 +111,12 @@ export class SatisfactionQustionsComponent implements OnInit {
             .add((survey) => {
                 var resultAsString = JSON.stringify(survey.data);
                 console.log(resultAsString);
-                this
-                    .router
-                    .navigateByUrl('/satisfaction-data');
+                setTimeout(()=>{
+                  sessionStorage.removeItem('user_id');
+                  this
+                  .router
+                  .navigateByUrl('/welcome');
+                },3000);
             });
     }
 
