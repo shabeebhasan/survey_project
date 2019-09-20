@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,HostListener } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { nationalities } from '../nationality';
@@ -11,33 +11,41 @@ import { nationalities } from '../nationality';
 export class PersonaldataComponent implements OnInit {
 
   contactForm: FormGroup;
-  disabledSubmitButton: boolean = false;
   optionsSelect: Array<any>;
   nationalities:Array<any>;
+  disabledSubmitButton: boolean = false;
 
   constructor(private fb: FormBuilder,private router: Router) {
 
     this.nationalities = nationalities;
     this.contactForm = fb.group({
-      'contactFormName': ['', Validators.required],
-      'contactFormAGE': ['', Validators.required],
-      'contactFormSubjects': ['', Validators.required],
-      'contactFormMessage': ['', Validators.required],
-      'contactFormCopy': [''],
+      'Name': ['', Validators.required],
+      'Age': ['', Validators.required],
+      'Occupation': ['', Validators.required],
+      'Education': ['', Validators.required],
+      'Nationality': ['', Validators.required],
+      'Gender': ['', Validators.required],
+      'playVideoGame': ['', Validators.required],
     });
   }
 
   ngOnInit() {
 
-  this.optionsSelect = [
-    { value: 'Feedback', label: 'Feedback' },
-    { value: 'Report a bug', label: 'Report a bug' },
-    { value: 'Feature request', label: 'Feature request' },
-    { value: 'Other stuff', label: 'Other stuff' },
-    ];
   }
 
   onSubmit() {
-    this.router.navigateByUrl('/questions-one');
+    console.log(this.contactForm);
+    
+    if (!this.contactForm.valid) {
+      alert("Please fill the required fields.");
+      return;
+    }
+    if(this.contactForm.value.Age < 18 || this.contactForm.value.Age > 100){
+      alert("AGE should be between 18 to 100");
+      return;
+    }
+    if (this.contactForm.valid) {      
+      this.router.navigateByUrl('/questions-one');
+    }
   }
 }

@@ -15,38 +15,38 @@
 
     <form class="text-center" style="color: #757575;" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
         <div class="md-form mt-3">
-            <input type="text" formControlName="contactFormName" id="materialContactFormName" class="form-control"
+            <input type="text" formControlName="Name" id="Name" class="form-control"
               mdbInput>
-            <label for="materialContactFormName">Name</label>
+            <label for="Name">Name</label>
         </div>
         
       <div class="md-form mt-3">
-          <input type="number" min="18" max="100" formControlName="contactFormAGE" id="materialContactFormAGE" class="form-control"
+          <input type="number" min="18" max="100" formControlName="Age" id="Age" class="form-control"
             mdbInput>
-          <label for="materialContactFormAGE">AGE</label>
+          <label for="Age">AGE</label>
       </div>
         
       <div class="md-form mt-3">
-          <input type="text" formControlName="contactFormName" id="materialContactFormName" class="form-control"
+          <input type="text" formControlName="Occupation" id="Occupation" class="form-control"
             mdbInput>
-          <label for="materialContactFormName">Occupation</label>
+          <label for="Occupation">Occupation</label>
       </div>
 
       <div class="md-form mt-3">
-          <input type="text" formControlName="contactFormName" id="materialContactFormName" class="form-control"
+          <input type="text" formControlName="Education" id="Education" class="form-control"
             mdbInput>
-          <label for="materialContactFormName">Education</label>
+          <label for="Education">Education</label>
       </div>
     
       <div class="md-form mt-3">
-          <select formControlName="contactFormSubjects" class="form-control">
+          <select formControlName="Nationality" class="form-control">
             <option value="" disabled>Nationality</option>
             <option *ngFor="let obj of nationalities" [value]="obj.nationality">{{obj.nationality}}</option>
           </select>
       </div>
 
       <div class="md-form mt-3">
-          <select formControlName="contactFormSubjects" class="form-control">
+          <select formControlName="Gender" class="form-control">
             <option value="" disabled>Gender</option>
             <option value="male" selected>Male</option>
             <option value="female">Female</option>
@@ -55,7 +55,7 @@
         </div>
     
       <div class="md-form mt-3">
-        <select formControlName="contactFormSubjects" class="form-control">
+        <select formControlName="playVideoGame" class="form-control">
           <option value="" disabled>How often do you play video games?</option>
           <option value="daily" selected>Daily</option>
           <option value="week">Once a week</option>
