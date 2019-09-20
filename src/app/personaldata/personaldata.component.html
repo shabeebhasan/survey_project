@@ -21,10 +21,12 @@
         </div>
         
       <div class="md-form mt-3">
-        <input type="text" formControlName="contactFormName" id="materialContactFormName" class="form-control"
-          mdbInput>
-        <label for="materialContactFormName">Nationality</label>
+          <input type="number" min="18" max="100" formControlName="contactFormAGE" id="materialContactFormAGE" class="form-control"
+            mdbInput>
+          <label for="materialContactFormAGE">AGE</label>
       </div>
+        
+      
       
       <div class="md-form mt-3">
           <input type="text" formControlName="contactFormName" id="materialContactFormName" class="form-control"
@@ -37,6 +39,13 @@
             mdbInput>
           <label for="materialContactFormName">Education</label>
       </div>
+    
+      <div class="md-form mt-3">
+          <select formControlName="contactFormSubjects" class="form-control">
+            <option value="" disabled>Nationality</option>
+            <option *ngFor="let obj of nationalities" [value]="obj.nationality">{{obj.nationality}}</option>
+          </select>
+      </div>
 
       <div class="md-form mt-3">
           <select formControlName="contactFormSubjects" class="form-control">
@@ -46,18 +55,6 @@
             <option value="other">Other</option>
           </select>
         </div>
-      
-
-      <div class="md-form mt-3">
-        <select formControlName="contactFormSubjects" class="form-control">
-          <option value="" disabled>AGE</option>
-          <option value="1" selected>10 to 20</option>
-          <option value="2">20 to 25</option>
-          <option value="3">25 to 35</option>
-          <option value="4">35 to 45</option>
-          <option value="5">45 to above</option>
-        </select>
-      </div>
     
       <div class="md-form mt-3">
         <select formControlName="contactFormSubjects" class="form-control">

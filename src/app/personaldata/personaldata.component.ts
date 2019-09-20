@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { nationalities } from '../nationality';
 
 @Component({
   selector: 'app-personaldata',
@@ -12,15 +13,17 @@ export class PersonaldataComponent implements OnInit {
   contactForm: FormGroup;
   disabledSubmitButton: boolean = false;
   optionsSelect: Array<any>;
+  nationalities:Array<any>;
 
   constructor(private fb: FormBuilder,private router: Router) {
 
-  this.contactForm = fb.group({
-    'contactFormName': ['', Validators.required],
-    'contactFormEmail': ['', Validators.compose([Validators.required, Validators.email])],
-    'contactFormSubjects': ['', Validators.required],
-    'contactFormMessage': ['', Validators.required],
-    'contactFormCopy': [''],
+    this.nationalities = nationalities;
+    this.contactForm = fb.group({
+      'contactFormName': ['', Validators.required],
+      'contactFormAGE': ['', Validators.required],
+      'contactFormSubjects': ['', Validators.required],
+      'contactFormMessage': ['', Validators.required],
+      'contactFormCopy': [''],
     });
   }
 

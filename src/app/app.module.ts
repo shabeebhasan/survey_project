@@ -13,12 +13,14 @@ import { ApiService } from './api.service';
 import { ImageQuestionsComponent } from './image-questions/image-questions.component';
 import { TagInputModule } from 'ngx-chips';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MotivationQuestionsComponent } from './motivation-questions/motivation-questions.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
   { path: 'questions-one', component: QuestionsOneComponent },
   { path: 'personal-data', component: PersonaldataComponent },
   { path: 'image-data', component: ImageQuestionsComponent },
+  { path: 'motivation-data', component: ImageQuestionsComponent },
   { path: '',
     redirectTo: '/welcome',
     pathMatch: 'full'
@@ -31,7 +33,8 @@ const appRoutes: Routes = [
     WelcomeComponent,
     PersonaldataComponent,
     QuestionsOneComponent,
-    ImageQuestionsComponent
+    ImageQuestionsComponent,
+    MotivationQuestionsComponent
   ],
   imports: [
     HttpClientModule,
