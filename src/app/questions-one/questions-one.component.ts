@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Model, SurveyNG, StylesManager} from 'survey-angular';
 import {ApiService} from '../api.service';
 import {HttpClient} from "@angular/common/http";
+import { Router } from '@angular/router';
 
 var surveyJSON = {
     title: "Player type questionnaire - Survey 1",
@@ -71,13 +72,14 @@ export class QuestionsOneComponent implements OnInit {
 
     getQuestionsOne : any;
 
-    constructor(private apiService : ApiService, private http : HttpClient) {
+    constructor(private apiService : ApiService, private http : HttpClient,private router: Router) {
         this.getQuestionsOne = apiService.getQuestionsOne;
     }
 
     ngOnInit() {
         StylesManager.applyTheme("bootstrap");
         setTimeout(() => {
+            let router = this.router;
             this
                 .getQuestionsOne()
                 .subscribe((data) => {
@@ -93,7 +95,8 @@ export class QuestionsOneComponent implements OnInit {
                           {
                             type: "radiogroup",
                             choices: [
-                                "Strong agree", "agree", "More or less agree", "undecided", "More or less disagree", "Disagree", "Strongly Disagree"
+                                "Strong agree", "agree", "More or less agree", "undecided",
+                                "More or less disagree", "Disagree", "Strongly Disagree"
                             ],
                             isRequired: true,
                             name: value.type + value.id,
@@ -104,9 +107,13 @@ export class QuestionsOneComponent implements OnInit {
                       };
                       surveyJSON.pages.push(obj);
                       if(key == data.length - 1){
-                        console.log(key + ': ' + value);
                         var survey = new Model(surveyJSON);
                         SurveyNG.render("surveyElement", {model: survey});
+                        survey.onComplete.add((survey)=>{
+                          var resultAsString = JSON.stringify(survey.data);
+                          console.log(resultAsString);
+                          router.navigateByUrl('/image-data');
+                        });
                       }
                     });
                 });

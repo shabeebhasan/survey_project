@@ -10,11 +10,15 @@ import { HttpClientModule  } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { QuestionsOneComponent } from './questions-one/questions-one.component';
 import { ApiService } from './api.service';
+import { ImageQuestionsComponent } from './image-questions/image-questions.component';
+import { TagInputModule } from 'ngx-chips';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
   { path: 'questions-one', component: QuestionsOneComponent },
   { path: 'personal-data', component: PersonaldataComponent },
+  { path: 'image-data', component: ImageQuestionsComponent },
   { path: '',
     redirectTo: '/welcome',
     pathMatch: 'full'
@@ -26,7 +30,8 @@ const appRoutes: Routes = [
     AppComponent,
     WelcomeComponent,
     PersonaldataComponent,
-    QuestionsOneComponent
+    QuestionsOneComponent,
+    ImageQuestionsComponent
   ],
   imports: [
     HttpClientModule,
@@ -38,7 +43,9 @@ const appRoutes: Routes = [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TagInputModule,
+    BrowserAnimationsModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]
