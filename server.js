@@ -49,13 +49,15 @@ app.get('/questions-one', function (req, res) {
 })
 
 app.post('/user-info', (req, res) => {
-  var name = req.body.name;
-  var age = req.body.age;
-  var nationality = req.body.nationality;
-  var occupation = req.body.occupation;
-  var education = req.body.education;
-  var play_video_games = req.body.play_video_games;
-  var sql = "INSERT INTO user_data (name, age,nationality,occupation,education,play_video_games) VALUES ('"+ name + "','" +  age + "','" + nationality + "','" + occupation + "','" + education + "','" + play_video_games  +"')";
+  console.log('/user-info',req.body);
+  var name = req.body.Name;
+  var age = req.body.Age;
+  var nationality = req.body.Nationality;
+  var occupation = req.body.Occupation;
+  var education = req.body.Education;
+  var play_video_games = req.body.playVideoGame;
+  var gender = req.body.Gender;
+  var sql = "INSERT INTO user_data (name, age,nationality,occupation,education,play_video_games,gender) VALUES ('"+ name + "','" +  age + "','" + nationality + "','" + occupation + "','" + education + "','" + play_video_games  + "','" + gender  + "')";
   
   console.log(sql);
   con.query(sql, function (err, result) {

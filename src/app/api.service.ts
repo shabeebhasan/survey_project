@@ -14,4 +14,8 @@ export class ApiService {
     return this.http.get('http://localhost:8081/motivations-survey');
   }
 
+  public postUserData(data){
+    return this.http.post('http://localhost:8081/motivations-survey',data);
+  }
+
 }

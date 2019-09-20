@@ -33,11 +33,11 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     WelcomeComponent,
-    PersonaldataComponent,
     QuestionsOneComponent,
     ImageQuestionsComponent,
     MotivationQuestionsComponent,
-    SatisfactionQustionsComponent
+    SatisfactionQustionsComponent,
+    PersonaldataComponent,
   ],
   imports: [
     HttpClientModule,
