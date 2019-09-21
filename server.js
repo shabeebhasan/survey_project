@@ -48,6 +48,30 @@ app.get('/questions-one', function (req, res) {
   });
 })
 
+app.post('/survey-one', (req, res) => {
+  var user_id = req.body.user_id;
+  var points = 0;
+  var survey_data = req.body.survey_data;
+
+  var values = Object.values(JSON.parse(survey_data));
+  console.log(values);
+  for(var i=0;i<values.length;i++){
+    points += parseInt(values[i])
+  }
+  console.log(points);
+
+  var sql = "INSERT INTO user_survey_data (user_id, survey_one_point,survey_1_data) VALUES ('"+ user_id + "','" +  points + "','" + survey_data + "') ON DUPLICATE KEY UPDATE survey_one_point='"+ points +"',survey_1_data='"+ survey_data +"'";
+  
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 record inserted");
+    return res.status(200).send({
+      success: 'true',
+      message: result
+     })
+  });
+});
+
 app.post('/user-info', (req, res) => {
   console.log('/user-info',req.body);
   var name = req.body.Name;
