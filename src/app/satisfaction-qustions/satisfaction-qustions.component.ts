@@ -11,6 +11,7 @@ var json = {
             type: "matrix",
             name: "Satisfaction",
             title: "Indicate the extent you have felt this way while doing image tagging.",
+            isAllRowRequired : true,
             columns: [
                 {
                     value: 1,
@@ -32,7 +33,7 @@ var json = {
             rows: [
                 {
                     value: "Instrested",
-                    text: "Instrested"
+                    text: "Instrested",
                 }, {
                     value: "Distressed",
                     text: "Distressed"
