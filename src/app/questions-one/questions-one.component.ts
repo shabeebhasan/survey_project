@@ -4,82 +4,23 @@ import {ApiService} from '../api.service';
 import {HttpClient} from "@angular/common/http";
 import {Router} from '@angular/router';
 
-var surveyJSON = {
-    title: "Player type questionnaire - Survey 1",
-    pages: [
-        {
-            name: "page1",
-            questions: [
-                {
-                    type: "radiogroup",
-                    choices: [
-                        "Yes", "No"
-                    ],
-                    isRequired: true,
-                    name: "frameworkUsing",
-                    title: "Do you use any front-end framework like Bootstrap?"
-                }, {
-                    type: "checkbox",
-                    choices: [
-                        "Bootstrap", "Foundation"
-                    ],
-                    hasOther: true,
-                    isRequired: true,
-                    name: "framework",
-                    title: "What front-end framework do you use?",
-                    visibleIf: "{frameworkUsing} = 'Yes'"
-                }
-            ]
-        }, {
-            name: "page2",
-            questions: [
-                {
-                    type: "radiogroup",
-                    choices: [
-                        "Yes", "No"
-                    ],
-                    isRequired: true,
-                    name: "mvvmUsing",
-                    title: "Do you use any MVVM framework?"
-                }, {
-                    type: "checkbox",
-                    choices: [
-                        "AngularJS", "KnockoutJS", "React"
-                    ],
-                    hasOther: true,
-                    isRequired: true,
-                    name: "mvvm",
-                    title: "What MVVM framework do you use?",
-                    visibleIf: "{mvvmUsing} = 'Yes'"
-                }
-            ]
-        }, {
-            name: "page3",
-            questions: [
-                {
-                    type: "comment",
-                    name: "about",
-                    title: "Please tell us about your main requirements for Survey library"
-                }
-            ]
-        }
-    ]
-};
-
 @Component({selector: 'app-questions-one', templateUrl: './questions-one.component.html', styleUrls: ['./questions-one.component.scss'], providers: [ApiService]})
 
 export class QuestionsOneComponent implements OnInit {
 
     getQuestionsOne : any;
+    httpClient : any;
 
     constructor(private apiService : ApiService, private http : HttpClient, private router : Router) {
         this.getQuestionsOne = apiService.getQuestionsOne;
+        this.httpClient = http;
     }
 
     ngOnInit() {
         StylesManager.applyTheme("bootstrap");
         setTimeout(() => {
             let router = this.router;
+            let httpClient = this.httpClient;
             this
                 .getQuestionsOne()
                 .subscribe((data) => {
@@ -101,7 +42,7 @@ export class QuestionsOneComponent implements OnInit {
                                     {
                                         rows: [],
                                         type: "matrix",
-                                        name: "questions-one",
+                                        name: "questions_one",
                                         title: "Player type questionnaire - Survey 1",
                                         isAllRowRequired: true,
                                         columns: [
@@ -128,21 +69,21 @@ export class QuestionsOneComponent implements OnInit {
                                                 text: "Strong agree"
                                             }
                                         ]
-                                    },                                    
+                                    }
                                 ]
-                            },
-                            {
-                              questions: [
-                                  {
-                                      type: "html",
-                                      name: "complete",
-                                      html: "<h3>Now you will start tagging 15 images. You are allowed to add as many tag as you want. For each tag added, you gain 1 point.</h3>"
-                                  }
-                              ]
+                            }, {
+                                questions: [
+                                    {
+                                        type: "html",
+                                        name: "complete",
+                                        html: "<h3>Now you will start tagging 15 images. You are allowed to add as many tag as " +
+                                            "you want. For each tag added, you gain 1 point.</h3>"
+                                    }
+                                ]
                             }
                         ],
-                        completeText:"Next",
-                        showPrevButton:false,
+                        completeText: "Next",
+                        showPrevButton: false,
                         startSurveyText: 'Start',
                         firstPageIsStarted: true
                     };
@@ -152,8 +93,10 @@ export class QuestionsOneComponent implements OnInit {
                             text: value.question_eng
                         };
                         surveyJSON
-                          .pages[1].questions['0'].rows.push(obj);
-                        
+                            .pages[1]
+                            .questions['0']
+                            .rows
+                            .push(obj);
 
                         if (key == data.length - 1) {
                             var survey = new Model(surveyJSON);
@@ -161,9 +104,16 @@ export class QuestionsOneComponent implements OnInit {
                             survey
                                 .onComplete
                                 .add((survey) => {
-                                    var resultAsString = JSON.stringify(survey.data);
+                                    var resultAsString = JSON.stringify(survey.data.questions_one);
                                     console.log(resultAsString);
-                                    router.navigateByUrl('/image-data');
+                                    httpClient
+                                        .post('http://localhost:8081/survey-one', {
+                                            user_id: sessionStorage.getItem('user_id'),
+                                            survey_data: resultAsString
+                                        })
+                                        .subscribe((data) => {
+                                            router.navigateByUrl('/image-data');
+                                        });
                                 });
                         }
                     });
