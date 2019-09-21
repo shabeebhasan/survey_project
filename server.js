@@ -48,6 +48,55 @@ app.get('/questions-one', function (req, res) {
   });
 })
 
+app.post('/survey-picture', (req, res) => {
+  var user_id = req.body.user_id;
+  var points = req.body.points;
+  console.log(points);
+
+  var sql = "INSERT INTO user_survey_data (user_id, image_tags_point) VALUES ('"+ user_id + "','" +  points + "') ON DUPLICATE KEY UPDATE image_tags_point='"+ points + "'";
+  
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 record inserted");
+    return res.status(200).send({
+      success: 'true',
+      message: result
+     })
+  });
+});
+
+app.post('/survey-two-data', (req, res) => {
+  var user_id = req.body.user_id;
+  var survey_data = req.body.survey_data;
+
+  var sql = "INSERT INTO user_survey_data (user_id, survey_2_data) VALUES ('"+ user_id + "','" +  survey_data + "') ON DUPLICATE KEY UPDATE survey_2_data='"+ survey_data + "'";
+  
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 record inserted");
+    return res.status(200).send({
+      success: 'true',
+      message: result
+     })
+  });
+});
+
+app.post('/survey-three-data', (req, res) => {
+  var user_id = req.body.user_id;
+  var survey_data = req.body.survey_data;
+
+  var sql = "INSERT INTO user_survey_data (user_id, survey_3_data) VALUES ('"+ user_id + "','" +  survey_data + "') ON DUPLICATE KEY UPDATE survey_3_data='"+ survey_data + "'";
+  
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 record inserted");
+    return res.status(200).send({
+      success: 'true',
+      message: result
+     })
+  });
+});
+
 app.post('/survey-one', (req, res) => {
   var user_id = req.body.user_id;
   var points = 0;

@@ -11,7 +11,7 @@ var json = {
             type: "matrix",
             name: "Satisfaction",
             title: "Indicate the extent you have felt this way while doing image tagging.",
-            isAllRowRequired : true,
+            isAllRowRequired: true,
             columns: [
                 {
                     value: 1,
@@ -33,7 +33,7 @@ var json = {
             rows: [
                 {
                     value: "Instrested",
-                    text: "Instrested",
+                    text: "Instrested"
                 }, {
                     value: "Distressed",
                     text: "Distressed"
@@ -101,7 +101,11 @@ var json = {
 
 export class SatisfactionQustionsComponent implements OnInit {
 
-    constructor(private apiService : ApiService, private http : HttpClient, private router : Router) {}
+    httpClient : any;
+
+    constructor(private apiService : ApiService, private http : HttpClient, private router : Router) {
+        this.httpClient = http;
+    }
 
     ngOnInit() {
         StylesManager.applyTheme("bootstrap");
@@ -110,14 +114,22 @@ export class SatisfactionQustionsComponent implements OnInit {
         survey
             .onComplete
             .add((survey) => {
-                var resultAsString = JSON.stringify(survey.data);
+                var resultAsString = JSON.stringify(survey.data.Satisfaction);
                 console.log(resultAsString);
-                setTimeout(()=>{
-                  sessionStorage.removeItem('user_id');
-                  this
-                  .router
-                  .navigateByUrl('/welcome');
-                },3000);
+                this
+                    .httpClient
+                    .post('http://localhost:8081/survey-three-data', {
+                        user_id: sessionStorage.getItem('user_id'),
+                        survey_data: resultAsString
+                    })
+                    .subscribe((data) => {
+                        setTimeout(() => {
+                            sessionStorage.removeItem('user_id');
+                            this
+                                .router
+                                .navigateByUrl('/welcome');
+                        }, 3000);
+                    });
             });
     }
 
