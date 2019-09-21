@@ -85,7 +85,7 @@ export class MotivationQuestionsComponent implements OnInit {
                         text: value.text
                       };
                       surveyJSON
-                      .pages[1].questions[0].rows.push(obj);
+                      .pages[1].questions['0'].rows.push(obj);
                       if(key == data.length - 1){
                         var survey = new Model(surveyJSON);
                         SurveyNG.render("surveyElement", {model: survey});

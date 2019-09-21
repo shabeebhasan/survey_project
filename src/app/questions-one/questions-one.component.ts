@@ -99,6 +99,7 @@ export class QuestionsOneComponent implements OnInit {
                             }, {
                                 questions: [
                                     {
+                                        rows: [],
                                         type: "matrix",
                                         name: "questions-one",
                                         title: "Player type questionnaire - Survey 1",
@@ -126,8 +127,7 @@ export class QuestionsOneComponent implements OnInit {
                                                 value: 7,
                                                 text: "Strong agree"
                                             }
-                                        ],
-                                        rows: []
+                                        ]
                                     },                                    
                                 ]
                             },
@@ -152,7 +152,7 @@ export class QuestionsOneComponent implements OnInit {
                             text: value.question_eng
                         };
                         surveyJSON
-                          .pages[1].questions[0].rows.push(obj);
+                          .pages[1].questions['0'].rows.push(obj);
                         
 
                         if (key == data.length - 1) {
