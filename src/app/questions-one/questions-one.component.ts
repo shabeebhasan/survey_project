@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Model, SurveyNG, StylesManager} from 'survey-angular';
 import {ApiService} from '../api.service';
 import {HttpClient} from "@angular/common/http";
-import { Router } from '@angular/router';
+import {Router} from '@angular/router';
 
 var surveyJSON = {
     title: "Player type questionnaire - Survey 1",
@@ -72,7 +72,7 @@ export class QuestionsOneComponent implements OnInit {
 
     getQuestionsOne : any;
 
-    constructor(private apiService : ApiService, private http : HttpClient,private router: Router) {
+    constructor(private apiService : ApiService, private http : HttpClient, private router : Router) {
         this.getQuestionsOne = apiService.getQuestionsOne;
     }
 
@@ -85,36 +85,87 @@ export class QuestionsOneComponent implements OnInit {
                 .subscribe((data) => {
                     console.log('QuestionsOneComponent:: ', data);
                     let surveyJSON = {
-                      title: "Player type questionnaire - Survey 1",
-                      pages:[]
+                        title: "Player type questionnaire - Survey 1",
+                        pages: [
+                            {
+                                name: 'start',
+                                questions: [
+                                    {
+                                        type: "html",
+                                        name: "info",
+                                        html: "<h3>Now you will fill out a 24-question survey</h3>"
+                                    }
+                                ]
+                            }, {
+                                questions: [
+                                    {
+                                        type: "matrix",
+                                        name: "questions-one",
+                                        title: "Player type questionnaire - Survey 1",
+                                        isAllRowRequired: true,
+                                        columns: [
+                                            {
+                                                value: 1,
+                                                text: "Strongly Disagree"
+                                            }, {
+                                                value: 2,
+                                                text: "Disagree"
+                                            }, {
+                                                value: 3,
+                                                text: "More or less disagree"
+                                            }, {
+                                                value: 4,
+                                                text: "undecided"
+                                            }, {
+                                                value: 5,
+                                                text: "More or less agree"
+                                            }, {
+                                                value: 6,
+                                                text: "agree"
+                                            }, {
+                                                value: 7,
+                                                text: "Strong agree"
+                                            }
+                                        ],
+                                        rows: []
+                                    },                                    
+                                ]
+                            },
+                            {
+                              questions: [
+                                  {
+                                      type: "html",
+                                      name: "complete",
+                                      html: "<h3>Now you will start tagging 15 images. You are allowed to add as many tag as you want. For each tag added, you gain 1 point.</h3>"
+                                  }
+                              ]
+                            }
+                        ],
+                        completeText:"Next",
+                        showPrevButton:false,
+                        startSurveyText: 'Start',
+                        firstPageIsStarted: true
                     };
-                    data.forEach(function(value, key) {
-                      let obj = {
-                        name:key,
-                        questions: [
-                          {
-                            type: "radiogroup",
-                            choices: [
-                              "Strongly Disagree","Disagree","More or less disagree","undecided",
-                               "More or less agree","agree",  "Strong agree"
-                            ],
-                            isRequired: true,
-                            name: value.type + '_' + value.id,
-                            question:value,
-                            title: value.question_eng
-                          }
-                        ]
-                      };
-                      surveyJSON.pages.push(obj);
-                      if(key == data.length - 1){
-                        var survey = new Model(surveyJSON);
-                        SurveyNG.render("surveyElement", {model: survey});
-                        survey.onComplete.add((survey)=>{
-                          var resultAsString = JSON.stringify(survey.data);
-                          console.log(resultAsString);
-                          router.navigateByUrl('/image-data');
-                        });
-                      }
+                    data.forEach(function (value, key) {
+                        let obj = {
+                            value: value.type + '_' + value.id,
+                            text: value.question_eng
+                        };
+                        surveyJSON
+                          .pages[1].questions[0].rows.push(obj);
+                        
+
+                        if (key == data.length - 1) {
+                            var survey = new Model(surveyJSON);
+                            SurveyNG.render("surveyElement", {model: survey});
+                            survey
+                                .onComplete
+                                .add((survey) => {
+                                    var resultAsString = JSON.stringify(survey.data);
+                                    console.log(resultAsString);
+                                    router.navigateByUrl('/image-data');
+                                });
+                        }
                     });
                 });
         }, 111);
