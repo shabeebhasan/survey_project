@@ -43,6 +43,10 @@ export class ImageQuestionsComponent implements OnInit {
   }
 
   onSubmit() {
+    if(this.items.length == 0){
+      alert("No empty tags (each image should have at least one tag)");
+      return;
+    }
     if(this.arrayIndex < this.imgeShuffleArray.length){
       this.tagCount += this.items.length;
       console.log('onSubmit:: ',this.tagCount);
