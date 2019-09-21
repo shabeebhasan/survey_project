@@ -25,28 +25,67 @@ export class MotivationQuestionsComponent implements OnInit {
                 .getMotivationQuestion()
                 .subscribe((data) => {
                     console.log('QuestionsOneComponent:: ', data);
+
                     let surveyJSON = {
                       title: "Motivation questionnaire",
-                      pages:[]
+                      pages: [
+                          {
+                              name: 'start',
+                              questions: [
+                                  {
+                                      type: "html",
+                                      name: "info",
+                                      html: "<h3>Thank you for playing the game. Please click on the button to proceed to the next page and fill out the next questionnaire about your overall satisfaction of the game.</h3>"
+                                  }
+                              ]
+                          }, {
+                              questions: [
+                                  {
+                                      type: "matrix",
+                                      name: "questions-one",
+                                      title: "Player type questionnaire - Survey 1",
+                                      isAllRowRequired: true,
+                                      columns: [
+                                          {
+                                              value: 1,
+                                              text: "Strongly Disagree"
+                                          }, {
+                                              value: 2,
+                                              text: "Disagree"
+                                          }, {
+                                              value: 3,
+                                              text: "More or less disagree"
+                                          }, {
+                                              value: 4,
+                                              text: "undecided"
+                                          }, {
+                                              value: 5,
+                                              text: "More or less agree"
+                                          }, {
+                                              value: 6,
+                                              text: "agree"
+                                          }, {
+                                              value: 7,
+                                              text: "Strong agree"
+                                          }
+                                      ],
+                                      rows: []
+                                  },                                    
+                              ]
+                          },
+                      ],
+                      completeText:"Next",
+                      showPrevButton:false,
+                      startSurveyText: 'Next',
+                      firstPageIsStarted: true
                     };
                     data.forEach(function(value, key) {
                       let obj = {
-                        name:key,
-                        questions: [
-                          {
-                            type: "radiogroup",
-                            choices: [
-                               "Strongly Disagree","Disagree","More or less disagree","undecided",
-                                "More or less agree", "agree",  "Strong agree"
-                            ],
-                            isRequired: true,
-                            name: 'id_'+ value.id,
-                            question:value,
-                            title: value.text
-                          }
-                        ]
+                        value: 'id_'+ value.id,
+                        text: value.text
                       };
-                      surveyJSON.pages.push(obj);
+                      surveyJSON
+                      .pages[1].questions[0].rows.push(obj);
                       if(key == data.length - 1){
                         var survey = new Model(surveyJSON);
                         SurveyNG.render("surveyElement", {model: survey});
