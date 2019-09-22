@@ -27,6 +27,7 @@ export class MotivationQuestionsComponent implements OnInit {
 
                     let surveyJSON = {
                         title: "Motivation questionnaire",
+                        showCompletedPage:false,
                         pages: [
                             {
                                 name: 'start',

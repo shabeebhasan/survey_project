@@ -27,6 +27,7 @@ export class QuestionsOneComponent implements OnInit {
                     console.log('QuestionsOneComponent:: ', data);
                     let surveyJSON = {
                         title: "Player type questionnaire - Survey 1",
+                        showCompletedPage:false,
                         pages: [
                             {
                                 name: 'start',
