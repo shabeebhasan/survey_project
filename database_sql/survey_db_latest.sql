@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 20, 2019 at 09:21 PM
+-- Generation Time: Sep 22, 2019 at 02:07 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -120,6 +120,22 @@ CREATE TABLE `user_data` (
   `gender` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_survey_data`
+--
+
+CREATE TABLE `user_survey_data` (
+  `user_id` int(11) NOT NULL,
+  `survey_one_point` int(11) DEFAULT NULL,
+  `image_tags_point` int(11) DEFAULT NULL,
+  `image_tags_data` text,
+  `survey_2_data` text,
+  `survey_3_data` text,
+  `survey_1_data` text
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 --
 -- Indexes for dumped tables
 --
@@ -141,6 +157,12 @@ ALTER TABLE `player_survey_1_questions`
 --
 ALTER TABLE `user_data`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `user_survey_data`
+--
+ALTER TABLE `user_survey_data`
+  ADD PRIMARY KEY (`user_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
