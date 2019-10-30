@@ -18,16 +18,7 @@ export class PersonaldataComponent implements OnInit {
         this.http = http;
         this.nationalities = nationalities;
         this.contactForm = fb.group({
-            'Name': [
-                '', Validators.required
-            ],
             'Age': [
-                '', Validators.required
-            ],
-            'Occupation': [
-                '', Validators.required
-            ],
-            'Education': [
                 '', Validators.required
             ],
             'Nationality': [
@@ -36,7 +27,6 @@ export class PersonaldataComponent implements OnInit {
             'Gender': [
                 '', Validators.required
             ],
-            'playVideoGame': ['', Validators.required]
         });
     }
 

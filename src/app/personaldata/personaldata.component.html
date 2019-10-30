@@ -1,76 +1,127 @@
-
-
+<style>
+.custom-control {
+  margin-left: 30px;
+}
+</style>
 <div class="row" role="main">
-  <h1 class="jumbotron-heading">STEP 1</h1>
+    <h1 class="jumbotron-heading">STEP 1</h1>
 
-<mdb-card class="col-md-12">
+    <mdb-card class="col-md-12">
 
-  <mdb-card-header class="info-color white-text text-center py-12">
-    <h5>
-      <strong>Personal Questionnaire</strong>
-    </h5>
-  </mdb-card-header>
+        <mdb-card-header class="info-color white-text text-center py-12">
+            <h5>
+                <strong>Personal Questionnaire</strong>
+            </h5>
+        </mdb-card-header>
 
-  <mdb-card-body class="col-md-12">
+        <mdb-card-body class="col-md-12">
 
-    <form class="text-center" style="color: #757575;" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-        <div class="md-form mt-3">
-            <input type="text" formControlName="Name" id="Name" class="form-control"
-              mdbInput>
-            <label for="Name">Name</label>
-        </div>
-        
-      <div class="md-form mt-3">
-          <input type="number" min="18" max="100" formControlName="Age" id="Age" class="form-control"
-            mdbInput>
-          <label for="Age">AGE</label>
-      </div>
-        
+            <form
+                class="text-center"
+                style="color: #757575;"
+                [formGroup]="contactForm"
+                (ngSubmit)="onSubmit()">
+
+                <div class="md-form mt-3">
+                    <input
+                        type="number"
+                        min="18"
+                        max="100"
+                        formControlName="Age"
+                        id="Age"
+                        class="form-control"
+                        mdbInput>
+                        <label for="Age">AGE</label>
+                    </div>
+                    <!--         
       <div class="md-form mt-3">
           <input type="text" formControlName="Occupation" id="Occupation" class="form-control"
             mdbInput>
           <label for="Occupation">Occupation</label>
-      </div>
-
+      </div> -->
+                    <!-- 
       <div class="md-form mt-3">
           <input type="text" formControlName="Education" id="Education" class="form-control"
             mdbInput>
           <label for="Education">Education</label>
-      </div>
-    
-      <div class="md-form mt-3">
-          <select formControlName="Nationality" class="form-control">
-            <option value="" disabled>Nationality</option>
-            <option *ngFor="let obj of nationalities" [value]="obj.nationality">{{obj.nationality}}</option>
-          </select>
-      </div>
+      </div> -->
 
-      <div class="md-form mt-3">
-          <select formControlName="Gender" class="form-control">
-            <option value="" disabled>Gender</option>
-            <option value="male" selected>Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
-    
-      <div class="md-form mt-3">
-        <select formControlName="playVideoGame" class="form-control">
-          <option value="" disabled>How often do you play video games?</option>
-          <option value="daily" selected>Daily</option>
-          <option value="week">Once a week</option>
-          <option value="month">Once a month</option>
-          <option value="never">Never</option>
-        </select>
-      </div>
-      
+                    <div class="md-form mt-3">
+                        <select formControlName="Nationality" class="form-control">
+                            <option value="" disabled>Nationality</option>
+                            <option *ngFor="let obj of nationalities" [value]="obj.nationality">{{obj.nationality}}</option>
+                        </select>
+                    </div>
 
-      <button mdbBtn color="info" outline="true" rounded="true" block="true" class="z-depth-0 my-4 waves-effect"
-        mdbWavesEffect type="submit" [disabled]="disabledSubmitButton">NEXT</button>
+                    <div class="md-form mt-3">
+                        <select formControlName="Gender" class="form-control">
+                            <option value="" disabled>Gender</option>
+                            <option value="male" selected>Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Another gender</option>
+                            <option value="not_prefer">Prefer not to say</option>
+                        </select>
+                    </div>
 
-    </form>
+                    <div class="md-form mt-3">
 
-  </mdb-card-body>
+                        <div class="form-control">
+                            <h3 style="margin-bottom:25px">How often do you play video games?</h3>
+                            
+                            <!-- Default checked -->
+                            <div class="custom-control custom-radio">
+                                <input
+                                    type="radio"
+                                    class="custom-control-input"
+                                    id="affine"
+                                    name="playVideoGame"
+                                    value="1"
+                                    checked
+                                    mdbInput>
+                                    <label class="custom-control-label" for="affine">1. I would characterize myself as gaming-affine</label>
+                                </div>
 
-</mdb-card>
-</div>
+                                <!-- Default checked -->
+                                <div class="custom-control custom-radio">
+                                    <input
+                                        type="radio"
+                                        class="custom-control-input"
+                                        id="frequently"
+                                        name="playVideoGame"
+                                        value="3"
+                                        mdbInput>
+                                        <label class="custom-control-label" for="frequently">2. I frequently play video games.</label>
+                                    </div>
+
+                                    <!-- Default checked -->
+                                    <div class="custom-control custom-radio">
+                                        <input
+                                            type="radio"
+                                            class="custom-control-input"
+                                            id="passion"
+                                            value="5"
+                                            name="playVideoGame"
+                                            mdbInput>
+                                            <label class="custom-control-label" for="passion">3. I have a passion for video games.</label>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <button
+                                    mdbBtn
+                                    color="info"
+                                    outline="true"
+                                    rounded="true"
+                                    block="true"
+                                    class="z-depth-0 my-4 waves-effect"
+                                    mdbWavesEffect
+                                    type="submit"
+                                    [disabled]="disabledSubmitButton">NEXT</button>
+
+                            </form>
+
+                        </mdb-card-body>
+
+                    </mdb-card>
+                </div>
