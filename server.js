@@ -126,11 +126,9 @@ app.post('/user-info', (req, res) => {
   var name = req.body.Name;
   var age = req.body.Age;
   var nationality = req.body.Nationality;
-  var occupation = req.body.Occupation;
-  var education = req.body.Education;
   var play_video_games = req.body.playVideoGame;
   var gender = req.body.Gender;
-  var sql = "INSERT INTO user_data (name, age,nationality,occupation,education,play_video_games,gender) VALUES ('"+ name + "','" +  age + "','" + nationality + "','" + occupation + "','" + education + "','" + play_video_games  + "','" + gender  + "')";
+  var sql = "INSERT INTO user_data ( age,nationality,play_video_games,gender) VALUES ('"+  age + "','" + nationality + "','"  + play_video_games  + "','" + gender  + "')";
   
   console.log(sql);
   con.query(sql, function (err, result) {

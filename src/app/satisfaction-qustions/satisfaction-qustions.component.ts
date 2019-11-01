@@ -5,12 +5,12 @@ import {HttpClient} from "@angular/common/http";
 import {Router} from '@angular/router';
 
 var json = {
-    completedHtml: "<h3>Thank you for your participation.</h3>",
+    completedHtml: "<h3>Thank You, Now you will proceed to the second part of the experiment.</h3>",
     questions: [
         {
             type: "matrix",
             name: "Satisfaction",
-            title: "Indicate the extent you have felt this way while doing image tagging.",
+            title: "This scale consists of a number of words that describe different feelings and emotions. Read each item and then mark the appropriate answer in the space next to that word. Indicate to what extent you have felt this way while tagging pictures.",
             isAllRowRequired: true,
             columns: [
                 {

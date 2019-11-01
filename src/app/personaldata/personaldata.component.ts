@@ -27,6 +27,9 @@ export class PersonaldataComponent implements OnInit {
             'Gender': [
                 '', Validators.required
             ],
+            'playVideoGame': [
+                '', Validators.required
+            ],
         });
     }
 

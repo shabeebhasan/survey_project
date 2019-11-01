@@ -50,25 +50,25 @@ export class MotivationQuestionsComponent implements OnInit {
                                         columns: [
                                             {
                                                 value: 1,
-                                                text: "Strongly Disagree"
+                                                text: "Not at all true"
                                             }, {
                                                 value: 2,
-                                                text: "Disagree"
+                                                text: ""
                                             }, {
                                                 value: 3,
-                                                text: "More or less disagree"
+                                                text: ""
                                             }, {
                                                 value: 4,
-                                                text: "undecided"
+                                                text: "somewhat true"
                                             }, {
                                                 value: 5,
-                                                text: "More or less agree"
+                                                text: ""
                                             }, {
                                                 value: 6,
-                                                text: "agree"
+                                                text: ""
                                             }, {
                                                 value: 7,
-                                                text: "Strong agree"
+                                                text: "very true"
                                             }
                                         ],
                                         rows: []

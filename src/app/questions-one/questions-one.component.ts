@@ -35,7 +35,7 @@ export class QuestionsOneComponent implements OnInit {
                                     {
                                         type: "html",
                                         name: "info",
-                                        html: "<h3>Now you will fill out a 24-question survey</h3>"
+                                        html: "<h3>Now you will fill out a 24-question survey to learn more about your player type.</h3>"
                                     }
                                 ]
                             }, {
@@ -44,27 +44,27 @@ export class QuestionsOneComponent implements OnInit {
                                         rows: [],
                                         type: "matrix",
                                         name: "questions_one",
-                                        title: "Player type questionnaire - Survey 1",
+                                        title: "To what extent do the following statements apply to you?",
                                         isAllRowRequired: true,
                                         columns: [
                                             {
                                                 value: 1,
-                                                text: "Strongly Disagree"
+                                                text: "Strongly disagree"
                                             }, {
                                                 value: 2,
                                                 text: "Disagree"
                                             }, {
                                                 value: 3,
-                                                text: "More or less disagree"
+                                                text: "Somewhat disagree"
                                             }, {
                                                 value: 4,
-                                                text: "undecided"
+                                                text: "Neither agree nor disagree"
                                             }, {
                                                 value: 5,
-                                                text: "More or less agree"
+                                                text: "Somewhat agree"
                                             }, {
                                                 value: 6,
-                                                text: "agree"
+                                                text: "Agree"
                                             }, {
                                                 value: 7,
                                                 text: "Strong agree"
