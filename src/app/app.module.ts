@@ -15,6 +15,7 @@ import { TagInputModule } from 'ngx-chips';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MotivationQuestionsComponent } from './motivation-questions/motivation-questions.component';
 import { SatisfactionQustionsComponent } from './satisfaction-qustions/satisfaction-qustions.component';
+import { ImageTagC2Component } from './image-tag-c2/image-tag-c2.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
@@ -23,6 +24,7 @@ const appRoutes: Routes = [
   { path: 'image-data', component: ImageQuestionsComponent },
   { path: 'motivation-data', component: MotivationQuestionsComponent },
   { path: 'satisfaction-data', component: SatisfactionQustionsComponent },
+  { path: 'image-c2-tag', component: ImageTagC2Component },
   { path: '',
     redirectTo: '/welcome',
     pathMatch: 'full'
@@ -38,6 +40,7 @@ const appRoutes: Routes = [
     MotivationQuestionsComponent,
     SatisfactionQustionsComponent,
     PersonaldataComponent,
+    ImageTagC2Component,
   ],
   imports: [
     HttpClientModule,
