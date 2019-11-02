@@ -75,12 +75,7 @@ export class ImageTagC2Component implements OnInit {
           '7',
           '8',
           '9',
-          '10',
-          '11',
-          '12',
-          '13',
-          '14',
-          '15'
+          '10'
       ];
       for (let i = a.length - 1; i > 0; i--) {
           const j = Math.floor(Math.random() * (i + 1));
@@ -92,10 +87,10 @@ export class ImageTagC2Component implements OnInit {
   public chartType: string = 'bar';
 
   public chartDatasets: Array<any> = [
-    { data: [65, 59, 80, 81, 56, 55, 40], label: 'TOP USERS' }
+    { data: [10000, 6000, 3100, 3000, 1000], label: 'TOP USERS' }
   ];
 
-  public chartLabels: Array<any> = ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'];
+  public chartLabels: Array<any> = ['verdandi', 'neo23', 'Sie', 'legolas', 'snork85'];
 
   public chartColors: Array<any> = [
     {
