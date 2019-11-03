@@ -19,6 +19,7 @@ export class ImageTagC2Component implements OnInit {
   imgeShuffleArray : Array < any >;
   arrayIndex : any;
   httpClient : any;
+  start: boolean = false;
 
   constructor(private fb : FormBuilder, private router : Router, private http : HttpClient) {
 
@@ -37,6 +38,10 @@ export class ImageTagC2Component implements OnInit {
   setImage() {
       this.imgSrc = "./assets/pictures/" + this.imgeShuffleArray[this.arrayIndex] + ".jpg";
       this.arrayIndex++;
+  }
+
+  startTagging(){
+    this.start = true;
   }
 
   onSubmit() {
