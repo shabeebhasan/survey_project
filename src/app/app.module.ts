@@ -19,6 +19,7 @@ import { ImageTagC2Component } from './image-tag-c2/image-tag-c2.component';
 import { ImageTagC2BadgeGameComponent } from './image-tag-c2-badge-game/image-tag-c2-badge-game.component';
 import { ImageTagC2VirtualGameComponent } from './image-tag-c2-virtual-game/image-tag-c2-virtual-game.component';
 import { ImageTagC2MonsterGameComponent } from './image-tag-c2-monster-game/image-tag-c2-monster-game.component';
+import { ImageTagUsernameComponent } from './image-tag-username/image-tag-username.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
@@ -27,6 +28,7 @@ const appRoutes: Routes = [
   { path: 'image-data', component: ImageQuestionsComponent },
   { path: 'motivation-data', component: MotivationQuestionsComponent },
   { path: 'satisfaction-data', component: SatisfactionQustionsComponent },
+  { path: 'image-c2-username', component: ImageTagUsernameComponent },
   { path: 'image-c2-tag', component: ImageTagC2Component },
   { path: 'image-c2-batch', component: ImageTagC2BadgeGameComponent },
   { path: 'image-c2-virtual', component: ImageTagC2VirtualGameComponent },
@@ -50,6 +52,7 @@ const appRoutes: Routes = [
     ImageTagC2BadgeGameComponent,
     ImageTagC2VirtualGameComponent,
     ImageTagC2MonsterGameComponent,
+    ImageTagUsernameComponent,
   ],
   imports: [
     HttpClientModule,
