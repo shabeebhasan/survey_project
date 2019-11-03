@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ImageTagC2BadgeGameComponent } from './image-tag-c2-badge-game.component';
 
 describe('ImageTagC2BadgeGameComponent', () => {
@@ -8,7 +9,10 @@ describe('ImageTagC2BadgeGameComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ImageTagC2BadgeGameComponent ]
+      declarations: [ ImageTagC2BadgeGameComponent ],
+      imports: [
+        MDBBootstrapModule.forRoot()
+      ]
     })
     .compileComponents();
   }));

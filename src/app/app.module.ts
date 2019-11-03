@@ -61,6 +61,7 @@ const appRoutes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     ),
     MDBBootstrapModule,
+    MDBBootstrapModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
     FormsModule,

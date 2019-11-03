@@ -1,28 +1,130 @@
-
-
 <div class="row" role="main">
-    <h4 class="jumbotron-heading">Type anything that you think of when seeing this picture. Press enter to add more tags. Also, find 3 perfect tags describing the pictures to get a golden badge. Get a silver badge for the first 10 tags</h4>
-  
-  <mdb-card class="col-md-12">
-  
-    <mdb-card-header class="info-color white-text text-center py-12">
-      <h5>
-        <strong>Image Questionnaire {{arrayIndex}} of 10</strong>
-      </h5>
-    </mdb-card-header>
-  
-    <mdb-card-body class="col-md-12" style="text-align:center">
-  
-        <img [src]="imgSrc" style="max-width:600px;margin:20px;width: 100%;max-height:400px;" class="img-fluid" alt="Responsive image">
+    <h4 class="jumbotron-heading">Type anything that you think of when seeing this
+        picture. Press enter to add more tags. Also, find 3 perfect tags describing the
+        pictures to get a golden badge. Get a silver badge for the first 10 tags</h4>
 
+    <mdb-card class="col-md-12">
 
-        <tag-input [(ngModel)]='items' theme='bootstrap'></tag-input>
-  
-        <button mdbBtn (click)="onSubmit()" color="info" outline="true" rounded="true" block="true" class="z-depth-0 my-4 waves-effect"
-          mdbWavesEffect type="submit" [disabled]="disabledSubmitButton">NEXT</button>
-  
-  
-    </mdb-card-body>
-  
-  </mdb-card>
-  </div>
+        <mdb-card-header class="info-color white-text text-center py-12">
+            <h5>
+                <strong>Image Questionnaire
+                    {{arrayIndex}}
+                    of 10</strong>
+            </h5>
+        </mdb-card-header>
+
+        <mdb-card-body class="col-md-12" style="text-align:center">
+
+            <img
+                [src]="imgSrc"
+                style="max-width:600px;margin:20px;width: 100%;max-height:400px;"
+                class="img-fluid"
+                alt="Responsive image">
+
+                <tag-input [(ngModel)]='items' theme='bootstrap'></tag-input>
+
+                <button
+                    mdbBtn
+                    (click)="onSubmit()"
+                    color="info"
+                    outline="true"
+                    rounded="true"
+                    block="true"
+                    class="z-depth-0 my-4 waves-effect"
+                    mdbWavesEffect
+                    type="submit"
+                    [disabled]="disabledSubmitButton">NEXT</button>
+
+            </mdb-card-body>
+
+        </mdb-card>
+    </div>
+    <button
+        type="button"
+        mdbBtn
+        color="primary"
+        class="relative waves-light"
+        (click)="silverBagde.show()"
+        mdbWavesEffect>Launch silver modal</button>
+
+    <button
+        type="button"
+        mdbBtn
+        color="primary"
+        class="relative waves-light"
+        (click)="goldenBagde.show()"
+        mdbWavesEffect>Launch golden modal</button>
+
+    <div
+        mdbModal
+        #silverBagde="mdbModal"
+        class="modal fade"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="myBasicModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button
+                        type="button"
+                        class="close pull-right"
+                        aria-label="Close"
+                        (click)="silverBagde.hide()">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title w-100" id="myModalLabel">Silver Badge</h4>
+                </div>
+                <div style="text-align:center" class="modal-body">
+                    <h4 style="text-align:center">Congrats, you've earned a silver badge</h4>
+                    <img style="text-align:center" width="200px" [src]="silverBagdeImg"></div>
+                    <div class="modal-footer">
+                        <button
+                            type="button"
+                            mdbBtn
+                            color="secondary"
+                            class="waves-light"
+                            aria-label="Close"
+                            (click)="silverBagde.hide()"
+                            mdbWavesEffect>Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div
+        mdbModal
+        #goldenBagde="mdbModal"
+        class="modal fade"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="myBasicModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button
+                        type="button"
+                        class="close pull-right"
+                        aria-label="Close"
+                        (click)="goldenBagde.hide()">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title w-100" id="myModalLabel">Golden Badge</h4>
+                </div>
+                <div style="text-align:center" class="modal-body">
+                    <h4 style="text-align:center">Congrats, you've earned a golden badge</h4>
+                    <img style="text-align:center" width="200px" [src]="goldenBagdeImg"></div>
+                    <div class="modal-footer">
+                        <button
+                            type="button"
+                            mdbBtn
+                            color="secondary"
+                            class="waves-light"
+                            aria-label="Close"
+                            (click)="goldenBagde.hide()"
+                            mdbWavesEffect>Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
