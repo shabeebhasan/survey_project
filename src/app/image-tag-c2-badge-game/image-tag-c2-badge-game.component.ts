@@ -20,7 +20,7 @@ export class ImageTagC2BadgeGameComponent implements OnInit {
     goldenBagdeImg : any = "./assets/badges/FrameLvl7@4x.png";
 
     @ViewChild('silverBagde', null)silverBagde : ModalDirective;
-    @ViewChild('goldenBadge', null)goldenBadge : ModalDirective;
+    @ViewChild('goldenBagde', null)goldenBagde : ModalDirective;
 
     constructor(private fb : FormBuilder, private router : Router, private http : HttpClient) {
 
@@ -45,6 +45,9 @@ export class ImageTagC2BadgeGameComponent implements OnInit {
         if (this.items.length == 10) {
             this.openSilverDialog();
         }
+        if (this.items.length == 3) {
+            this.opengoldenDialog();
+        }
     }
 
     openSilverDialog() {
@@ -55,7 +58,7 @@ export class ImageTagC2BadgeGameComponent implements OnInit {
 
     opengoldenDialog() {
         this
-            .goldenBadge
+            .goldenBagde
             .show();
     }
 

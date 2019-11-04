@@ -39,21 +39,6 @@
 
         </mdb-card>
     </div>
-    <button
-        type="button"
-        mdbBtn
-        color="primary"
-        class="relative waves-light"
-        (click)="silverBagde.show()"
-        mdbWavesEffect>Launch silver modal</button>
-
-    <button
-        type="button"
-        mdbBtn
-        color="primary"
-        class="relative waves-light"
-        (click)="goldenBagde.show()"
-        mdbWavesEffect>Launch golden modal</button>
 
     <div
         mdbModal
@@ -93,38 +78,38 @@
         </div>
 
         <div
-        mdbModal
-        #goldenBagde="mdbModal"
-        class="modal fade"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="myBasicModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button
-                        type="button"
-                        class="close pull-right"
-                        aria-label="Close"
-                        (click)="goldenBagde.hide()">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                    <h4 class="modal-title w-100" id="myModalLabel">Golden Badge</h4>
-                </div>
-                <div style="text-align:center" class="modal-body">
-                    <h4 style="text-align:center">Congrats, you've earned a golden badge</h4>
-                    <img style="text-align:center" width="200px" [src]="goldenBagdeImg"></div>
-                    <div class="modal-footer">
+            mdbModal
+            #goldenBagde="mdbModal"
+            class="modal fade"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="myBasicModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
                         <button
                             type="button"
-                            mdbBtn
-                            color="secondary"
-                            class="waves-light"
+                            class="close pull-right"
                             aria-label="Close"
-                            (click)="goldenBagde.hide()"
-                            mdbWavesEffect>Close</button>
+                            (click)="goldenBagde.hide()">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                        <h4 class="modal-title w-100" id="myModalLabel">Golden Badge</h4>
+                    </div>
+                    <div style="text-align:center" class="modal-body">
+                        <h4 style="text-align:center">Congrats, you've earned a golden badge</h4>
+                        <img style="text-align:center" width="200px" [src]="goldenBagdeImg"></div>
+                        <div class="modal-footer">
+                            <button
+                                type="button"
+                                mdbBtn
+                                color="secondary"
+                                class="waves-light"
+                                aria-label="Close"
+                                (click)="goldenBagde.hide()"
+                                mdbWavesEffect>Close</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
