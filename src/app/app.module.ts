@@ -20,6 +20,7 @@ import { ImageTagC2BadgeGameComponent } from './image-tag-c2-badge-game/image-ta
 import { ImageTagC2VirtualGameComponent } from './image-tag-c2-virtual-game/image-tag-c2-virtual-game.component';
 import { ImageTagC2MonsterGameComponent } from './image-tag-c2-monster-game/image-tag-c2-monster-game.component';
 import { ImageTagUsernameComponent } from './image-tag-username/image-tag-username.component';
+import { AngularDraggableModule } from 'angular2-draggable';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
@@ -67,7 +68,8 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     TagInputModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AngularDraggableModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]
