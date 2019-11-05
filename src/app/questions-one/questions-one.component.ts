@@ -113,7 +113,7 @@ export class QuestionsOneComponent implements OnInit {
                                             survey_data: resultAsString
                                         })
                                         .subscribe((data) => {
-                                            router.navigateByUrl('/image-data');
+                                            router.navigateByUrl('/image-tag-select');
                                         });
                                 });
                         }

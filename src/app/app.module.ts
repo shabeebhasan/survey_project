@@ -21,6 +21,7 @@ import { ImageTagC2VirtualGameComponent } from './image-tag-c2-virtual-game/imag
 import { ImageTagC2MonsterGameComponent } from './image-tag-c2-monster-game/image-tag-c2-monster-game.component';
 import { ImageTagUsernameComponent } from './image-tag-username/image-tag-username.component';
 import { AngularDraggableModule } from 'angular2-draggable';
+import { ImageTagConditionsComponent } from './image-tag-conditions/image-tag-conditions.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
@@ -34,6 +35,7 @@ const appRoutes: Routes = [
   { path: 'image-c2-batch', component: ImageTagC2BadgeGameComponent },
   { path: 'image-c2-virtual', component: ImageTagC2VirtualGameComponent },
   { path: 'image-c2-monster', component: ImageTagC2MonsterGameComponent },
+  { path: 'image-tag-select', component: ImageTagConditionsComponent },
   { path: '',
     redirectTo: '/welcome',
     pathMatch: 'full'
@@ -54,6 +56,7 @@ const appRoutes: Routes = [
     ImageTagC2VirtualGameComponent,
     ImageTagC2MonsterGameComponent,
     ImageTagUsernameComponent,
+    ImageTagConditionsComponent,
   ],
   imports: [
     HttpClientModule,

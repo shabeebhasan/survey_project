@@ -127,7 +127,7 @@ export class SatisfactionQustionsComponent implements OnInit {
                             sessionStorage.removeItem('user_id');
                             this
                                 .router
-                                .navigateByUrl('/image-c2-username');
+                                .navigateByUrl('/welcome');
                         }, 3000);
                     });
             });

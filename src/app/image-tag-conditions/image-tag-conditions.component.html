@@ -1,0 +1,53 @@
+<div class="row" role="main">
+    <h1 class="jumbotron-heading">Select Image Tagging Conditions</h1>
+
+    <mdb-card class="col-md-6">
+
+        <mdb-card-header class="info-color white-text text-center py-12">
+            <h5>
+                <strong>CONDITION 1</strong>
+            </h5>
+        </mdb-card-header>
+
+        <mdb-card-body class="col-md-12">
+
+            <button
+                mdbBtn
+                (click)="onSubmit()"
+                color="info"
+                outline="true"
+                rounded="true"
+                block="true"
+                class="z-depth-0 my-4 waves-effect"
+                mdbWavesEffect
+                type="submit"
+                [disabled]="disabledSubmitButton">Start Tagging</button>
+        </mdb-card-body>
+
+    </mdb-card>
+    
+    <mdb-card class="col-md-6">
+
+        <mdb-card-header class="info-color white-text text-center py-12">
+            <h5>
+                <strong>CONDITION 2</strong>
+            </h5>
+        </mdb-card-header>
+
+        <mdb-card-body class="col-md-12">
+
+            <button
+                mdbBtn
+                (click)="onSubmit2()"
+                color="info"
+                outline="true"
+                rounded="true"
+                block="true"
+                class="z-depth-0 my-4 waves-effect"
+                mdbWavesEffect
+                type="submit"
+                [disabled]="disabledSubmitButton">Start Tagging</button>
+        </mdb-card-body>
+    </mdb-card>
+
+</div>

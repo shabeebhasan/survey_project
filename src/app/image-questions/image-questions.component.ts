@@ -71,12 +71,7 @@ export class ImageQuestionsComponent implements OnInit {
             '7',
             '8',
             '9',
-            '10',
-            '11',
-            '12',
-            '13',
-            '14',
-            '15'
+            '10'
         ];
         for (let i = a.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
