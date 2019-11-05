@@ -92,10 +92,10 @@ export class ImageTagC2Component implements OnInit {
   public chartType: string = 'bar';
 
   public chartDatasets: Array<any> = [
-    { data: [10000, 6000, 3100, 3000, 1000], label: 'TOP USERS' }
+    { data: [10000, 6000, 3000, 1000], label: 'TOP USERS' }
   ];
 
-  public chartLabels: Array<any> = ['verdandi', 'neo23', 'Sie', 'legolas', 'snork85'];
+  public chartLabels: Array<any> = ['verdandi', 'neo23', 'legolas', 'snork85'];
 
   public chartColors: Array<any> = [
     {
