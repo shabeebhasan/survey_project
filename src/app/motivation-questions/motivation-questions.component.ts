@@ -26,7 +26,6 @@ export class MotivationQuestionsComponent implements OnInit {
                     console.log('QuestionsOneComponent:: ', data);
 
                     let surveyJSON = {
-                        title: "Motivation questionnaire",
                         showCompletedPage:false,
                         pages: [
                             {
@@ -45,12 +44,12 @@ export class MotivationQuestionsComponent implements OnInit {
                                     {
                                         type: "matrix",
                                         name: "questions_two",
-                                        title: "Player type questionnaire - Survey 1",
+                                        title: "Answer all the questions.",
                                         isAllRowRequired: true,
                                         columns: [
                                             {
                                                 value: 1,
-                                                text: "Not at all true"
+                                                text: "Not at all true (1)"
                                             }, {
                                                 value: 2,
                                                 text: ""
@@ -59,7 +58,7 @@ export class MotivationQuestionsComponent implements OnInit {
                                                 text: ""
                                             }, {
                                                 value: 4,
-                                                text: "somewhat true"
+                                                text: "somewhat true (4)"
                                             }, {
                                                 value: 5,
                                                 text: ""
@@ -68,7 +67,7 @@ export class MotivationQuestionsComponent implements OnInit {
                                                 text: ""
                                             }, {
                                                 value: 7,
-                                                text: "very true"
+                                                text: "very true (7)"
                                             }
                                         ],
                                         rows: []
