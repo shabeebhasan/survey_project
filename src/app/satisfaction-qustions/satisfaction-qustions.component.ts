@@ -15,19 +15,19 @@ var json = {
             columns: [
                 {
                     value: 1,
-                    text: "Very Sligthly or not at all"
+                    text: "very sligthly or not at all"
                 }, {
                     value: 2,
                     text: "a little"
                 }, {
                     value: 3,
-                    text: "Moderately"
+                    text: "moderately"
                 }, {
                     value: 4,
-                    text: "Quite a bit"
+                    text: "quite a bit"
                 }, {
                     value: 5,
-                    text: "Extremely"
+                    text: "extremely"
                 }
             ],
             rows: [
