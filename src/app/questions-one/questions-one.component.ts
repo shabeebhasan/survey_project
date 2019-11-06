@@ -26,7 +26,7 @@ export class QuestionsOneComponent implements OnInit {
                 .subscribe((data) => {
                     console.log('QuestionsOneComponent:: ', data);
                     let surveyJSON = {
-                        title: "Player type questionnaire - Survey 1",
+                        title: "User Type Questionnaire",
                         showCompletedPage:false,
                         pages: [
                             {
@@ -67,7 +67,7 @@ export class QuestionsOneComponent implements OnInit {
                                                 text: "Agree"
                                             }, {
                                                 value: 7,
-                                                text: "Strong agree"
+                                                text: "Strongly agree"
                                             }
                                         ]
                                     }
@@ -77,8 +77,8 @@ export class QuestionsOneComponent implements OnInit {
                                     {
                                         type: "html",
                                         name: "complete",
-                                        html: "<h3>Now you will start tagging 15 images. You are allowed to add as many tag as " +
-                                            "you want. For each tag added, you gain 1 point.</h3>"
+                                        html: "<h3>Now you will start tagging 10 images. You are allowed to add as many tag as " +
+                                            "you want. Type anything you think of when seeing the pictures. Please enter to successfully add the tag.</h3>"
                                     }
                                 ]
                             }

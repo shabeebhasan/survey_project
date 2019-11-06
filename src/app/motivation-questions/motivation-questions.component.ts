@@ -35,9 +35,9 @@ export class MotivationQuestionsComponent implements OnInit {
                                     {
                                         type: "html",
                                         name: "info",
-                                        html: "<h3>Thank you for playing the game. Please click on the button to proceed to the" +
+                                        html: "<h3>Thank you for tagging the image. Please click on the button to proceed to the" +
                                             " next page and fill out the next questionnaire about your overall satisfaction o" +
-                                            "f the game.</h3>"
+                                            "f the experiment.</h3>"
                                     }
                                 ]
                             }, {
