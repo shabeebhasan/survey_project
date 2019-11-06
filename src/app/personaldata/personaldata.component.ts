@@ -27,7 +27,13 @@ export class PersonaldataComponent implements OnInit {
             'Gender': [
                 '', Validators.required
             ],
-            'playVideoGame': [
+            'affine': [
+                '', Validators.required
+            ],
+            'frequently': [
+                '', Validators.required
+            ],
+            'passion': [
                 '', Validators.required
             ],
         });

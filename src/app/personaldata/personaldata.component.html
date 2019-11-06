@@ -2,7 +2,52 @@
 .custom-control {
   margin-left: 30px;
 }
+.wrap {
+  font:12px Arial, san-serif;
+}
+.statement {
+  display:block;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 30px 0 0 4.25%;
+  margin-bottom:10px;
+}
+.likert {
+  list-style:none;
+  width:100%;
+  margin:0;
+  padding:0 0 35px;
+  display:block;
+  border-bottom:2px solid #efefef;
+}
+.likert:last-of-type {border-bottom:0;}
+.likert:before {
+  content: '';
+  position:relative;
+  top:11px;
+  left:9.5%;
+  display:block;
+  background-color:#efefef;
+  height:4px;
+  width:78%;
+}
+.likert li {
+  display:inline-block;
+  width:19%;
+  text-align:center;
+  vertical-align: top;
+}
+.likert li input[type=radio] {
+  display:block;
+  position:relative;
+  top:0;
+  left:50%;
+  margin-left:-6px;
+  
+}
+.likert li label {width:100%;}
 </style>
+
 <div class="row" role="main">
     <h1 class="jumbotron-heading">STEP 1</h1>
 
@@ -17,7 +62,6 @@
         <mdb-card-body class="col-md-12">
 
             <form
-                class="text-center"
                 style="color: #757575;"
                 [formGroup]="contactForm"
                 (ngSubmit)="onSubmit()">
@@ -33,18 +77,6 @@
                         mdbInput>
                         <label for="Age">AGE</label>
                     </div>
-                    <!--         
-      <div class="md-form mt-3">
-          <input type="text" formControlName="Occupation" id="Occupation" class="form-control"
-            mdbInput>
-          <label for="Occupation">Occupation</label>
-      </div> -->
-                    <!-- 
-      <div class="md-form mt-3">
-          <input type="text" formControlName="Education" id="Education" class="form-control"
-            mdbInput>
-          <label for="Education">Education</label>
-      </div> -->
 
                     <div class="md-form mt-3">
                         <select formControlName="Nationality" class="form-control">
@@ -64,53 +96,86 @@
                     </div>
 
                     <div class="md-form mt-3">
+                      </div>
 
-                        <div class="form-control">
+                        <div class="wrap">
                             <h3 style="margin-bottom:25px">How often do you play video games?</h3>
-                            
-                            <!-- Default checked -->
-                            <div class="custom-control custom-radio">
-                                <input
-                                    type="radio"
-                                    class="custom-control-input"
-                                    id="affine"
-                                    name="playVideoGame"
-                                    formControlName="playVideoGame"
-                                    value="1"
-                                    checked
-                                    mdbInput>
-                                    <label class="custom-control-label" for="affine">1. I would characterize myself as gaming-affine</label>
-                                </div>
+                            <mdb-card>
+                                <div class="wrap">
+                                      <label class="statement">1. I would characterize myself as gaming-affine</label>
+                                      <ul class='likert'>
+                                          <li>
+                                              <input  type="radio" formControlName="affine" value="1">
+                                              <label>strongly disagree</label>
+                                            </li>
+                                            <li>
+                                              <input type="radio" formControlName="affine" value="2">
+                                              <label>disagree</label>
+                                            </li>
+                                            <li>
+                                              <input checked type="radio" formControlName="affine" value="3">
+                                              <label>neutral</label>
+                                            </li>
+                                            <li>
+                                              <input type="radio" formControlName="affine" value="4">
+                                              <label>agree</label>
+                                            </li>
+                                            <li>
+                                              <input type="radio" formControlName="affine" value="5">
+                                              <label>strongly agree</label>
+                                            </li>
+                                      </ul>
+                                      <label class="statement">2. I frequently play video games. </label>
+                                        <ul class='likert'>
+                                            <li>
+                                                <input checked type="radio" formControlName="frequently" value="1">
+                                                <label>strongly disagree</label>
+                                              </li>
+                                              <li>
+                                                <input type="radio" formControlName="frequently" value="2">
+                                                <label>disagree</label>
+                                              </li>
+                                              <li>
+                                                <input checked type="radio" formControlName="frequently" value="3">
+                                                <label>neutral</label>
+                                              </li>
+                                              <li>
+                                                <input type="radio" formControlName="frequently" value="4">
+                                                <label>agree</label>
+                                              </li>
+                                              <li>
+                                                <input type="radio" formControlName="frequently" value="5">
+                                                <label>strongly agree</label>
+                                              </li>
+                                        </ul>
+                                        <label class="statement">3. I have a passion for video games.                                          </label>
+                                        <ul class='likert'>
+                                          <li>
+                                            <input type="radio" formControlName="passion" value="1">
+                                            <label>strongly disagree</label>
+                                          </li>
+                                          <li>
+                                            <input type="radio" formControlName="passion" value="2">
+                                            <label>disagree</label>
+                                          </li>
+                                          <li>
+                                            <input checked type="radio" formControlName="passion" value="3">
+                                            <label>neutral</label>
+                                          </li>
+                                          <li>
+                                            <input type="radio" formControlName="passion" value="4">
+                                            <label>agree</label>
+                                          </li>
+                                          <li>
+                                            <input type="radio" formControlName="passion" value="5">
+                                            <label>strongly agree</label>
+                                          </li>
+                                        </ul>
+                                  </div>
+                              </mdb-card>
+                        </div>
 
-                                <!-- Default checked -->
-                                <div class="custom-control custom-radio">
-                                    <input
-                                        type="radio"
-                                        class="custom-control-input"
-                                        id="frequently"
-                                        name="playVideoGame"
-                                        formControlName="playVideoGame"
-                                        value="3"
-                                        mdbInput>
-                                        <label class="custom-control-label" for="frequently">2. I frequently play video games.</label>
-                                    </div>
-
-                                    <!-- Default checked -->
-                                    <div class="custom-control custom-radio">
-                                        <input
-                                            type="radio"
-                                            class="custom-control-input"
-                                            id="passion"
-                                            value="5"
-                                            name="playVideoGame"
-                                            formControlName="playVideoGame"
-                                            mdbInput>
-                                            <label class="custom-control-label" for="passion">3. I have a passion for video games.</label>
-                                        </div>
-                                    </div>
-
-                                </div>
-
+                                
                                 <button
                                     mdbBtn
                                     color="info"
@@ -128,3 +193,5 @@
 
                     </mdb-card>
                 </div>
+
+              
