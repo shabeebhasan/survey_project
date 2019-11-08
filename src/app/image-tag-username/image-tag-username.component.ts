@@ -23,13 +23,7 @@ export class ImageTagUsernameComponent implements OnInit {
     }
 
     ngOnInit() {
-        this
-            .http
-            .get('assets/game_config.json') //, options)
-            .subscribe(res => {
-                console.log(res)
-                this.gameCofig = res
-            });
+       
     }
 
     onSubmit() {
@@ -37,25 +31,8 @@ export class ImageTagUsernameComponent implements OnInit {
             alert("Please fill the required fields.");
             return;
         }
-        if (this.gameCofig.game_mode_activated_by_code === this.gameCofig.code_fake_leader) {
-            this
-                .router
-                .navigateByUrl('/image-c2-tag');
-        }
-        if (this.gameCofig.game_mode_activated_by_code === this.gameCofig.code_badge_game) {
-            this
-                .router
-                .navigateByUrl('/image-c2-batch');
-        }
-        if (this.gameCofig.game_mode_activated_by_code === this.gameCofig.code_virtural_game) {
-            this
-                .router
-                .navigateByUrl('/image-c2-virtual');
-        }
-        if (this.gameCofig.game_mode_activated_by_code === this.gameCofig.code_monster_game) {
-            this
-                .router
-                .navigateByUrl('/image-c2-monster');
-        }
+        this
+            .router
+            .navigateByUrl('/image-tag-select');        
     }
 }

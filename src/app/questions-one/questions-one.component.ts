@@ -26,7 +26,6 @@ export class QuestionsOneComponent implements OnInit {
                 .subscribe((data) => {
                     console.log('QuestionsOneComponent:: ', data);
                     let surveyJSON = {
-                        title: "User Type Questionnaire",
                         showCompletedPage:false,
                         pages: [
                             {
@@ -78,7 +77,7 @@ export class QuestionsOneComponent implements OnInit {
                                         type: "html",
                                         name: "complete",
                                         html: "<h3>Now you will start tagging 10 images. You are allowed to add as many tag as " +
-                                            "you want. Type anything you think of when seeing the pictures. Please enter to successfully add the tag.</h3>"
+                                            "you want. Type anything you think of when seeing the pictures. Press enter to successfully add the tag.</h3>"
                                     }
                                 ]
                             }
@@ -113,7 +112,7 @@ export class QuestionsOneComponent implements OnInit {
                                             survey_data: resultAsString
                                         })
                                         .subscribe((data) => {
-                                            router.navigateByUrl('/image-tag-select');
+                                            router.navigateByUrl('/image-c2-username');
                                         });
                                 });
                         }
