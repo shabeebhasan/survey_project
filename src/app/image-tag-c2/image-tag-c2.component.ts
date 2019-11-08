@@ -50,6 +50,9 @@ export class ImageTagC2Component implements OnInit {
           return;
       }
       this.tagCount += this.items.length;
+      this.chartDatasets = [
+        { data: [100, 50, 30, 10,this.tagCount], label: 'TOP USERS' }
+      ];
       if (this.arrayIndex < this.imgeShuffleArray.length) {
           console.log('onSubmit:: ', this.tagCount);
           this.items = '';
@@ -95,7 +98,7 @@ export class ImageTagC2Component implements OnInit {
     { data: [100, 50, 30, 10], label: 'TOP USERS' }
   ];
 
-  public chartLabels: Array<any> = ['verdandi', 'neo23', 'legolas', 'snork85'];
+  public chartLabels: Array<any> = ['verdandi', 'neo23', 'legolas', 'snork85' , 'you'];
 
   public chartColors: Array<any> = [
     {
