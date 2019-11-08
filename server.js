@@ -126,9 +126,8 @@ app.post('/user-info', (req, res) => {
   var name = req.body.Name;
   var age = req.body.Age;
   var nationality = req.body.Nationality;
-  var play_video_games = req.body.affine + "," + req.body.frequently + "," + req.body.passion;
   var gender = req.body.Gender;
-  var sql = "INSERT INTO user_data ( age,nationality,play_video_games,gender) VALUES ('"+  age + "','" + nationality + "','"  + play_video_games  + "','" + gender  + "')";
+  var sql = "INSERT INTO user_data ( age,nationality,gender,play_video_games_affine,play_video_games_frequently,play_video_games_passion) VALUES ('"+  age + "','" + nationality + "','" + gender + "','" + req.body.affine + "','" + req.body.frequently  + "','" + req.body.passion + "')";
   
   console.log(sql);
   con.query(sql, function (err, result) {
