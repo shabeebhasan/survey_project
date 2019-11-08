@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 22, 2019 at 02:07 PM
+-- Generation Time: Nov 08, 2019 at 07:06 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -38,28 +38,28 @@ CREATE TABLE `motivation_question` (
 --
 
 INSERT INTO `motivation_question` (`id`, `text`) VALUES
-(1, 'While I was working on the task I was thinking about how much I enjoyed it.'),
-(2, 'I did not feel at all nervous about doing the task.'),
-(3, 'I felt that it was my choice to do the task.'),
-(4, 'I think I am pretty good at this task.'),
-(5, 'I found the task very interesting.'),
-(6, 'I felt tense while doing the task.'),
+(1, 'While I was working on the image tagging I was thinking about how much I enjoyed it.'),
+(2, 'I did not feel at all nervous about doing the image tagging.'),
+(3, 'I felt that it was my choice to do the image tagging.'),
+(4, 'I think I am pretty good at image tagging.'),
+(5, 'I found the image tagging very interesting.'),
+(6, 'I felt tense while doing the image tagging.'),
 (7, 'I think I did pretty well at this activity, compared to other students.'),
-(8, 'Doing the task was fun.'),
-(9, 'I felt relaxed while doing the task.'),
-(10, 'I enjoyed doing the task very much.'),
-(11, 'I didnÕt really have a choice about doing the task.'),
-(12, 'I am satisfied with my performance at this task.'),
-(13, 'I was anxious while doing the task.'),
-(14, 'I thought the task was very boring.'),
-(15, 'I felt like I was doing what I wanted to do while I was working on the task.'),
-(16, 'I felt pretty skilled at this task.'),
-(17, 'I thought the task was very interesting.'),
-(18, 'I felt pressured while doing the task.'),
-(19, 'I felt like I had to do the task.'),
-(20, 'I would describe the task as very enjoyable.'),
-(21, 'I did the task because I had no choice.'),
-(22, 'After working at this task for awhile, I felt pretty competent.');
+(8, 'Doing the image tagging was fun.'),
+(9, 'I felt relaxed while doing the image tagging.'),
+(10, 'I enjoyed doing the image tagging very much.'),
+(11, 'I didnÕt really have a choice about doing the image tagging.'),
+(12, 'I am satisfied with my performance at image tagging.'),
+(13, 'I was anxious while doing the image tagging.'),
+(14, 'I thought the image tagging was very boring.'),
+(15, 'I felt like I was doing what I wanted to do while I was working on the image tagging.'),
+(16, 'I felt pretty skilled at image tagging.'),
+(17, 'I thought the image tagging was very interesting.'),
+(18, 'I felt pressured while doing the image tagging.'),
+(19, 'I felt like I had to do the image tagging.'),
+(20, 'I would describe the image tagging as very enjoyable.'),
+(21, 'I did the image tagging because I had no choice.'),
+(22, 'After working at image tagging for awhile, I felt pretty competent.');
 
 -- --------------------------------------------------------
 
@@ -116,9 +116,18 @@ CREATE TABLE `user_data` (
   `nationality` varchar(200) NOT NULL,
   `occupation` varchar(200) NOT NULL,
   `education` varchar(200) NOT NULL,
-  `play_video_games` varchar(200) NOT NULL,
-  `gender` varchar(100) NOT NULL
+  `gender` varchar(100) NOT NULL,
+  `play_video_games_affine` varchar(100) NOT NULL,
+  `play_video_games_frequently` varchar(100) NOT NULL,
+  `play_video_games_passion` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_data`
+--
+
+INSERT INTO `user_data` (`id`, `name`, `age`, `nationality`, `occupation`, `education`, `gender`, `play_video_games_affine`, `play_video_games_frequently`, `play_video_games_passion`) VALUES
+(1, '', 22, 'Åland Island', '', '', 'male', '2', '3', '2');
 
 -- --------------------------------------------------------
 
@@ -135,6 +144,15 @@ CREATE TABLE `user_survey_data` (
   `survey_3_data` text,
   `survey_1_data` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_survey_data`
+--
+
+INSERT INTO `user_survey_data` (`user_id`, `survey_one_point`, `image_tags_point`, `image_tags_data`, `survey_2_data`, `survey_3_data`, `survey_1_data`) VALUES
+(0, 24, 19, NULL, '{\"id_8\":\"2\",\"id_13\":\"1\",\"id_16\":\"1\",\"id_22\":\"1\",\"id_18\":\"1\",\"id_9\":\"1\",\"id_20\":\"1\",\"id_7\":\"1\",\"id_21\":\"1\",\"id_17\":\"1\",\"id_10\":\"1\",\"id_3\":\"1\",\"id_5\":\"1\",\"id_14\":\"1\",\"id_4\":\"1\",\"id_6\":\"1\",\"id_12\":\"1\",\"id_19\":\"1\",\"id_1\":\"1\",\"id_11\":\"1\",\"id_2\":\"1\",\"id_15\":\"1\"}', '{\"Distressed\":\"2\",\"Excited\":\"2\",\"Instrested\":\"2\",\"Upset\":\"2\",\"Strong\":\"2\",\"Guilty\":\"2\",\"Scared\":\"2\",\"Hostile\":\"2\",\"Enthusiastic\":\"2\",\"Proud\":\"2\",\"Irritable\":\"2\",\"Alert\":\"2\",\"Ashamed\":\"2\",\"Inspired\":\"2\",\"Nervous\":\"2\",\"Determined\":\"2\",\"Attentive\":\"2\",\"Jittery\":\"2\",\"Active\":\"2\",\"Afraid\":\"2\"}', '{\"Socialiser_22\":\"1\",\"Player_17\":\"1\",\"Achiever_3\":\"1\",\"Free Spirit_10\":\"1\",\"Player_18\":\"1\",\"Player_20\":\"1\",\"Socialiser_21\":\"1\",\"Philantropist_14\":\"1\",\"Player_19\":\"1\",\"Free Spirit_11\":\"1\",\"Philantropist_15\":\"1\",\"Socialiser_24\":\"1\",\"Free Spirit_9\":\"1\",\"Disruptor_8\":\"1\",\"Philantropist_16\":\"1\",\"Disruptor_7\":\"1\",\"Philantropist_13\":\"1\",\"Disruptor_5\":\"1\",\"Achiever_1\":\"1\",\"Free Spirit_12\":\"1\",\"Socialiser_23\":\"1\",\"Achiever_4\":\"1\",\"Achiever_2\":\"1\",\"Disruptor_6\":\"1\"}'),
+(1, 24, 15, NULL, '{\"id_16\":\"1\",\"id_8\":\"1\",\"id_6\":\"1\",\"id_5\":\"1\",\"id_12\":\"1\",\"id_15\":\"1\",\"id_17\":\"1\",\"id_18\":\"1\",\"id_21\":\"1\",\"id_20\":\"1\",\"id_1\":\"1\",\"id_9\":\"1\",\"id_11\":\"1\",\"id_2\":\"1\",\"id_13\":\"1\",\"id_7\":\"1\",\"id_10\":\"1\",\"id_14\":\"1\",\"id_3\":\"1\",\"id_4\":\"1\",\"id_22\":\"1\",\"id_19\":\"1\"}', '{\"Instrested\":\"1\",\"Distressed\":\"1\",\"Excited\":\"1\",\"Upset\":\"1\",\"Strong\":\"1\",\"Guilty\":\"1\",\"Scared\":\"1\",\"Hostile\":\"1\",\"Enthusiastic\":\"1\",\"Proud\":\"1\",\"Irritable\":\"1\",\"Alert\":\"1\",\"Ashamed\":\"1\",\"Inspired\":\"1\",\"Nervous\":\"1\",\"Determined\":\"1\",\"Attentive\":\"1\",\"Jittery\":\"1\",\"Active\":\"1\",\"Afraid\":\"3\"}', '{\"Disruptor_7\":\"1\",\"Socialiser_21\":\"1\",\"Player_19\":\"1\",\"Socialiser_22\":\"1\",\"Philantropist_16\":\"1\",\"Free Spirit_11\":\"1\",\"Player_18\":\"1\",\"Philantropist_15\":\"1\",\"Free Spirit_9\":\"1\",\"Socialiser_23\":\"1\",\"Achiever_4\":\"1\",\"Free Spirit_12\":\"1\",\"Achiever_2\":\"1\",\"Socialiser_24\":\"1\",\"Player_17\":\"1\",\"Disruptor_5\":\"1\",\"Player_20\":\"1\",\"Philantropist_13\":\"1\",\"Achiever_1\":\"1\",\"Philantropist_14\":\"1\",\"Disruptor_6\":\"1\",\"Achiever_3\":\"1\",\"Disruptor_8\":\"1\",\"Free Spirit_10\":\"1\"}'),
+(6, 30, 15, NULL, '{\"id_18\":\"1\",\"id_22\":\"1\",\"id_8\":\"1\",\"id_9\":\"1\",\"id_15\":\"1\",\"id_19\":\"1\",\"id_16\":\"2\",\"id_13\":\"1\",\"id_20\":\"2\",\"id_10\":\"1\",\"id_3\":\"2\",\"id_21\":\"1\",\"id_6\":\"2\",\"id_17\":\"1\",\"id_7\":\"2\",\"id_14\":\"1\",\"id_5\":\"2\",\"id_1\":\"1\",\"id_12\":\"1\",\"id_4\":\"1\",\"id_11\":\"1\",\"id_2\":\"1\"}', '{\"Instrested\":\"1\",\"Distressed\":\"1\",\"Excited\":\"1\",\"Upset\":\"1\",\"Strong\":\"1\",\"Scared\":\"1\",\"Guilty\":\"1\",\"Hostile\":\"1\",\"Enthusiastic\":\"1\",\"Proud\":\"1\",\"Irritable\":\"1\",\"Alert\":\"1\",\"Ashamed\":\"1\",\"Inspired\":\"1\",\"Nervous\":\"1\",\"Determined\":\"1\",\"Attentive\":\"1\",\"Jittery\":\"1\",\"Active\":\"1\",\"Afraid\":\"1\"}', '{\"Free Spirit_11\":\"1\",\"Philantropist_16\":\"2\",\"Achiever_2\":\"1\",\"Player_19\":\"1\",\"Achiever_1\":\"2\",\"Socialiser_22\":\"1\",\"Player_18\":\"1\",\"Achiever_3\":\"1\",\"Free Spirit_9\":\"1\",\"Philantropist_13\":\"1\",\"Free Spirit_12\":\"1\",\"Disruptor_6\":\"1\",\"Philantropist_14\":\"1\",\"Free Spirit_10\":\"1\",\"Disruptor_5\":\"1\",\"Socialiser_24\":\"1\",\"Disruptor_8\":\"1\",\"Player_20\":\"2\",\"Player_17\":\"2\",\"Philantropist_15\":\"1\",\"Socialiser_23\":\"2\",\"Disruptor_7\":\"1\",\"Achiever_4\":\"2\",\"Socialiser_21\":\"1\"}');
 
 --
 -- Indexes for dumped tables
@@ -184,7 +202,7 @@ ALTER TABLE `player_survey_1_questions`
 -- AUTO_INCREMENT for table `user_data`
 --
 ALTER TABLE `user_data`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
