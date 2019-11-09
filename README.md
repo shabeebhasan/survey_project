@@ -1,3 +1,23 @@
+# Game Modes in Image Tagging 
+
+./src/assets/game_config.json
+
+{
+  "game_mode_activated_by_code": "1",
+  "code_fake_leader": "1",
+  "code_badge_game": "2",
+  "code_virtural_game": "3",
+  "code_monster_game": "4"
+}
+
+for Fake Leader Game: "game_mode_activated_by_code": "1".
+
+for Badges Game: "game_mode_activated_by_code": "2".
+
+for Virtual Item Game: "game_mode_activated_by_code": "3".
+
+for Monster Game: "game_mode_activated_by_code": "4".
+
 # REQUIRED 
 - PHPMYADMIN
 - NODEJS
