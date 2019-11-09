@@ -22,6 +22,7 @@ import { ImageTagC2MonsterGameComponent } from './image-tag-c2-monster-game/imag
 import { ImageTagUsernameComponent } from './image-tag-username/image-tag-username.component';
 import { AngularDraggableModule } from 'angular2-draggable';
 import { ImageTagConditionsComponent } from './image-tag-conditions/image-tag-conditions.component';
+import { ActivityFlowSurveyComponent } from './activity-flow-survey/activity-flow-survey.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
@@ -57,6 +58,7 @@ const appRoutes: Routes = [
     ImageTagC2MonsterGameComponent,
     ImageTagUsernameComponent,
     ImageTagConditionsComponent,
+    ActivityFlowSurveyComponent,
   ],
   imports: [
     HttpClientModule,

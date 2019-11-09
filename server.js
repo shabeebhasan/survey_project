@@ -140,8 +140,35 @@ app.post('/user-info', (req, res) => {
   });
 });
 
+app.post('/add-tags', (req, res) => {
+  console.log('/picture_tags',req.body);
+  var user_id = req.body.user_id;
+  var picture_id = req.body.picture_id;
+  var tags = req.body.tags;
+  var sql = "INSERT INTO picture_tags ( user_id,picture_id,tags) VALUES ('"+  user_id + "','" + picture_id + "','" + tags + "')";
+  
+  console.log(sql);
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 record inserted");
+    return res.status(200).send({
+      success: 'true',
+      message: result
+     })
+  });
+});
+
 app.get('/motivations-survey', function (req, res) {
   con.query("SELECT * FROM motivation_question", function (err, result, fields) {
+    if (err) throw err;
+    shuffle(result);
+    result = JSON.stringify(result);
+    res.end(result);
+  });
+})
+
+app.get('/activity-flow', function (req, res) {
+  con.query("SELECT * FROM activity_flow_question", function (err, result, fields) {
     if (err) throw err;
     shuffle(result);
     result = JSON.stringify(result);
