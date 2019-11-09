@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 08, 2019 at 07:06 PM
+-- Generation Time: Nov 09, 2019 at 02:04 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -44,11 +44,11 @@ INSERT INTO `motivation_question` (`id`, `text`) VALUES
 (4, 'I think I am pretty good at image tagging.'),
 (5, 'I found the image tagging very interesting.'),
 (6, 'I felt tense while doing the image tagging.'),
-(7, 'I think I did pretty well at this activity, compared to other students.'),
+(7, 'I think I did pretty well at image tagging, compared to other students.'),
 (8, 'Doing the image tagging was fun.'),
 (9, 'I felt relaxed while doing the image tagging.'),
 (10, 'I enjoyed doing the image tagging very much.'),
-(11, 'I didnÕt really have a choice about doing the image tagging.'),
+(11, 'I didn\'t really have a choice about doing the image tagging.'),
 (12, 'I am satisfied with my performance at image tagging.'),
 (13, 'I was anxious while doing the image tagging.'),
 (14, 'I thought the image tagging was very boring.'),
@@ -60,6 +60,18 @@ INSERT INTO `motivation_question` (`id`, `text`) VALUES
 (20, 'I would describe the image tagging as very enjoyable.'),
 (21, 'I did the image tagging because I had no choice.'),
 (22, 'After working at image tagging for awhile, I felt pretty competent.');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `picture_tags`
+--
+
+CREATE TABLE `picture_tags` (
+  `picture_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `tags` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
