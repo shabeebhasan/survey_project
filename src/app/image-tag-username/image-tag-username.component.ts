@@ -33,6 +33,6 @@ export class ImageTagUsernameComponent implements OnInit {
         }
         this
             .router
-            .navigateByUrl('/motivation-data');        
+            .navigateByUrl('/activity-flow-survey');        
     }
 }

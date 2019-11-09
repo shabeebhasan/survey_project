@@ -37,6 +37,7 @@ const appRoutes: Routes = [
   { path: 'image-c2-virtual', component: ImageTagC2VirtualGameComponent },
   { path: 'image-c2-monster', component: ImageTagC2MonsterGameComponent },
   { path: 'image-tag-select', component: ImageTagConditionsComponent },
+  { path: 'activity-flow-survey', component: ActivityFlowSurveyComponent },
   { path: '',
     redirectTo: '/welcome',
     pathMatch: 'full'
