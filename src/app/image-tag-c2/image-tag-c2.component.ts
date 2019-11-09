@@ -67,7 +67,7 @@ export class ImageTagC2Component implements OnInit {
               .subscribe((data) => {
                   this
                       .router
-                      .navigateByUrl('/motivation-data');
+                      .navigateByUrl('/image-c2-username');
               });
       }
   }

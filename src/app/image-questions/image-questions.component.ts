@@ -53,9 +53,9 @@ export class ImageQuestionsComponent implements OnInit {
                     points: this.tagCount
                 })
                 .subscribe((data) => {
-                    this
-                        .router
-                        .navigateByUrl('/motivation-data');
+                  this
+                      .router
+                      .navigateByUrl('/image-c2-username');
                 });
         }
     }
