@@ -12,6 +12,7 @@ export class ImageTagC2BadgeGameComponent implements OnInit {
     optionsSelect : Array < any >;
     items : any;
     tagCount : any;
+    tagRewardCount : any;
     imgSrc : any;
     imgeShuffleArray : Array < any >;
     arrayIndex : any;
@@ -32,21 +33,42 @@ export class ImageTagC2BadgeGameComponent implements OnInit {
         this.items = '';
         this.tagCount = 0;
         this.arrayIndex = 0;
+        this.tagRewardCount = 0;
         this.imgeShuffleArray = this.shuffle();
         this.setImage();
+        this.getTag();
+
+    }
+
+    getTag() {
+        this
+            .httpClient
+            .post('http://localhost:8081/get-tags', {
+                user_id: sessionStorage.getItem('user_id'),
+                picture_id: "bg-" + this.arrayIndex
+            })
+            .subscribe((data) => {
+                console.log("Image Tags: ", data)
+                if (data) {
+                    this.items = JSON.parse(data.tags)
+                }
+            });
     }
 
     setImage() {
         this.imgSrc = "./assets/pictures/" + this.imgeShuffleArray[this.arrayIndex] + ".jpg";
         this.arrayIndex++;
+        this.getTag();
     }
 
     public onItemAdded(e) {
-        if (this.items.length == 10) {
+        this.tagRewardCount += 1;
+        if (this.tagRewardCount == 10) {
             this.openSilverDialog();
+            this.tagRewardCount = 0;
         }
         if (this.items.length == 3) {
-            this.opengoldenDialog();
+            //this.opengoldenDialog();
         }
     }
 
@@ -69,6 +91,14 @@ export class ImageTagC2BadgeGameComponent implements OnInit {
         }
         this.tagCount += this.items.length;
         if (this.arrayIndex < this.imgeShuffleArray.length) {
+            this
+                .httpClient
+                .post('http://localhost:8081/add-tags', {
+                    user_id: sessionStorage.getItem('user_id'),
+                    picture_id: "bg-" + this.arrayIndex,
+                    tags: JSON.stringify(this.items)
+                })
+                .subscribe((data) => {});
             console.log('onSubmit:: ', this.tagCount);
             this.items = '';
             this.setImage();

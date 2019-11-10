@@ -163,8 +163,8 @@ app.post('/add-tags', (req, res) => {
   var user_id = req.body.user_id;
   var picture_id = req.body.picture_id;
   var tags = req.body.tags;
-  var sql = "INSERT INTO picture_tags ( user_id,picture_id,tags) VALUES ('"+  user_id + "','" + picture_id + "','" + tags + "')";
-  
+  var sql = "INSERT INTO picture_tags ( user_id,picture_id,tags) VALUES ('"+  user_id + "','" + picture_id + "','" + tags + "') ON DUPLICATE KEY UPDATE tags='"+ tags + "'";
+
   console.log(sql);
   con.query(sql, function (err, result) {
     if (err) throw err;
@@ -173,6 +173,21 @@ app.post('/add-tags', (req, res) => {
       success: 'true',
       message: result
      })
+  });
+});
+
+app.post('/get-tags', (req, res) => {
+  console.log('/picture_tags',req.body);
+  var user_id = req.body.user_id;
+  var picture_id = req.body.picture_id;
+  var sql = "SELECT * FROM `picture_tags` WHERE `user_id` = " + user_id + " AND  `picture_id`=" + "'" + picture_id + "'" ;
+
+  console.log(sql);
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    
+    result = JSON.stringify(result[0]);
+    res.end(result);
   });
 });
 
