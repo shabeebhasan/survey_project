@@ -5,7 +5,7 @@ import {HttpClient} from "@angular/common/http";
 import {Router} from '@angular/router';
 
 var json = {
-    completedHtml: "<h3>Thank You, Now you will proceed to the second part of the experiment.</h3>",
+    completedHtml: "<h3>This is the end of the experiment. Thank you for your paticipation.</h3>",
     questions: [
         {
             type: "matrix",
