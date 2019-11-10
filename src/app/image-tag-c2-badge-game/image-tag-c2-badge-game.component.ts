@@ -85,10 +85,6 @@ export class ImageTagC2BadgeGameComponent implements OnInit {
     }
 
     onSubmit() {
-        if (this.items.length == 0) {
-            alert("No empty tags (each image should have at least one tag)");
-            return;
-        }
         this.tagCount += this.items.length;
         if (this.arrayIndex < this.imgeShuffleArray.length) {
             this
