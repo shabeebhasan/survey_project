@@ -109,7 +109,7 @@ export class ActivityFlowSurveyComponent implements OnInit {
                                   var resultAsString = JSON.stringify(survey.data.questions_one);
                                   console.log(resultAsString);
                                   httpClient
-                                      .post('http://localhost:8081/survey-one', {
+                                      .post('http://localhost:8081/activity-flow-add', {
                                           user_id: sessionStorage.getItem('user_id'),
                                           survey_data: resultAsString
                                       })

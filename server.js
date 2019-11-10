@@ -97,6 +97,22 @@ app.post('/survey-three-data', (req, res) => {
   });
 });
 
+app.post('/activity-flow-add', (req, res) => {
+  var user_id = req.body.user_id;
+  var survey_data = req.body.survey_data;
+
+  var sql = "INSERT INTO user_survey_data (user_id, activity_flow_data) VALUES ('"+ user_id + "','" +  survey_data + "') ON DUPLICATE KEY UPDATE activity_flow_data='"+ survey_data + "'";
+  
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 record inserted");
+    return res.status(200).send({
+      success: 'true',
+      message: result
+     })
+  });
+});
+
 app.post('/survey-one', (req, res) => {
   var user_id = req.body.user_id;
   var points = 0;
@@ -120,6 +136,8 @@ app.post('/survey-one', (req, res) => {
      })
   });
 });
+
+
 
 app.post('/user-info', (req, res) => {
   console.log('/user-info',req.body);
