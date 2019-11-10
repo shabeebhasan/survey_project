@@ -37,6 +37,7 @@ export class ImageTagC2VirtualGameComponent implements OnInit {
         this.virturlImgeShuffleArray = this.shuffle();
         this.setImage();
         this.setVirtualImage();
+        this.getTag();
     }
 
     public onItemAdded(e) {
@@ -55,6 +56,8 @@ export class ImageTagC2VirtualGameComponent implements OnInit {
     setImage() {
         this.imgSrc = "./assets/pictures/" + this.imgeShuffleArray[this.arrayIndex] + ".jpg";
         this.arrayIndex++;
+        this.opacity = 0.1;
+        this.getTag();
     }
 
     setVirtualImage() {
@@ -62,13 +65,32 @@ export class ImageTagC2VirtualGameComponent implements OnInit {
         this.virtualArrayIndex++;
     }
 
+    getTag() {
+        this
+            .httpClient
+            .post('http://localhost:8081/get-tags', {
+                user_id: sessionStorage.getItem('user_id'),
+                picture_id: "vi-" + this.arrayIndex
+            })
+            .subscribe((data) => {
+                console.log("Image Tags: ", data)
+                if (data) {
+                    this.items = JSON.parse(data.tags)
+                }
+            });
+    }
+
     onSubmit() {
-        if (this.items.length == 0) {
-            alert("No empty tags (each image should have at least one tag)");
-            return;
-        }
         this.tagCount += this.items.length;
         if (this.arrayIndex < this.imgeShuffleArray.length) {
+          this
+              .httpClient
+              .post('http://localhost:8081/add-tags', {
+                  user_id: sessionStorage.getItem('user_id'),
+                  picture_id: "vi-" + this.arrayIndex,
+                  tags: JSON.stringify(this.items)
+              })
+              .subscribe((data) => {});
             console.log('onSubmit:: ', this.tagCount);
             this.items = '';
             this.setImage();
