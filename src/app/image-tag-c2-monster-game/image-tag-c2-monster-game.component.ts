@@ -31,12 +31,29 @@ export class ImageTagC2MonsterGameComponent implements OnInit {
         this.arrayIndex = 0;
         this.imgeShuffleArray = this.shuffle();
         this.setImage();
+        this.getTag();
+    }
+
+    getTag() {
+        this
+            .httpClient
+            .post('http://localhost:8081/get-tags', {
+                user_id: sessionStorage.getItem('user_id'),
+                picture_id: "mo-" + this.arrayIndex
+            })
+            .subscribe((data) => {
+                console.log("Image Tags: ", data)
+                if (data) {
+                    this.items = JSON.parse(data.tags)
+                }
+            });
     }
 
     setImage() {
         this.monsterSrc = "./assets/monster/idle.gif"
         this.imgSrc = "./assets/pictures/" + this.imgeShuffleArray[this.arrayIndex] + ".jpg";
         this.arrayIndex++;
+        this.getTag();
     }
 
     public onItemAdded(e) {
@@ -49,12 +66,16 @@ export class ImageTagC2MonsterGameComponent implements OnInit {
     }
 
     onSubmit() {
-        if (this.items.length == 0) {
-            alert("No empty tags (each image should have at least one tag)");
-            return;
-        }
         this.tagCount += this.items.length;
         if (this.arrayIndex < this.imgeShuffleArray.length) {
+          this
+              .httpClient
+              .post('http://localhost:8081/add-tags', {
+                  user_id: sessionStorage.getItem('user_id'),
+                  picture_id: "mo-" + this.arrayIndex,
+                  tags: JSON.stringify(this.items)
+              })
+              .subscribe((data) => {});
             console.log('onSubmit:: ', this.tagCount);
             this.items = '';
             this.setImage();
