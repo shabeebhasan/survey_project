@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2019 at 11:24 AM
+-- Generation Time: Nov 10, 2019 at 10:39 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -112,9 +112,10 @@ INSERT INTO `motivation_question` (`id`, `text`) VALUES
 --
 
 CREATE TABLE `picture_tags` (
-  `picture_id` int(11) NOT NULL,
+  `picture_id` varchar(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `tags` text NOT NULL
+  `tags` text NOT NULL,
+  `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -183,7 +184,9 @@ CREATE TABLE `user_data` (
 --
 
 INSERT INTO `user_data` (`id`, `name`, `age`, `nationality`, `occupation`, `education`, `gender`, `play_video_games_affine`, `play_video_games_frequently`, `play_video_games_passion`) VALUES
-(1, '', 26, 'Pakistani', '', '', 'female', '4', '5', '5');
+(1, '', 26, 'Pakistani', '', '', 'female', '4', '5', '5'),
+(2, '', 25, 'Pakistani', '', '', 'male', '3', '5', '5'),
+(3, '', 22, 'Afghan', '', '', 'female', '4', '3', '4');
 
 -- --------------------------------------------------------
 
@@ -207,7 +210,10 @@ CREATE TABLE `user_survey_data` (
 --
 
 INSERT INTO `user_survey_data` (`user_id`, `survey_one_point`, `image_tags_point`, `image_tags_data`, `survey_2_data`, `survey_3_data`, `survey_1_data`, `activity_flow_data`) VALUES
-(1, 60, 11, NULL, '{\"id_12\":\"1\",\"id_20\":\"2\",\"id_15\":\"1\",\"id_18\":\"2\",\"id_4\":\"1\",\"id_19\":\"2\",\"id_8\":\"1\",\"id_9\":\"2\",\"id_13\":\"1\",\"id_7\":\"2\",\"id_17\":\"1\",\"id_14\":\"1\",\"id_2\":\"2\",\"id_22\":\"1\",\"id_6\":\"2\",\"id_21\":\"1\",\"id_11\":\"2\",\"id_16\":\"1\",\"id_5\":\"2\",\"id_10\":\"1\",\"id_1\":\"2\",\"id_3\":\"1\"}', '{\"Instrested\":\"1\",\"Distressed\":\"1\",\"Excited\":\"1\",\"Upset\":\"1\",\"Strong\":\"1\",\"Scared\":\"1\",\"Guilty\":\"1\",\"Hostile\":\"1\",\"Enthusiastic\":\"1\",\"Proud\":\"1\",\"Irritable\":\"1\",\"Alert\":\"1\",\"Ashamed\":\"1\",\"Inspired\":\"1\",\"Nervous\":\"1\",\"Determined\":\"1\",\"Attentive\":\"1\",\"Jittery\":\"1\",\"Active\":\"1\",\"Afraid\":\"1\"}', '{\"Philantropist_13\":\"1\",\"Philantropist_16\":\"2\",\"Disruptor_6\":\"2\",\"Philantropist_15\":\"2\",\"Achiever_2\":\"2\",\"Free Spirit_11\":\"3\",\"Socialiser_22\":\"4\",\"Socialiser_23\":\"4\",\"Socialiser_24\":\"4\",\"Achiever_4\":\"3\",\"Socialiser_21\":\"3\",\"Player_20\":\"2\",\"Free Spirit_10\":\"1\",\"Player_19\":\"2\",\"Player_18\":\"3\",\"Free Spirit_9\":\"3\",\"Free Spirit_12\":\"2\",\"Achiever_3\":\"2\",\"Disruptor_7\":\"3\",\"Disruptor_5\":\"2\",\"Disruptor_8\":\"2\",\"Player_17\":\"3\",\"Philantropist_14\":\"3\",\"Achiever_1\":\"2\"}', '{\"AE_24\":\"1\",\"TT_16\":\"1\",\"CS_13\":\"1\",\"SC_21\":\"1\",\"UF_11\":\"1\",\"SC_23\":\"1\",\"AE_25\":\"1\",\"MAA_3\":\"1\",\"SC_22\":\"1\",\"TT_17\":\"1\",\"UF_12\":\"1\",\"CG_5\":\"1\",\"CG_6\":\"1\",\"CS_15\":\"1\",\"CG_4\":\"1\",\"CN_20\":\"1\",\"CN_19\":\"1\",\"CO_10\":\"1\",\"MAA_2\":\"4\",\"TT_18\":\"3\",\"CO_7\":\"3\",\"AE_26\":\"4\",\"CS_14\":\"3\",\"CO_8\":\"4\",\"CO_9\":\"3\",\"MAA_1\":\"3\"}');
+(0, NULL, NULL, NULL, '{\"id_18\":\"1\",\"id_14\":\"1\",\"id_1\":\"2\",\"id_17\":\"1\",\"id_4\":\"2\",\"id_16\":\"1\",\"id_6\":\"2\",\"id_22\":\"1\",\"id_9\":\"5\",\"id_3\":\"4\",\"id_5\":\"2\",\"id_11\":\"2\",\"id_2\":\"3\",\"id_8\":\"3\",\"id_20\":\"2\",\"id_7\":\"1\",\"id_12\":\"3\",\"id_15\":\"4\",\"id_10\":\"4\",\"id_21\":\"4\",\"id_19\":\"3\",\"id_13\":\"3\"}', NULL, NULL, '{\"AE_26\":\"1\",\"SC_22\":\"1\",\"MAA_1\":\"1\",\"UF_11\":\"1\",\"MAA_3\":\"1\",\"CO_9\":\"1\",\"CO_10\":\"1\",\"TT_18\":\"1\",\"CS_14\":\"1\",\"TT_16\":\"1\",\"CS_13\":\"1\",\"CN_19\":\"1\",\"CG_6\":\"1\",\"CO_7\":\"1\",\"AE_24\":\"1\",\"CG_4\":\"1\",\"UF_12\":\"1\",\"CO_8\":\"1\",\"SC_23\":\"1\",\"TT_17\":\"1\",\"MAA_2\":\"1\",\"CS_15\":\"1\",\"CN_20\":\"1\",\"SC_21\":\"1\",\"AE_25\":\"1\",\"CG_5\":\"2\"}'),
+(1, 60, 11, NULL, '{\"id_12\":\"1\",\"id_20\":\"2\",\"id_15\":\"1\",\"id_18\":\"2\",\"id_4\":\"1\",\"id_19\":\"2\",\"id_8\":\"1\",\"id_9\":\"2\",\"id_13\":\"1\",\"id_7\":\"2\",\"id_17\":\"1\",\"id_14\":\"1\",\"id_2\":\"2\",\"id_22\":\"1\",\"id_6\":\"2\",\"id_21\":\"1\",\"id_11\":\"2\",\"id_16\":\"1\",\"id_5\":\"2\",\"id_10\":\"1\",\"id_1\":\"2\",\"id_3\":\"1\"}', '{\"Instrested\":\"1\",\"Distressed\":\"1\",\"Excited\":\"1\",\"Upset\":\"1\",\"Strong\":\"1\",\"Scared\":\"1\",\"Guilty\":\"1\",\"Hostile\":\"1\",\"Enthusiastic\":\"1\",\"Proud\":\"1\",\"Irritable\":\"1\",\"Alert\":\"1\",\"Ashamed\":\"1\",\"Inspired\":\"1\",\"Nervous\":\"1\",\"Determined\":\"1\",\"Attentive\":\"1\",\"Jittery\":\"1\",\"Active\":\"1\",\"Afraid\":\"1\"}', '{\"Philantropist_13\":\"1\",\"Philantropist_16\":\"2\",\"Disruptor_6\":\"2\",\"Philantropist_15\":\"2\",\"Achiever_2\":\"2\",\"Free Spirit_11\":\"3\",\"Socialiser_22\":\"4\",\"Socialiser_23\":\"4\",\"Socialiser_24\":\"4\",\"Achiever_4\":\"3\",\"Socialiser_21\":\"3\",\"Player_20\":\"2\",\"Free Spirit_10\":\"1\",\"Player_19\":\"2\",\"Player_18\":\"3\",\"Free Spirit_9\":\"3\",\"Free Spirit_12\":\"2\",\"Achiever_3\":\"2\",\"Disruptor_7\":\"3\",\"Disruptor_5\":\"2\",\"Disruptor_8\":\"2\",\"Player_17\":\"3\",\"Philantropist_14\":\"3\",\"Achiever_1\":\"2\"}', '{\"AE_24\":\"1\",\"TT_16\":\"1\",\"CS_13\":\"1\",\"SC_21\":\"1\",\"UF_11\":\"1\",\"SC_23\":\"1\",\"AE_25\":\"1\",\"MAA_3\":\"1\",\"SC_22\":\"1\",\"TT_17\":\"1\",\"UF_12\":\"1\",\"CG_5\":\"1\",\"CG_6\":\"1\",\"CS_15\":\"1\",\"CG_4\":\"1\",\"CN_20\":\"1\",\"CN_19\":\"1\",\"CO_10\":\"1\",\"MAA_2\":\"4\",\"TT_18\":\"3\",\"CO_7\":\"3\",\"AE_26\":\"4\",\"CS_14\":\"3\",\"CO_8\":\"4\",\"CO_9\":\"3\",\"MAA_1\":\"3\"}'),
+(2, 62, 15, NULL, '{\"id_3\":\"2\",\"id_6\":\"4\",\"id_17\":\"5\",\"id_1\":\"4\",\"id_7\":\"4\",\"id_5\":\"3\",\"id_16\":\"3\",\"id_13\":\"4\",\"id_21\":\"4\",\"id_19\":\"3\",\"id_8\":\"4\",\"id_11\":\"4\",\"id_2\":\"3\",\"id_18\":\"4\",\"id_9\":\"3\",\"id_4\":\"4\",\"id_12\":\"4\",\"id_15\":\"6\",\"id_10\":\"6\",\"id_22\":\"3\",\"id_20\":\"5\",\"id_14\":\"3\"}', '{\"Instrested\":\"1\",\"Distressed\":\"2\",\"Excited\":\"2\",\"Upset\":\"1\",\"Guilty\":\"2\",\"Scared\":\"1\",\"Enthusiastic\":\"2\",\"Hostile\":\"3\",\"Proud\":\"3\",\"Irritable\":\"2\",\"Alert\":\"3\",\"Ashamed\":\"3\",\"Inspired\":\"2\",\"Nervous\":\"3\",\"Determined\":\"2\",\"Attentive\":\"4\",\"Jittery\":\"5\",\"Active\":\"5\",\"Afraid\":\"4\",\"Strong\":\"2\"}', '{\"Player_20\":\"1\",\"Achiever_3\":\"1\",\"Philantropist_16\":\"2\",\"Philantropist_15\":\"4\",\"Disruptor_8\":\"5\",\"Disruptor_6\":\"4\",\"Achiever_2\":\"3\",\"Player_18\":\"3\",\"Free Spirit_12\":\"4\",\"Achiever_4\":\"3\",\"Free Spirit_11\":\"2\",\"Player_17\":\"1\",\"Socialiser_24\":\"3\",\"Achiever_1\":\"3\",\"Free Spirit_9\":\"2\",\"Socialiser_21\":\"1\",\"Player_19\":\"3\",\"Socialiser_23\":\"3\",\"Disruptor_5\":\"2\",\"Philantropist_13\":\"3\",\"Disruptor_7\":\"3\",\"Free Spirit_10\":\"2\",\"Philantropist_14\":\"2\",\"Socialiser_22\":\"2\"}', '{\"CO_10\":\"1\",\"AE_24\":\"2\",\"CO_7\":\"2\",\"UF_11\":\"3\",\"AE_25\":\"2\",\"CG_5\":\"1\",\"AE_26\":\"2\",\"SC_22\":\"1\",\"CG_4\":\"2\",\"TT_18\":\"1\",\"CO_8\":\"2\",\"CO_9\":\"1\",\"TT_16\":\"2\",\"MAA_2\":\"1\",\"TT_17\":\"2\",\"CS_15\":\"1\",\"CN_20\":\"2\",\"SC_23\":\"1\",\"CS_14\":\"2\",\"MAA_1\":\"1\",\"SC_21\":\"4\",\"MAA_3\":\"4\",\"CG_6\":\"4\",\"CN_19\":\"3\",\"UF_12\":\"3\",\"CS_13\":\"2\"}'),
+(3, NULL, 3, NULL, NULL, NULL, NULL, '');
 
 --
 -- Indexes for dumped tables
@@ -223,6 +229,12 @@ ALTER TABLE `activity_flow_question`
 -- Indexes for table `motivation_question`
 --
 ALTER TABLE `motivation_question`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `picture_tags`
+--
+ALTER TABLE `picture_tags`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -260,6 +272,12 @@ ALTER TABLE `motivation_question`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
+-- AUTO_INCREMENT for table `picture_tags`
+--
+ALTER TABLE `picture_tags`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `player_survey_1_questions`
 --
 ALTER TABLE `player_survey_1_questions`
@@ -269,7 +287,7 @@ ALTER TABLE `player_survey_1_questions`
 -- AUTO_INCREMENT for table `user_data`
 --
 ALTER TABLE `user_data`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
