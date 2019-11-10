@@ -29,17 +29,6 @@ export class MotivationQuestionsComponent implements OnInit {
                         showCompletedPage:false,
                         pages: [
                             {
-                                name: 'start',
-                                questions: [
-                                    {
-                                        type: "html",
-                                        name: "info",
-                                        html: "<h3>Thank you for tagging the image. Please click on the button to proceed to the" +
-                                            " next page and fill out the next questionnaire about your overall satisfaction o" +
-                                            "f the experiment.</h3>"
-                                    }
-                                ]
-                            }, {
                                 questions: [
                                     {
                                         type: "matrix",
@@ -78,7 +67,6 @@ export class MotivationQuestionsComponent implements OnInit {
                         completeText: "Next",
                         showPrevButton: false,
                         startSurveyText: 'Next',
-                        firstPageIsStarted: true
                     };
                     data.forEach(function (value, key) {
                         let obj = {
@@ -86,7 +74,7 @@ export class MotivationQuestionsComponent implements OnInit {
                             text: value.text
                         };
                         surveyJSON
-                            .pages[1]
+                            .pages[0]
                             .questions['0']
                             .rows
                             .push(obj);
