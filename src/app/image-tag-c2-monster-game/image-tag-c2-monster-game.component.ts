@@ -17,6 +17,7 @@ export class ImageTagC2MonsterGameComponent implements OnInit {
     imgeShuffleArray : Array < any >;
     arrayIndex : any;
     httpClient : any;
+    feedShowCount : any = 0;
     @ViewChild('modal', null)modal : ModalDirective;
 
     constructor(private fb : FormBuilder, private router : Router, private http : HttpClient) {
@@ -30,6 +31,7 @@ export class ImageTagC2MonsterGameComponent implements OnInit {
         this.tagCount = 0;
         this.arrayIndex = 0;
         this.imgeShuffleArray = this.shuffle();
+        this.monsterSrc = "./assets/monster/idle.gif"
         this.setImage();
         this.getTag();
     }
@@ -50,14 +52,14 @@ export class ImageTagC2MonsterGameComponent implements OnInit {
     }
 
     setImage() {
-        this.monsterSrc = "./assets/monster/idle.gif"
         this.imgSrc = "./assets/pictures/" + this.imgeShuffleArray[this.arrayIndex] + ".jpg";
         this.arrayIndex++;
         this.getTag();
     }
 
     public onItemAdded(e) {
-        if (this.items.length == 10) {
+        this.feedShowCount ++;
+        if (this.feedShowCount == 10) {
             this.monsterSrc = "./assets/monster/chewing.gif"
             this
                 .modal
