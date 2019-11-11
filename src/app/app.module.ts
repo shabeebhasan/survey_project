@@ -23,6 +23,7 @@ import { ImageTagUsernameComponent } from './image-tag-username/image-tag-userna
 import { AngularDraggableModule } from 'angular2-draggable';
 import { ImageTagConditionsComponent } from './image-tag-conditions/image-tag-conditions.component';
 import { ActivityFlowSurveyComponent } from './activity-flow-survey/activity-flow-survey.component';
+import { SurveyConfigSetComponent } from './survey-config-set/survey-config-set.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
@@ -38,6 +39,7 @@ const appRoutes: Routes = [
   { path: 'image-c2-monster', component: ImageTagC2MonsterGameComponent },
   { path: 'image-tag-select', component: ImageTagConditionsComponent },
   { path: 'activity-flow-survey', component: ActivityFlowSurveyComponent },
+  { path: 'survey-config', component: SurveyConfigSetComponent },
   { path: '',
     redirectTo: '/welcome',
     pathMatch: 'full'
@@ -60,6 +62,7 @@ const appRoutes: Routes = [
     ImageTagUsernameComponent,
     ImageTagConditionsComponent,
     ActivityFlowSurveyComponent,
+    SurveyConfigSetComponent,
   ],
   imports: [
     HttpClientModule,

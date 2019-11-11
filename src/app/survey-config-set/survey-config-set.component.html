@@ -1,0 +1,125 @@
+<style>
+    .custom-control {
+      margin-left: 30px;
+    }
+    .wrap {
+      font:12px Arial, san-serif;
+    }
+    .statement {
+      display:block;
+      font-size: 14px;
+      font-weight: bold;
+      padding: 30px 0 0 4.25%;
+      margin-bottom:10px;
+    }
+    .likert {
+      list-style:none;
+      width:100%;
+      margin:0;
+      padding:0 0 35px;
+      display:block;
+      border-bottom:2px solid #efefef;
+    }
+    .likert:last-of-type {border-bottom:0;}
+    .likert:before {
+      content: '';
+      position:relative;
+      top:11px;
+      left:9.5%;
+      display:block;
+      background-color:#efefef;
+      height:4px;
+      width:78%;
+    }
+    .likert li {
+      display:inline-block;
+      width:19%;
+      text-align:center;
+      vertical-align: top;
+    }
+    .likert li input[type=radio] {
+      display:block;
+      position:relative;
+      top:0;
+      left:50%;
+      margin-left:-6px;
+      
+    }
+    .likert li label {width:100%;}
+    </style>
+    
+    <div class="row" role="main">
+        <mdb-card class="col-md-12">
+    
+            <mdb-card-header class="info-color white-text text-center py-12">
+                <h5>
+                    <strong>Image Tagging Settings</strong>
+                </h5>
+            </mdb-card-header>
+    
+            <mdb-card-body class="col-md-12">
+    
+                <form
+                    style="color: #757575;"
+                    [formGroup]="contactForm"
+                    (ngSubmit)="onSubmit()">
+    
+                    
+                        <div class="md-form mt-3">
+                          </div>
+    
+                            <div class="wrap">
+                                <h5 style="margin-bottom:25px">1- Baseline, no game elements</h5>
+                                <h5 style="margin-bottom:25px">2- Points and Leaderboard</h5>
+                                <h5 style="margin-bottom:25px">3- Badges and Challenges</h5>
+                                <h5 style="margin-bottom:25px">4- Unlockable Content</h5>
+                                <h5 style="margin-bottom:25px">5- Virtual Monster</h5>
+                                <mdb-card>
+                                    <div class="wrap">
+                                          <label class="statement">Select game option</label>
+                                          <ul class='likert'>
+                                              <li>
+                                                  <input  type="radio" formControlName="game_setting" value="1">
+                                                  <label>1</label>
+                                                </li>
+                                                <li>
+                                                  <input type="radio" formControlName="game_setting" value="2">
+                                                  <label>2</label>
+                                                </li>
+                                                <li>
+                                                  <input checked type="radio" formControlName="game_setting" value="3">
+                                                  <label>3</label>
+                                                </li>
+                                                <li>
+                                                  <input type="radio" formControlName="game_setting" value="4">
+                                                  <label>4</label>
+                                                </li>
+                                                <li>
+                                                  <input type="radio" formControlName="game_setting" value="5">
+                                                  <label>5</label>
+                                                </li>
+                                          </ul>
+                                      </div>
+                                  </mdb-card>
+                            </div>
+    
+                                    
+                                    <button
+                                        mdbBtn
+                                        color="info"
+                                        outline="true"
+                                        rounded="true"
+                                        block="true"
+                                        class="z-depth-0 my-4 waves-effect"
+                                        mdbWavesEffect
+                                        type="submit"
+                                        [disabled]="disabledSubmitButton">NEXT</button>
+    
+                                </form>
+    
+                            </mdb-card-body>
+    
+                        </mdb-card>
+                    </div>
+    
+                  
