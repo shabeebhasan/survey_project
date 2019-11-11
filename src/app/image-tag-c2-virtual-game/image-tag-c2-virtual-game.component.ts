@@ -104,9 +104,9 @@ export class ImageTagC2VirtualGameComponent implements OnInit {
                     points: this.tagCount
                 })
                 .subscribe((data) => {
-                    this
-                        .router
-                        .navigateByUrl('/motivation-data');
+                  this
+                      .router
+                      .navigateByUrl('/activity-flow-survey');  
                 });
         }
     }

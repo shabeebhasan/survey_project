@@ -89,9 +89,9 @@ export class ImageTagC2MonsterGameComponent implements OnInit {
                     points: this.tagCount
                 })
                 .subscribe((data) => {
-                    this
-                        .router
-                        .navigateByUrl('/motivation-data');
+                  this
+                      .router
+                      .navigateByUrl('/activity-flow-survey');  
                 });
         }
     }

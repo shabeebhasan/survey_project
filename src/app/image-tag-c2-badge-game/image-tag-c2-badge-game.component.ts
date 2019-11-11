@@ -108,7 +108,7 @@ export class ImageTagC2BadgeGameComponent implements OnInit {
                 .subscribe((data) => {
                     this
                         .router
-                        .navigateByUrl('/motivation-data');
+                        .navigateByUrl('/activity-flow-survey');
                 });
         }
     }
