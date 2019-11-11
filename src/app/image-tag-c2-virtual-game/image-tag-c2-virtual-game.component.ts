@@ -20,6 +20,7 @@ export class ImageTagC2VirtualGameComponent implements OnInit {
     virtualArrayIndex : any;
     httpClient : any;
     opacity : any = 0.1;
+    virtualItemShowCount : any = 0;
     @ViewChild('modal', null)modal : ModalDirective;
 
     constructor(private fb : FormBuilder, private router : Router, private http : HttpClient) {
@@ -41,28 +42,28 @@ export class ImageTagC2VirtualGameComponent implements OnInit {
     }
 
     public onItemAdded(e) {
-        if (this.items.length == 10) {
+        this.virtualItemShowCount++;
+        if (this.virtualItemShowCount == 10) {
             this
                 .modal
                 .show()
         }
-        if (this.items.length >= 10) {
+        if (this.virtualItemShowCount  >= 10) {
             this.opacity = 1;
         } else {
-            this.opacity = parseFloat("0." + this.items.length)
+            this.opacity = parseFloat("0." + this.virtualItemShowCount )
         }
     }
 
     setImage() {
         this.imgSrc = "./assets/pictures/" + this.imgeShuffleArray[this.arrayIndex] + ".jpg";
         this.arrayIndex++;
-        this.opacity = 0.1;
         this.getTag();
     }
 
     setVirtualImage() {
         this.virtualSrc = "./assets/virtual_items/" + this.virturlImgeShuffleArray[this.virtualArrayIndex] + ".png";
-        this.virtualArrayIndex++;
+        //this.virtualArrayIndex++;
     }
 
     getTag() {

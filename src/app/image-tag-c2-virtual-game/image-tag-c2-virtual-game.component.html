@@ -2,47 +2,50 @@
     <h4 class="jumbotron-heading">Type anything that you think of when seeing this
         picture. Press enter to add more tags. Also, unlock and earn virtual items by
         adding 10 tags.</h4>
-    <div style="text-align: center;padding: 10px;" class="col-md-12">
-        <img
-            [ngStyle]="{'opacity': opacity}"
-            class="img-fluid"
-            width="200px"
-            height="200px"
-            [src]="virtualSrc"></div>
-        <mdb-card class="col-md-12">
+    <mdb-card class="col-md-8">
 
-            <mdb-card-header class="info-color white-text text-center py-12">
-                <h5>
-                    <strong>Image Questionnaire
-                        {{arrayIndex}}
-                        of 10</strong>
-                </h5>
-            </mdb-card-header>
+        <mdb-card-header class="info-color white-text text-center py-12">
+            <h5>
+                <strong>Image Questionnaire
+                    {{arrayIndex}}
+                    of 10</strong>
+            </h5>
+        </mdb-card-header>
 
-            <mdb-card-body class="col-md-12" style="text-align:center">
+        <mdb-card-body class="col-md-12" style="text-align:center">
 
+            <img
+                [src]="imgSrc"
+                style="max-width:600px;margin:20px;width: 100%;max-height:400px;"
+                class="img-fluid"
+                alt="Responsive image">
+
+                <tag-input (onAdd)="onItemAdded($event)" [(ngModel)]='items' theme='bootstrap'></tag-input>
+
+                <button
+                    mdbBtn
+                    (click)="onSubmit()"
+                    color="info"
+                    outline="true"
+                    rounded="true"
+                    block="true"
+                    class="z-depth-0 my-4 waves-effect"
+                    mdbWavesEffect
+                    type="submit"
+                    [disabled]="disabledSubmitButton">NEXT</button>
+
+            </mdb-card-body>
+
+        </mdb-card>
+        <mdb-card class="col-md-4">
+
+            <div style="text-align: center;padding: 10px;" class="col-md-12">
                 <img
-                    [src]="imgSrc"
-                    style="max-width:600px;margin:20px;width: 100%;max-height:400px;"
+                    [ngStyle]="{'opacity': opacity}"
                     class="img-fluid"
-                    alt="Responsive image">
-
-                    <tag-input (onAdd)="onItemAdded($event)" [(ngModel)]='items' theme='bootstrap'></tag-input>
-
-                    <button
-                        mdbBtn
-                        (click)="onSubmit()"
-                        color="info"
-                        outline="true"
-                        rounded="true"
-                        block="true"
-                        class="z-depth-0 my-4 waves-effect"
-                        mdbWavesEffect
-                        type="submit"
-                        [disabled]="disabledSubmitButton">NEXT</button>
-
-                </mdb-card-body>
-
+                    width="200px"
+                    height="200px"
+                    [src]="virtualSrc"></div>
             </mdb-card>
         </div>
         <div

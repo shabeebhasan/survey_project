@@ -179,7 +179,7 @@ app.post('/add-tags', (req, res) => {
 app.post('/get-tags', (req, res) => {
   console.log('/picture_tags',req.body);
   var user_id = req.body.user_id;
-  var picture_id = req.body.picture_id;
+  var picture_id = req.body.picture_id +"no";
   var sql = "SELECT * FROM `picture_tags` WHERE `user_id` = " + user_id + " AND  `picture_id`=" + "'" + picture_id + "'" ;
 
   console.log(sql);
