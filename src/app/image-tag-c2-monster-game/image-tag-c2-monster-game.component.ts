@@ -58,26 +58,27 @@ export class ImageTagC2MonsterGameComponent implements OnInit {
     }
 
     public onItemAdded(e) {
-        this.feedShowCount ++;
+        this.feedShowCount++;
         if (this.feedShowCount == 10) {
             this.monsterSrc = "./assets/monster/chewing.gif"
             this
                 .modal
                 .show();
+            this.feedShowCount = 0;
         }
     }
 
     onSubmit() {
         this.tagCount += this.items.length;
         if (this.arrayIndex < this.imgeShuffleArray.length) {
-          this
-              .httpClient
-              .post('http://localhost:8081/add-tags', {
-                  user_id: sessionStorage.getItem('user_id'),
-                  picture_id: "mo-" + this.arrayIndex,
-                  tags: JSON.stringify(this.items)
-              })
-              .subscribe((data) => {});
+            this
+                .httpClient
+                .post('http://localhost:8081/add-tags', {
+                    user_id: sessionStorage.getItem('user_id'),
+                    picture_id: "mo-" + this.arrayIndex,
+                    tags: JSON.stringify(this.items)
+                })
+                .subscribe((data) => {});
             console.log('onSubmit:: ', this.tagCount);
             this.items = '';
             this.setImage();
@@ -89,9 +90,9 @@ export class ImageTagC2MonsterGameComponent implements OnInit {
                     points: this.tagCount
                 })
                 .subscribe((data) => {
-                  this
-                      .router
-                      .navigateByUrl('/activity-flow-survey');  
+                    this
+                        .router
+                        .navigateByUrl('/activity-flow-survey');
                 });
         }
     }
