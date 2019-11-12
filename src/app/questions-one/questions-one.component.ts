@@ -71,15 +71,6 @@ export class QuestionsOneComponent implements OnInit {
                                         ]
                                     }
                                 ]
-                            }, {
-                                questions: [
-                                    {
-                                        type: "html",
-                                        name: "complete",
-                                        html: "<h3>Now you will start tagging 10 images. You are allowed to add as many tag as " +
-                                            "you want. Type anything you think of when seeing the pictures. Press enter to successfully add the tag.</h3>"
-                                    }
-                                ]
                             }
                         ],
                         completeText: "Next",

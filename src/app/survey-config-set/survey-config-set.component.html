@@ -48,6 +48,13 @@
     .likert li label {width:100%;}
     </style>
 
+    <div *ngIf="start" class="row" role="main">
+    
+      <mdb-card class="col-md-12">
+        <div id='surveyElement'></div>
+      </mdb-card>
+
+    </div>
     
     <div *ngIf="message" class="row" role="main">
         <mdb-card class="col-md-12" style="min-width: 600px;">
