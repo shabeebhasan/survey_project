@@ -42,16 +42,21 @@ export class ImageTagC2VirtualGameComponent implements OnInit {
     }
 
     public onItemAdded(e) {
+        if (this.virtualItemShowCount == 0) {
+          this.virtualArrayIndex++;
+          this.setVirtualImage();
+          this.opacity = parseFloat("0.1")
+        }
         this.virtualItemShowCount++;
         if (this.virtualItemShowCount == 10) {
             this
                 .modal
                 .show()
-        }
-        if (this.virtualItemShowCount  >= 10) {
+            this.virtualItemShowCount = 0;
+        }else if (this.virtualItemShowCount >= 10) {
             this.opacity = 1;
         } else {
-            this.opacity = parseFloat("0." + this.virtualItemShowCount )
+            this.opacity = parseFloat("0." + this.virtualItemShowCount)
         }
     }
 
@@ -84,14 +89,14 @@ export class ImageTagC2VirtualGameComponent implements OnInit {
     onSubmit() {
         this.tagCount += this.items.length;
         if (this.arrayIndex < this.imgeShuffleArray.length) {
-          this
-              .httpClient
-              .post('http://localhost:8081/add-tags', {
-                  user_id: sessionStorage.getItem('user_id'),
-                  picture_id: "vi-" + this.arrayIndex,
-                  tags: JSON.stringify(this.items)
-              })
-              .subscribe((data) => {});
+            this
+                .httpClient
+                .post('http://localhost:8081/add-tags', {
+                    user_id: sessionStorage.getItem('user_id'),
+                    picture_id: "vi-" + this.arrayIndex,
+                    tags: JSON.stringify(this.items)
+                })
+                .subscribe((data) => {});
             console.log('onSubmit:: ', this.tagCount);
             this.items = '';
             this.setImage();
@@ -104,9 +109,9 @@ export class ImageTagC2VirtualGameComponent implements OnInit {
                     points: this.tagCount
                 })
                 .subscribe((data) => {
-                  this
-                      .router
-                      .navigateByUrl('/activity-flow-survey');  
+                    this
+                        .router
+                        .navigateByUrl('/activity-flow-survey');
                 });
         }
     }
