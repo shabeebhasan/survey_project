@@ -13,6 +13,8 @@ export class SurveyConfigSetComponent implements OnInit {
     nationalities : Array < any >;
     disabledSubmitButton : boolean = false;
     http : any;
+    setting: boolean = false;
+    message: boolean = true;
 
     constructor(private fb : FormBuilder, private router : Router, http : HttpClient) {
         this.http = http;
@@ -23,6 +25,11 @@ export class SurveyConfigSetComponent implements OnInit {
     }
 
     ngOnInit() {}
+
+    continue(){
+      this.setting = true;
+      this.message = false;
+    }
 
     onSubmit() {
         if (!this.contactForm.valid) {

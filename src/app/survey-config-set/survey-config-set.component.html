@@ -47,9 +47,36 @@
     }
     .likert li label {width:100%;}
     </style>
+
     
-    <div class="row" role="main">
-        <mdb-card class="col-md-12">
+    <div *ngIf="message" class="row" role="main">
+        <mdb-card class="col-md-12" style="min-width: 600px;">
+          
+            <mdb-card-header class="info-color white-text text-center py-12">
+                <h5>
+                    <strong>Image Tagging Settings</strong>
+                </h5>
+            </mdb-card-header>
+            <mdb-card-body class="col-md-12">
+                <h5>Before you continue with the experiment, ask the experiment supervisor to set it up.</h5>
+                <button
+                    mdbBtn
+                    (click)="continue()"
+                    color="info"
+                    outline="true"
+                    rounded="true"
+                    block="true"
+                    class="z-depth-0 my-4 waves-effect"
+                    mdbWavesEffect
+                    type="submit"
+                    [disabled]="disabledSubmitButton">Continue</button>
+            </mdb-card-body>
+        </mdb-card>
+
+    </div>
+
+    <div *ngIf="setting" class="row" role="main">
+        <mdb-card class="col-md-12" style="min-width: 600px;">
     
             <mdb-card-header class="info-color white-text text-center py-12">
                 <h5>
