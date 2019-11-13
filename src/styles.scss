@@ -2,7 +2,40 @@
 .table thead tr th span{
   word-break: keep-all;
 }
-
+.table {
+  thead tr:nth-child(1) th{
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+}
 #sat_surveyElement .table thead th {
+  position: sticky;
+  top: 50px;
   width: 140px;
+  background: white;
+}
+
+tbody {
+  display: block;
+  overflow-y: auto;
+  height: 550px;
+  overflow-x: hidden;
+}
+
+thead tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+thead, tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+thead {
+  width: calc( 100% - 1em )
 }

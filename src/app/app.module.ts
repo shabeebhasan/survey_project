@@ -24,6 +24,7 @@ import { AngularDraggableModule } from 'angular2-draggable';
 import { ImageTagConditionsComponent } from './image-tag-conditions/image-tag-conditions.component';
 import { ActivityFlowSurveyComponent } from './activity-flow-survey/activity-flow-survey.component';
 import { SurveyConfigSetComponent } from './survey-config-set/survey-config-set.component';
+import {AngularStickyThingsModule} from '@w11k/angular-sticky-things';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
@@ -73,6 +74,7 @@ const appRoutes: Routes = [
     MDBBootstrapModule,
     MDBBootstrapModule.forRoot(),
     BrowserModule,
+    AngularStickyThingsModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
