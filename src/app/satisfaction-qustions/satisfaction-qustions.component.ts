@@ -110,7 +110,7 @@ export class SatisfactionQustionsComponent implements OnInit {
     ngOnInit() {
         StylesManager.applyTheme("bootstrap");
         var survey = new Model(json);
-        SurveyNG.render("surveyElement", {model: survey});
+        SurveyNG.render("sat_surveyElement", {model: survey});
         survey
             .onComplete
             .add((survey) => {

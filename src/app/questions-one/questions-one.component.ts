@@ -3,8 +3,9 @@ import {Model, SurveyNG, StylesManager} from 'survey-angular';
 import {ApiService} from '../api.service';
 import {HttpClient} from "@angular/common/http";
 import {Router} from '@angular/router';
+import { ViewEncapsulation } from '@angular/core';
 
-@Component({selector: 'app-questions-one', templateUrl: './questions-one.component.html', styleUrls: ['./questions-one.component.scss'], providers: [ApiService]})
+@Component({selector: 'app-questions-one',encapsulation: ViewEncapsulation.None, templateUrl: './questions-one.component.html', styleUrls: ['./questions-one.component.scss'], providers: [ApiService]})
 
 export class QuestionsOneComponent implements OnInit {
 
