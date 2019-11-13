@@ -47,7 +47,7 @@
 
                 <h2 style="font-weight: 900;">Points:
                     {{tagCount}}</h2>
-                <tag-input [(ngModel)]='items' theme='bootstrap'></tag-input>
+                <tag-input (onAdd)="onItemAdded($event)" [(ngModel)]='items' theme='bootstrap'></tag-input>
 
                 <button
                     mdbBtn

@@ -57,8 +57,11 @@ export class ImageTagC2Component implements OnInit {
         this.start = true;
     }
 
+    public onItemAdded(e) {
+        this.tagCount += 1;
+    }
+
     onSubmit() {
-        this.tagCount += this.items.length;
         this.chartDatasets = [
             {
                 data: [
