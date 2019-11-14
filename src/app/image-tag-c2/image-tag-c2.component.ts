@@ -59,9 +59,6 @@ export class ImageTagC2Component implements OnInit {
 
     public onItemAdded(e) {
         this.tagCount += 1;
-    }
-
-    onSubmit() {
         this.chartDatasets = [
             {
                 data: [
@@ -70,6 +67,10 @@ export class ImageTagC2Component implements OnInit {
                 label: 'TOP USERS'
             }
         ];
+    }
+
+    onSubmit() {
+
         if (this.arrayIndex < this.imgeShuffleArray.length) {
             this
                 .httpClient

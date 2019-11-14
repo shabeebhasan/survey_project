@@ -76,7 +76,7 @@ export class ImageQuestionsComponent implements OnInit {
                 .subscribe((data) => {
                     this
                         .router
-                        .navigateByUrl('/image-c2-username');
+                        .navigateByUrl('/activity-flow-survey');
                 });
         }
     }
