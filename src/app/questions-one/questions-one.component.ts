@@ -104,7 +104,7 @@ export class QuestionsOneComponent implements OnInit {
                                             survey_data: resultAsString
                                         })
                                         .subscribe((data) => {
-                                            router.navigateByUrl('/survey-config');
+                                            router.navigateByUrl('/test-image-tag');
                                         });
                                 });
                         }
@@ -112,5 +112,4 @@ export class QuestionsOneComponent implements OnInit {
                 });
         }, 111);
     }
-
 }

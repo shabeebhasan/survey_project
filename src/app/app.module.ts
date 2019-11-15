@@ -25,6 +25,7 @@ import { ImageTagConditionsComponent } from './image-tag-conditions/image-tag-co
 import { ActivityFlowSurveyComponent } from './activity-flow-survey/activity-flow-survey.component';
 import { SurveyConfigSetComponent } from './survey-config-set/survey-config-set.component';
 import {AngularStickyThingsModule} from '@w11k/angular-sticky-things';
+import { TestImageTagComponent } from './test-image-tag/test-image-tag.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
@@ -40,6 +41,7 @@ const appRoutes: Routes = [
   { path: 'image-c2-monster', component: ImageTagC2MonsterGameComponent },
   { path: 'image-tag-select', component: ImageTagConditionsComponent },
   { path: 'activity-flow-survey', component: ActivityFlowSurveyComponent },
+  { path: 'test-image-tag', component: TestImageTagComponent },
   { path: 'survey-config', component: SurveyConfigSetComponent },
   { path: '',
     redirectTo: '/welcome',
@@ -64,6 +66,7 @@ const appRoutes: Routes = [
     ImageTagConditionsComponent,
     ActivityFlowSurveyComponent,
     SurveyConfigSetComponent,
+    TestImageTagComponent,
   ],
   imports: [
     HttpClientModule,
