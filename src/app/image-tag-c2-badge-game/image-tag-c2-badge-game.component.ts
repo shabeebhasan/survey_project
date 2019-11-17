@@ -9,6 +9,9 @@ export class ImageTagC2BadgeGameComponent implements OnInit {
 
     imageForm : FormGroup;
     disabledSubmitButton : boolean = false;
+    bronzeShow : boolean = false;
+    goldShow : boolean = false;
+    silverShow : boolean = false;
     optionsSelect : Array < any >;
     items : any;
     tagCount : any;
@@ -17,11 +20,13 @@ export class ImageTagC2BadgeGameComponent implements OnInit {
     imgeShuffleArray : Array < any >;
     arrayIndex : any;
     httpClient : any;
+    bronzeBagdeImg : any = "./assets/badges/FrameLvl2@4x.png";
     silverBagdeImg : any = "./assets/badges/FrameLvl4@4x.png";
     goldenBagdeImg : any = "./assets/badges/FrameLvl7@4x.png";
 
     @ViewChild('silverBagde', null)silverBagde : ModalDirective;
     @ViewChild('goldenBagde', null)goldenBagde : ModalDirective;
+    @ViewChild('bronzeBagde', null)bronzeBagde : ModalDirective;
 
     constructor(private fb : FormBuilder, private router : Router, private http : HttpClient) {
 
@@ -62,13 +67,19 @@ export class ImageTagC2BadgeGameComponent implements OnInit {
     }
 
     public onItemAdded(e) {
+        this.tagCount += 1;
         this.tagRewardCount += 1;
-        if (this.tagRewardCount == 10) {
-            this.openSilverDialog();
-            this.tagRewardCount = 0;
+        if (this.tagRewardCount == 2) {
+            this.openbronzeBagdeDialog();
+            this.bronzeShow = true;
         }
-        if (this.items.length == 3) {
-            //this.opengoldenDialog();
+        if (this.tagRewardCount == 5) {
+          this.openSilverDialog();
+          this.silverShow = true;
+        }
+        if (this.tagRewardCount == 7) {
+            this.opengoldenDialog();
+            this.goldShow = true;
         }
     }
 
@@ -84,8 +95,13 @@ export class ImageTagC2BadgeGameComponent implements OnInit {
             .show();
     }
 
+    openbronzeBagdeDialog() {
+      this
+          .bronzeBagde
+          .show();
+    }
+
     onSubmit() {
-        this.tagCount += this.items.length;
         if (this.arrayIndex < this.imgeShuffleArray.length) {
             this
                 .httpClient
