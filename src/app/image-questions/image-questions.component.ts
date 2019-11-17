@@ -31,6 +31,10 @@ export class ImageQuestionsComponent implements OnInit {
         this.getTag();
     }
 
+    public onItemAdded(e) {
+      this.tagCount += 1;
+    }
+
     getTag() {
         this
             .httpClient
@@ -53,7 +57,6 @@ export class ImageQuestionsComponent implements OnInit {
     }
 
     onSubmit() {
-        this.tagCount += this.items.length;
         if (this.arrayIndex < this.imgeShuffleArray.length) {
             this
                 .httpClient

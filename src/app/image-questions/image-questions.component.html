@@ -1,13 +1,13 @@
 
 
 <div class="row" role="main">
-    <h1 class="jumbotron-heading">STEP 3</h1>
+    <h1 class="jumbotron-heading">Type anything you think of when seeing the images. Press enter to successfully add the tag.</h1>
   
-  <mdb-card class="col-md-12">
+  <mdb-card class="col-md-8">
   
     <mdb-card-header class="info-color white-text text-center py-12">
       <h5>
-        <strong>Image Questionnaire {{arrayIndex}} of 10</strong>
+        <strong>{{arrayIndex}} of 10</strong>
       </h5>
     </mdb-card-header>
   
@@ -16,7 +16,7 @@
         <img [src]="imgSrc" style="max-width:600px;margin:20px;width: 100%;max-height:400px;" class="img-fluid" alt="Responsive image">
 
 
-        <tag-input [(ngModel)]='items' theme='bootstrap'></tag-input>
+        <tag-input (onAdd)="onItemAdded($event)" [(ngModel)]='items' theme='bootstrap'></tag-input>
   
         <button mdbBtn (click)="onSubmit()" color="info" outline="true" rounded="true" block="true" class="z-depth-0 my-4 waves-effect"
           mdbWavesEffect type="submit" [disabled]="disabledSubmitButton">NEXT</button>
@@ -25,4 +25,13 @@
     </mdb-card-body>
   
   </mdb-card>
+  
+  <mdb-card class="col-md-4">
+
+    <div style="text-align: center;padding: 10px;" class="col-md-12">
+      <div>  
+        <h5  style="border: 5px solid cornflowerblue;padding: 5px;"><strong>Tag Counter: {{tagCount}}</strong></h5>
+          </div>
+    </div>
+    </mdb-card>
   </div>
