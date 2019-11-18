@@ -12,6 +12,7 @@ export class ImageTagC2VirtualGameComponent implements OnInit {
     optionsSelect : Array < any >;
     items : any;
     tagCount : any;
+    tagPercentage : any;
     imgSrc : any;
     virtualSrc : any;
     imgeShuffleArray : Array < any >;
@@ -42,6 +43,10 @@ export class ImageTagC2VirtualGameComponent implements OnInit {
     }
 
     public onItemAdded(e) {
+        this.tagCount += 1;
+        if(this.tagCount < 75){
+          this.tagPercentage =  parseInt(((this.tagCount / 75 ) * 100)) + "%"
+        }
         if (this.virtualItemShowCount == 0) {
           this.virtualArrayIndex++;
           this.setVirtualImage();
@@ -87,7 +92,6 @@ export class ImageTagC2VirtualGameComponent implements OnInit {
     }
 
     onSubmit() {
-        this.tagCount += this.items.length;
         if (this.arrayIndex < this.imgeShuffleArray.length) {
             this
                 .httpClient

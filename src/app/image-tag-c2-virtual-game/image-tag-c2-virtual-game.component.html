@@ -40,6 +40,10 @@
         <mdb-card class="col-md-4">
 
             <div style="text-align: center;padding: 10px;" class="col-md-12">
+                <h5 style="border: 5px solid cornflowerblue;padding: 5px;">
+                    <strong>Tag Counter:
+                        {{tagCount}}</strong>
+                </h5>
               <div style="width: 220px;height: 220px;margin: auto;border: 5px solid cornflowerblue;">  
               <img
                     [ngStyle]="{'opacity': opacity}"
@@ -48,7 +52,11 @@
                     height="200px"
                     [src]="virtualSrc">
                   </div>
+                  <div class="progress md-progress" style="margin:20px;height: 20px">
+                      <div class="progress-bar" role="progressbar" [ngStyle]="{'width':tagPercentage,'height':'20px'}" aria-valuenow="tagPercentage" aria-valuemin="0" aria-valuemax="100">{{tagPercentage}}</div>
+                  </div>
             </div>
+            
             </mdb-card>
         </div>
         <div
