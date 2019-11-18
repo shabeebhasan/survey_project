@@ -3,6 +3,7 @@ import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {HttpClient} from "@angular/common/http";
 import {ModalDirective} from 'angular-bootstrap-md';
+import {AppSetting} from '../AppSetting';
 
 @Component({selector: 'app-image-tag-c2-badge-game', templateUrl: './image-tag-c2-badge-game.component.html', styleUrls: ['./image-tag-c2-badge-game.component.scss']})
 export class ImageTagC2BadgeGameComponent implements OnInit {
@@ -69,15 +70,15 @@ export class ImageTagC2BadgeGameComponent implements OnInit {
     public onItemAdded(e) {
         this.tagCount += 1;
         this.tagRewardCount += 1;
-        if (this.tagRewardCount == 2) {
+        if (this.tagRewardCount == AppSetting.THRESHOLD_1) {
             this.openbronzeBagdeDialog();
             this.bronzeShow = true;
         }
-        if (this.tagRewardCount == 5) {
+        if (this.tagRewardCount == AppSetting.THRESHOLD_2) {
           this.openSilverDialog();
           this.silverShow = true;
         }
-        if (this.tagRewardCount == 7) {
+        if (this.tagRewardCount == AppSetting.THRESHOLD_3) {
             this.opengoldenDialog();
             this.goldShow = true;
         }

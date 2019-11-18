@@ -45,7 +45,7 @@ export class ImageTagC2VirtualGameComponent implements OnInit {
     public onItemAdded(e) {
         this.tagCount += 1;
         if(this.tagCount <= 75){
-          this.tagPercentage =  parseInt(((this.tagCount / 75 ) * 100)) + "%"
+          this.tagPercentage =  Math.trunc(((this.tagCount / 75 ) * 100)) + "%"
         }
         if (this.virtualItemShowCount == 0) {
           this.virtualArrayIndex++;

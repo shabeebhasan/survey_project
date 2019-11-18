@@ -63,7 +63,7 @@ export class ImageTagC2MonsterGameComponent implements OnInit {
         this.feedShowCount++;
         this.tagCount += 1;
         if(this.tagCount <= 75){
-          this.tagPercentage =  parseInt(((this.tagCount / 75 ) * 100)) + "%"
+          this.tagPercentage =  Math.trunc(((this.tagCount / 75 ) * 100)) + "%"
         }
         if(this.feedShowCount == AppSetting.THRESHOLD_1){
           this.monsterSrc = "./assets/monster/chewing.gif"
