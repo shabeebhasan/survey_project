@@ -3,6 +3,7 @@ import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {HttpClient} from "@angular/common/http";
 import {ModalDirective} from 'angular-bootstrap-md';
+import {AppSetting} from '../AppSetting';
 
 @Component({selector: 'app-image-tag-c2-monster-game', templateUrl: './image-tag-c2-monster-game.component.html', styleUrls: ['./image-tag-c2-monster-game.component.scss']})
 export class ImageTagC2MonsterGameComponent implements OnInit {
@@ -64,13 +65,24 @@ export class ImageTagC2MonsterGameComponent implements OnInit {
         if(this.tagCount <= 75){
           this.tagPercentage =  parseInt(((this.tagCount / 75 ) * 100)) + "%"
         }
-        if (this.feedShowCount == 10) {
-            this.monsterSrc = "./assets/monster/chewing.gif"
-            this
-                .modal
-                .show();
-            this.feedShowCount = 0;
+        if(this.feedShowCount == AppSetting.THRESHOLD_1){
+          this.monsterSrc = "./assets/monster/chewing.gif"
         }
+        
+        if(this.feedShowCount == AppSetting.THRESHOLD_2){
+          this.monsterSrc = "./assets/monster/hovering.gif"
+        }
+
+        if(this.feedShowCount == AppSetting.THRESHOLD_3){
+          this.monsterSrc = "./assets/monster/dragging.gif"
+        }
+        // if (this.feedShowCount == 10) {
+        //     this.monsterSrc = "./assets/monster/chewing.gif"
+        //     this
+        //         .modal
+        //         .show();
+        //     this.feedShowCount = 0;
+        // }
     }
 
     onSubmit() {
