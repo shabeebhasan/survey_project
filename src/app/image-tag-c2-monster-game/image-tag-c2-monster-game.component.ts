@@ -17,6 +17,7 @@ export class ImageTagC2MonsterGameComponent implements OnInit {
     imgeShuffleArray : Array < any >;
     arrayIndex : any;
     httpClient : any;
+    tagPercentage : any;
     feedShowCount : any = 0;
     @ViewChild('modal', null)modal : ModalDirective;
 
@@ -59,6 +60,10 @@ export class ImageTagC2MonsterGameComponent implements OnInit {
 
     public onItemAdded(e) {
         this.feedShowCount++;
+        this.tagCount += 1;
+        if(this.tagCount <= 75){
+          this.tagPercentage =  parseInt(((this.tagCount / 75 ) * 100)) + "%"
+        }
         if (this.feedShowCount == 10) {
             this.monsterSrc = "./assets/monster/chewing.gif"
             this
@@ -69,7 +74,6 @@ export class ImageTagC2MonsterGameComponent implements OnInit {
     }
 
     onSubmit() {
-        this.tagCount += this.items.length;
         if (this.arrayIndex < this.imgeShuffleArray.length) {
             this
                 .httpClient
