@@ -49,19 +49,19 @@ export class ActivityFlowSurveyComponent implements OnInit {
                                         columns: [
                                             {
                                                 value: 1,
-                                                text: "very sligthly or not at all"
+                                                text: "Strongly disagree"
                                             }, {
                                                 value: 2,
-                                                text: "a little"
+                                                text: "Disagree"
                                             }, {
                                                 value: 3,
-                                                text: "moderately"
+                                                text: "Neither agree nor disagree"
                                             }, {
                                                 value: 4,
-                                                text: "quite a bit"
+                                                text: "Agree"
                                             }, {
                                                 value: 5,
-                                                text: "extremely"
+                                                text: "Strongly agree"
                                             }
                                         ]
                                     }
