@@ -19,8 +19,13 @@ export class ImageTagC2MonsterGameComponent implements OnInit {
     arrayIndex : any;
     httpClient : any;
     tagPercentage : any;
+    monsterMsg : any;
     feedShowCount : any = 0;
     @ViewChild('modal', null)modal : ModalDirective;
+
+    THRESHOLD_1 : any = AppSetting.THRESHOLD_1;
+    THRESHOLD_2 : any = AppSetting.THRESHOLD_2;
+    THRESHOLD_3 : any = AppSetting.THRESHOLD_3;
 
     constructor(private fb : FormBuilder, private router : Router, private http : HttpClient) {
 
@@ -62,19 +67,25 @@ export class ImageTagC2MonsterGameComponent implements OnInit {
     public onItemAdded(e) {
         this.feedShowCount++;
         this.tagCount += 1;
-        if(this.tagCount <= 75){
-          this.tagPercentage =  Math.trunc(((this.tagCount / 75 ) * 100)) + "%"
+        if(this.tagCount <= this.THRESHOLD_3){
+          this.tagPercentage =  Math.trunc(((this.tagCount / this.THRESHOLD_3 ) * 100)) + "%"
         }
         if(this.feedShowCount == AppSetting.THRESHOLD_1){
           this.monsterSrc = "./assets/monster/chewing.gif"
+          this.monsterMsg = "the monster is sad."
+          this.modal.show();
         }
         
         if(this.feedShowCount == AppSetting.THRESHOLD_2){
           this.monsterSrc = "./assets/monster/hovering.gif"
+          this.monsterMsg = "the monster is neutral."
+          this.modal.show();
         }
 
         if(this.feedShowCount == AppSetting.THRESHOLD_3){
           this.monsterSrc = "./assets/monster/dragging.gif"
+          this.monsterMsg = "the monster is happy."
+          this.modal.show();
         }
         // if (this.feedShowCount == 10) {
         //     this.monsterSrc = "./assets/monster/chewing.gif"
