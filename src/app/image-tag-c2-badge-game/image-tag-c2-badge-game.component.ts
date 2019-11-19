@@ -25,6 +25,11 @@ export class ImageTagC2BadgeGameComponent implements OnInit {
     silverBagdeImg : any = "./assets/badges/FrameLvl4@4x.png";
     goldenBagdeImg : any = "./assets/badges/FrameLvl7@4x.png";
 
+    
+    THRESHOLD_1 : any = AppSetting.THRESHOLD_1;
+    THRESHOLD_2 : any = AppSetting.THRESHOLD_2;
+    THRESHOLD_3 : any = AppSetting.THRESHOLD_3;
+
     @ViewChild('silverBagde', null)silverBagde : ModalDirective;
     @ViewChild('goldenBagde', null)goldenBagde : ModalDirective;
     @ViewChild('bronzeBagde', null)bronzeBagde : ModalDirective;
