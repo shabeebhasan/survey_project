@@ -1,13 +1,11 @@
 <div class="row" role="main">
     <h4 class="jumbotron-heading">Type anything that you think of when seeing this
-        picture. Press enter to add more tags. Also, unlock and earn virtual items by
-        adding 10 tags.</h4>
+        picture. Press enter to add more tags.</h4>
     <mdb-card class="col-md-8">
 
         <mdb-card-header class="header-color white-text text-center py-12">
             <h5>
-                <strong>Image Questionnaire
-                    {{arrayIndex}}
+                <strong>{{arrayIndex}}
                     of 10</strong>
             </h5>
         </mdb-card-header>
@@ -40,81 +38,114 @@
         <mdb-card class="col-md-4">
 
             <div style="text-align: center;padding: 10px;" class="col-md-12">
-                
-                <div style="width: 100%;margin: 6px auto;height: 60px;border: 5px solid cornflowerblue;">  
-                    <img
-                    [ngStyle]="{'opacity': 1}"
-                    class="img-fluid"
-                    width="45px"
-                    height="45px"
-                    [src]="virtualSrc">
-                    
-                    <img
-                    [ngStyle]="{'opacity': 1}"
-                    class="img-fluid"
-                    width="45px"
-                    height="45px"
-                    [src]="virtualSrc">
+
+                <h5 style="border: 5px solid cornflowerblue;padding: 5px;">
+                    <strong>Tag Counter:
+                        {{tagCount}}</strong>
+                </h5>
+                <h5 style="font-weight: 500;">Earned Items</h5>
+                <div
+                    style="width: 100%;margin: 6px auto;height: 60px;border: 5px solid cornflowerblue;">
 
                     <img
-                    [ngStyle]="{'opacity': 1}"
-                    class="img-fluid"
-                    width="45px"
-                    height="45px"
-                    [src]="virtualSrc">
-                </div>
-              <div style="width: 220px;height: 220px;margin: auto;border: 5px solid cornflowerblue;">  
-              <img
-                    [ngStyle]="{'opacity': opacity}"
-                    class="img-fluid"
-                    width="200px"
-                    height="200px"
-                    [src]="virtualSrc">
-                  </div>
-                  <div class="progress md-progress" style="margin:20px;height: 20px">
-                      <div class="progress-bar" role="progressbar" [ngStyle]="{'width':tagPercentage,'height':'20px'}" aria-valuenow="tagPercentage" aria-valuemin="0" aria-valuemax="100">{{tagPercentage}}</div>
-                  </div>
-                  <h5 style="border: 5px solid cornflowerblue;padding: 5px;">
-                      <strong>Tag Counter:
-                          {{tagCount}}</strong>
-                  </h5>
-            </div>
-            
-            </mdb-card>
-        </div>
-        <div
-            mdbModal
-            #modal="mdbModal"
-            class="modal fade"
-            tabindex="-1"
-            role="dialog"
-            aria-labelledby="myBasicModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button
-                            type="button"
-                            class="close pull-right"
-                            aria-label="Close"
-                            (click)="modal.hide()">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                        <h4 class="modal-title w-100" id="myModalLabel">Virtual Item</h4>
-                    </div>
-                    <div style="text-align:center" class="modal-body">
-                        <h4 style="text-align:center">Congrats, you've earned a virtual item</h4>
-                        <img style="text-align:center" width="200px" [src]="virtualSrc"></div>
-                        <div class="modal-footer">
-                            <button
-                                type="button"
-                                mdbBtn
-                                color="secondary"
-                                class="waves-light"
-                                aria-label="Close"
-                                (click)="modal.hide()"
-                                mdbWavesEffect>Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                        style="-webkit-filter:blur(4px);filter:blur(4px);"
+                        class="img-fluid"
+                        width="45px"
+                        height="45px"
+                        *ngIf="!imgShow1"
+                        [src]="virtualSrc1">
+
+                        <img
+                            *ngIf="imgShow1"
+                            class="img-fluid"
+                            width="45px"
+                            height="45px"
+                            [src]="virtualSrc1">
+
+                            <img
+                                style="-webkit-filter:blur(4px);filter:blur(4px);"
+                                class="img-fluid"
+                                width="45px"
+                                height="45px"
+                                *ngIf="!imgShow2"
+                                [src]="virtualSrc2">
+
+                                <img
+                                    *ngIf="imgShow2"
+                                    class="img-fluid"
+                                    width="45px"
+                                    height="45px"
+                                    [src]="virtualSrc2">
+
+                                    <img
+                                        style="-webkit-filter:blur(4px);filter:blur(4px);"
+                                        class="img-fluid"
+                                        width="45px"
+                                        height="45px"
+                                        *ngIf="!imgShow3"
+                                        [src]="virtualSrc3">
+
+                                        <img
+                                            *ngIf="imgShow3"
+                                            class="img-fluid"
+                                            width="45px"
+                                            height="45px"
+                                            [src]="virtualSrc3"></div>
+
+                                        <div
+                                            style="width: 220px;height: 220px;margin: auto;border: 5px solid cornflowerblue;">
+                                            <img
+                                                [ngStyle]="{'opacity': opacity}"
+                                                class="img-fluid"
+                                                width="200px"
+                                                height="200px"
+                                                [src]="virtualSrc"></div>
+                                            <div class="progress md-progress" style="margin:20px;height: 20px">
+                                                <div
+                                                    class="progress-bar"
+                                                    role="progressbar"
+                                                    [ngStyle]="{'width':tagPercentage,'height':'20px'}"
+                                                    aria-valuenow="tagPercentage"
+                                                    aria-valuemin="0"
+                                                    aria-valuemax="100">{{tagPercentage}}</div>
+                                            </div>
+                                        </div>
+
+                                    </mdb-card>
+                                </div>
+                                <div
+                                    mdbModal
+                                    #modal="mdbModal"
+                                    class="modal fade"
+                                    tabindex="-1"
+                                    role="dialog"
+                                    aria-labelledby="myBasicModalLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button
+                                                    type="button"
+                                                    class="close pull-right"
+                                                    aria-label="Close"
+                                                    (click)="modal.hide()">
+                                                    <span aria-hidden="true">×</span>
+                                                </button>
+                                                <h4 class="modal-title w-100" id="myModalLabel">Virtual Item</h4>
+                                            </div>
+                                            <div style="text-align:center" class="modal-body">
+                                                <h4 style="text-align:center">Congrats, you've earned a virtual item</h4>
+                                                <img style="text-align:center" width="200px" [src]="modalvirtualSrc"></div>
+                                                <div class="modal-footer">
+                                                    <button
+                                                        type="button"
+                                                        mdbBtn
+                                                        color="secondary"
+                                                        class="waves-light"
+                                                        aria-label="Close"
+                                                        (click)="modal.hide()"
+                                                        mdbWavesEffect>Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>

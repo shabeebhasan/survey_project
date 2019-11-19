@@ -3,6 +3,7 @@ import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {HttpClient} from "@angular/common/http";
 import {ModalDirective} from 'angular-bootstrap-md';
+import {AppSetting} from '../AppSetting';
 
 @Component({selector: 'app-image-tag-c2-virtual-game', templateUrl: './image-tag-c2-virtual-game.component.html', styleUrls: ['./image-tag-c2-virtual-game.component.scss']})
 export class ImageTagC2VirtualGameComponent implements OnInit {
@@ -15,6 +16,10 @@ export class ImageTagC2VirtualGameComponent implements OnInit {
     tagPercentage : any;
     imgSrc : any;
     virtualSrc : any;
+    virtualSrc1 : any;
+    virtualSrc2 : any;
+    virtualSrc3 : any;
+    modalvirtualSrc : any;
     imgeShuffleArray : Array < any >;
     virturlImgeShuffleArray : Array < any >;
     arrayIndex : any;
@@ -23,6 +28,15 @@ export class ImageTagC2VirtualGameComponent implements OnInit {
     opacity : any = 0.1;
     virtualItemShowCount : any = 0;
     @ViewChild('modal', null)modal : ModalDirective;
+
+    
+    imgShow1 : boolean = false;
+    imgShow2 : boolean = false;
+    imgShow3 : boolean = false;
+    
+    THRESHOLD_1 : any = AppSetting.THRESHOLD_1;
+    THRESHOLD_2 : any = AppSetting.THRESHOLD_2;
+    THRESHOLD_3 : any = AppSetting.THRESHOLD_3;
 
     constructor(private fb : FormBuilder, private router : Router, private http : HttpClient) {
 
@@ -44,25 +58,48 @@ export class ImageTagC2VirtualGameComponent implements OnInit {
 
     public onItemAdded(e) {
         this.tagCount += 1;
-        if(this.tagCount <= 75){
-          this.tagPercentage =  Math.trunc(((this.tagCount / 75 ) * 100)) + "%"
+        if(this.tagCount <= this.THRESHOLD_3){
+          this.tagPercentage =  Math.trunc(((this.tagCount / this.THRESHOLD_3 ) * 100)) + "%"
         }
-        if (this.virtualItemShowCount == 0) {
-          this.virtualArrayIndex++;
-          this.setVirtualImage();
-          this.opacity = parseFloat("0.1")
-        }
-        this.virtualItemShowCount++;
-        if (this.virtualItemShowCount == 10) {
-            this
+
+        if(this.tagCount == this.THRESHOLD_1){
+          this.virtualSrc = this.virtualSrc2;
+          this.modalvirtualSrc = this.virtualSrc1;
+          this.imgShow1 = true;
+          this
                 .modal
                 .show()
-            this.virtualItemShowCount = 0;
-        }else if (this.virtualItemShowCount >= 10) {
-            this.opacity = 1;
-        } else {
-            this.opacity = parseFloat("0." + this.virtualItemShowCount)
+        } else if(this.tagCount == this.THRESHOLD_2){
+          this.virtualSrc = this.virtualSrc3;
+          this.modalvirtualSrc = this.virtualSrc2;
+          this.imgShow2 = true;
+          this
+                .modal
+                .show()
+        } else if(this.tagCount == this.THRESHOLD_3){
+          this.virtualSrc = this.virtualSrc3;
+          this.modalvirtualSrc = this.virtualSrc3;
+          this.imgShow3 = true;
+          this
+                .modal
+                .show()
         }
+
+        // if (this.virtualItemShowCount == 0) {
+        //   this.virtualArrayIndex++;
+        //   this.opacity = parseFloat("0.1")
+        // }
+        // this.virtualItemShowCount++;
+        // if (this.virtualItemShowCount == 10) {
+        //     this
+        //         .modal
+        //         .show()
+        //     this.virtualItemShowCount = 0;
+        // }else if (this.virtualItemShowCount >= 10) {
+        //     this.opacity = 1;
+        // } else {
+        //     this.opacity = parseFloat("0." + this.virtualItemShowCount)
+        // }
     }
 
     setImage() {
@@ -72,8 +109,10 @@ export class ImageTagC2VirtualGameComponent implements OnInit {
     }
 
     setVirtualImage() {
-        this.virtualSrc = "./assets/virtual_items/" + this.virturlImgeShuffleArray[this.virtualArrayIndex] + ".png";
-        //this.virtualArrayIndex++;
+        this.virtualSrc1 = "./assets/virtual_items/1.png";
+        this.virtualSrc2 = "./assets/virtual_items/2.png";
+        this.virtualSrc3 = "./assets/virtual_items/3.png";
+        this.virtualSrc = this.virtualSrc1;
     }
 
     getTag() {
@@ -104,7 +143,6 @@ export class ImageTagC2VirtualGameComponent implements OnInit {
             console.log('onSubmit:: ', this.tagCount);
             this.items = '';
             this.setImage();
-            this.setVirtualImage();
         } else {
             this
                 .httpClient
