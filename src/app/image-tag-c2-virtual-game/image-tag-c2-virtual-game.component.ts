@@ -66,6 +66,7 @@ export class ImageTagC2VirtualGameComponent implements OnInit {
           this.virtualSrc = this.virtualSrc2;
           this.modalvirtualSrc = this.virtualSrc1;
           this.imgShow1 = true;
+          this.opacity = 0.09;
           this
                 .modal
                 .show()
@@ -73,6 +74,7 @@ export class ImageTagC2VirtualGameComponent implements OnInit {
           this.virtualSrc = this.virtualSrc3;
           this.modalvirtualSrc = this.virtualSrc2;
           this.imgShow2 = true;
+          this.opacity = 0.09;
           this
                 .modal
                 .show()
@@ -80,9 +82,25 @@ export class ImageTagC2VirtualGameComponent implements OnInit {
           this.virtualSrc = this.virtualSrc3;
           this.modalvirtualSrc = this.virtualSrc3;
           this.imgShow3 = true;
+          this.opacity = 1;
           this
                 .modal
                 .show()
+        }
+
+        if(this.tagCount < this.THRESHOLD_1){          
+          this.opacity =  this.tagCount / this.THRESHOLD_1
+          console.log(this.opacity)
+        }
+
+        if(this.tagCount < this.THRESHOLD_2 && this.tagCount > this.THRESHOLD_1 ){          
+          this.opacity =  (this.tagCount - this.THRESHOLD_1)  / (this.THRESHOLD_2 - this.THRESHOLD_1)
+          console.log(this.opacity)
+        }
+
+        if(this.tagCount < this.THRESHOLD_3 && this.tagCount > this.THRESHOLD_2 ){ 
+          this.opacity =  (this.tagCount - this.THRESHOLD_2) / (this.THRESHOLD_3 - this.THRESHOLD_2)
+          console.log(this.opacity)
         }
 
         // if (this.virtualItemShowCount == 0) {
