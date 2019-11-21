@@ -44,30 +44,30 @@ export class QuestionsOneComponent implements OnInit {
                                         rows: [],
                                         type: "matrix",
                                         name: "questions_one",
-                                        title: "To what extent do the following statements apply to you?",
+                                        title: "Please rate your level of agreement with the following statements.",
                                         isAllRowRequired: true,
                                         columns: [
                                             {
                                                 value: 1,
-                                                text: "Strongly disagree"
+                                                text: "strongly disagree"
                                             }, {
                                                 value: 2,
-                                                text: "Disagree"
+                                                text: "disagree"
                                             }, {
                                                 value: 3,
-                                                text: "Somewhat disagree"
+                                                text: "somewhat disagree"
                                             }, {
                                                 value: 4,
-                                                text: "Neither agree nor disagree"
+                                                text: "neither agree nor disagree"
                                             }, {
                                                 value: 5,
-                                                text: "Somewhat agree"
+                                                text: "somewhat agree"
                                             }, {
                                                 value: 6,
-                                                text: "Agree"
+                                                text: "agree"
                                             }, {
                                                 value: 7,
-                                                text: "Strongly agree"
+                                                text: "strongly agree"
                                             }
                                         ]
                                     }
