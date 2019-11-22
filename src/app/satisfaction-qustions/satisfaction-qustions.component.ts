@@ -6,6 +6,7 @@ import {Router} from '@angular/router';
 
 var json = {
     completedHtml: "<h3>This is the end of the experiment. Thank you for your paticipation.</h3>",
+    showQuestionNumbers  :'off',
     questions: [
         {
             type: "matrix",

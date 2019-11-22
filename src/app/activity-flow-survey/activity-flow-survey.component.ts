@@ -26,6 +26,7 @@ export class ActivityFlowSurveyComponent implements OnInit {
                     console.log('QuestionsOneComponent:: ', data);
                     let surveyJSON = {
                         showCompletedPage: false,
+                        showQuestionNumbers  :'off',
                         pages: [
                             {
                                 name: 'start',

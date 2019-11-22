@@ -34,6 +34,7 @@ export class SurveyConfigSetComponent implements OnInit {
         setTimeout(() => {
             let surveyJSON = {
                 showCompletedPage: false,
+                showQuestionNumbers  :'off',
                 pages: [
                     {
                         questions: [
