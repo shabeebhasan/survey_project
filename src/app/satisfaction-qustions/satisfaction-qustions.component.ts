@@ -10,7 +10,7 @@ var json = {
         {
             type: "matrix",
             name: "Satisfaction",
-            title: "This scale consists of a number of words that describe different feelings and emotions. Read each item and then mark the appropriate answer in the space next to that word. Indicate to what extent you have felt this way while tagging pictures.",
+            title: "This scale consists of a number of words that describe different feelings and emotions. Read each item and then mark the appropriate answer in the space next to that word. Indicate to what extent you have felt this way while tagging the images.",
             isAllRowRequired: true,
             columns: [
                 {

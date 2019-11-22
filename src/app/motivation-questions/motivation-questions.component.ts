@@ -33,7 +33,7 @@ export class MotivationQuestionsComponent implements OnInit {
                                     {
                                         type: "matrix",
                                         name: "questions_two",
-                                        title: "Answer all the questions.",
+                                        title: "For each of the following statements, please indicate how true it is for you.",
                                         isAllRowRequired: true,
                                         columns: [
                                             {

@@ -64,7 +64,7 @@ export class ImageTagC2Component implements OnInit {
                 data: [
                     100, 50, 30, 10, this.tagCount
                 ],
-                label: 'TOP USERS'
+                label: ''
             }
         ];
     }
@@ -125,7 +125,7 @@ export class ImageTagC2Component implements OnInit {
             data: [
                 100, 50, 30, 10
             ],
-            label: 'TOP USERS'
+            label: ''
         }
     ];
 
