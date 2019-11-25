@@ -17,6 +17,9 @@ export class SurveyConfigSetComponent implements OnInit {
     setting : boolean = false;
     message : boolean = true;
     start : boolean = false;
+    game_play_time: boolean = false;
+    play_continue: boolean = false;
+    time_text: any = '';
 
     constructor(private fb : FormBuilder, private router : Router, http : HttpClient) {
         this.http = http;
@@ -26,7 +29,18 @@ export class SurveyConfigSetComponent implements OnInit {
         });
     }
 
-    ngOnInit() {}
+    ngOnInit() {
+      if(localStorage.getItem('playtime')){
+        this.play_continue = true;
+        if(localStorage.getItem('playtime') == '3'){
+          this.time_text = "1st"
+        }else if(localStorage.getItem('playtime') == '2'){
+          this.time_text = "2nd"
+        }else if(localStorage.getItem('playtime') == '1'){
+          this.time_text = "3rd"
+        }
+      }
+    }
 
     showStart() {
         this.start = true;
@@ -89,8 +103,13 @@ export class SurveyConfigSetComponent implements OnInit {
     }
 
     continue() {
+        console.log(this.game_play_time);
         this.setting = true;
         this.message = false;
+        
+        if(!localStorage.getItem('playtime') && this.game_play_time){
+          localStorage.setItem('playtime','3');
+        }
     }
 
     onSubmit() {

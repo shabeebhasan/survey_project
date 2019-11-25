@@ -126,6 +126,21 @@ export class SatisfactionQustionsComponent implements OnInit {
                     .subscribe((data) => {
                         setTimeout(() => {
                             sessionStorage.removeItem('user_id');
+                            if(localStorage.getItem('playtime') == '3'){
+                              localStorage.setItem('playtime','2');
+                              this
+                                  .router
+                                  .navigateByUrl('/survey-config');
+                                  return;
+                            }else if(localStorage.getItem('playtime') == '2'){
+                              localStorage.setItem('playtime','1');
+                              this
+                                  .router
+                                  .navigateByUrl('/survey-config');
+                                  return;
+                            }else if(localStorage.getItem('playtime') == '1'){
+                              localStorage.removeItem('playtime');
+                            }
                             this
                                 .router
                                 .navigateByUrl('/welcome');
