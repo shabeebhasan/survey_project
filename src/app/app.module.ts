@@ -26,6 +26,7 @@ import { ActivityFlowSurveyComponent } from './activity-flow-survey/activity-flo
 import { SurveyConfigSetComponent } from './survey-config-set/survey-config-set.component';
 import {AngularStickyThingsModule} from '@w11k/angular-sticky-things';
 import { TestImageTagComponent } from './test-image-tag/test-image-tag.component';
+import { MultiGameComponent } from './multi-game/multi-game.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
@@ -43,6 +44,7 @@ const appRoutes: Routes = [
   { path: 'activity-flow-survey', component: ActivityFlowSurveyComponent },
   { path: 'test-image-tag', component: TestImageTagComponent },
   { path: 'survey-config', component: SurveyConfigSetComponent },
+  { path: 'multi-tag-game', component: MultiGameComponent },
   { path: '',
     redirectTo: '/welcome',
     pathMatch: 'full'
@@ -67,6 +69,7 @@ const appRoutes: Routes = [
     ActivityFlowSurveyComponent,
     SurveyConfigSetComponent,
     TestImageTagComponent,
+    MultiGameComponent,
   ],
   imports: [
     HttpClientModule,

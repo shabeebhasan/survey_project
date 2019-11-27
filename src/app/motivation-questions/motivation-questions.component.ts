@@ -88,7 +88,7 @@ export class MotivationQuestionsComponent implements OnInit {
                                     var resultAsString = JSON.stringify(survey.data.questions_two);
                                     console.log(resultAsString);
                                     httpClient
-                                        .post('http://localhost:8081/survey-two-data', {
+                                        .post('http://localhost:8088/survey-two-data', {
                                             user_id: sessionStorage.getItem('user_id'),
                                             survey_data: resultAsString
                                         })

@@ -119,7 +119,7 @@ export class SatisfactionQustionsComponent implements OnInit {
                 console.log(resultAsString);
                 this
                     .httpClient
-                    .post('http://localhost:8081/survey-three-data', {
+                    .post('http://localhost:8088/survey-three-data', {
                         user_id: sessionStorage.getItem('user_id'),
                         survey_data: resultAsString
                     })

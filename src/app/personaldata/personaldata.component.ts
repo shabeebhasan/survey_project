@@ -53,7 +53,7 @@ export class PersonaldataComponent implements OnInit {
         if (this.contactForm.valid) {
             this
                 .http
-                .post('http://localhost:8081/user-info', this.contactForm.value)
+                .post('http://localhost:8088/user-info', this.contactForm.value)
                 .subscribe((data) => {
                     console.log(data);
                     sessionStorage.setItem('user_id',data.message.insertId);

@@ -7,19 +7,19 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   public getQuestionsOne(){
-    return this.http.get('http://localhost:8081/questions-one');
+    return this.http.get('http://localhost:8088/questions-one');
   }
 
   public getActivitySurvey(){
-    return this.http.get('http://localhost:8081/activity-flow');
+    return this.http.get('http://localhost:8088/activity-flow');
   }
 
   public getMotivationQuestion(){
-    return this.http.get('http://localhost:8081/motivations-survey');
+    return this.http.get('http://localhost:8088/motivations-survey');
   }
 
   public postUserData(data){
-    return this.http.post('http://localhost:8081/motivations-survey',data);
+    return this.http.post('http://localhost:8088/motivations-survey',data);
   }
 
 }

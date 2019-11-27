@@ -35,7 +35,7 @@ export class ImageTagC2Component implements OnInit {
     getTag() {
         this
             .httpClient
-            .post('http://localhost:8081/get-tags', {
+            .post('http://localhost:8088/get-tags', {
                 user_id: sessionStorage.getItem('user_id'),
                 picture_id: "c2-" + this.arrayIndex
             })
@@ -74,7 +74,7 @@ export class ImageTagC2Component implements OnInit {
         if (this.arrayIndex < this.imgeShuffleArray.length) {
             this
                 .httpClient
-                .post('http://localhost:8081/add-tags', {
+                .post('http://localhost:8088/add-tags', {
                     user_id: sessionStorage.getItem('user_id'),
                     picture_id: "c2-" + this.arrayIndex,
                     tags: JSON.stringify(this.items)
@@ -86,7 +86,7 @@ export class ImageTagC2Component implements OnInit {
         } else {
             this
                 .httpClient
-                .post('http://localhost:8081/survey-picture', {
+                .post('http://localhost:8088/survey-picture', {
                     user_id: sessionStorage.getItem('user_id'),
                     points: this.tagCount
                 })
