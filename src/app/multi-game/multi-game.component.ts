@@ -44,6 +44,20 @@ export class MultiGameComponent implements OnInit {
     imgShow2 : boolean = false;
     imgShow3 : boolean = false;
 
+    //badge work
+
+    bronzeShow : boolean = false;
+    goldShow : boolean = false;
+    silverShow : boolean = false;
+    tagRewardCount : any;
+    bronzeBagdeImg : any = "./assets/badges/FrameLvl2@4x.png";
+    silverBagdeImg : any = "./assets/badges/FrameLvl4@4x.png";
+    goldenBagdeImg : any = "./assets/badges/FrameLvl7@4x.png";
+
+    @ViewChild('silverBagde', null)silverBagde : ModalDirective;
+    @ViewChild('goldenBagde', null)goldenBagde : ModalDirective;
+    @ViewChild('bronzeBagde', null)bronzeBagde : ModalDirective;
+
     constructor(private fb : FormBuilder, private router : Router, private http : HttpClient) {
 
         this.httpClient = http;
@@ -61,6 +75,9 @@ export class MultiGameComponent implements OnInit {
 
         //virtual
         this.setVirtualImage();
+
+        //batch
+        this.tagRewardCount = 0;
     }
 
     getTag() {
@@ -166,6 +183,40 @@ export class MultiGameComponent implements OnInit {
                 label: ''
             }
         ];
+
+        //badge work
+        this.tagRewardCount += 1;
+        console.log('this.tagRewardCount:', this.tagRewardCount);
+        if (this.tagRewardCount == AppSetting.THRESHOLD_1) {
+            this.bronzeShow = true;
+            this.openbronzeBagdeDialog();
+        }
+        if (this.tagRewardCount == AppSetting.THRESHOLD_2) {
+            this.silverShow = true;
+            this.openSilverDialog();
+        }
+        if (this.tagRewardCount == AppSetting.THRESHOLD_3) {
+            this.goldShow = true;
+            this.opengoldenDialog();
+        }
+    }
+
+    openSilverDialog() {
+        this
+            .silverBagde
+            .show();
+    }
+
+    opengoldenDialog() {
+        this
+            .goldenBagde
+            .show();
+    }
+
+    openbronzeBagdeDialog() {
+        this
+            .bronzeBagde
+            .show();
     }
 
     setVirtualImage() {
