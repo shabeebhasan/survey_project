@@ -18,6 +18,23 @@ for Virtual Item Game: "game_mode_activated_by_code": "3".
 
 for Monster Game: "game_mode_activated_by_code": "4".
 
+# Image Tag Data Saved in Database (table: picture_tags)
+
+picture_id prfix: 
+  Conditions One ==> c1
+  
+  Condition Two:
+  
+  - Virturl Items ==> vi
+  - Monster ==> mo
+  - Badge ==> bg
+  - LeaderBoard ==> c2
+  
+picture_code:
+  10 pictures with code 1 to 10.
+  
+  * picture_id is developed by prefix-picture_code
+
 # REQUIRED 
 - PHPMYADMIN
 - NODEJS
