@@ -17,29 +17,35 @@ export class SurveyConfigSetComponent implements OnInit {
     setting : boolean = false;
     message : boolean = true;
     start : boolean = false;
-    game_play_time: boolean = false;
-    play_continue: boolean = false;
-    time_text: any = '';
+    game_play_time : boolean = false;
+    play_continue : boolean = false;
+    time_text : any = '';
 
     constructor(private fb : FormBuilder, private router : Router, http : HttpClient) {
         this.http = http;
         this.nationalities = nationalities;
         this.contactForm = fb.group({
-            'game_setting': ['', Validators.required]
+            'game_setting': [
+                '', Validators.required
+            ],
+            'leader_board': [false],
+            'badge_challange': [false],
+            'unlockable': [false],
+            'virtural': [false]
         });
     }
 
     ngOnInit() {
-      if(localStorage.getItem('playtime')){
-        this.play_continue = true;
-        if(localStorage.getItem('playtime') == '3'){
-          this.time_text = "1st"
-        }else if(localStorage.getItem('playtime') == '2'){
-          this.time_text = "2nd"
-        }else if(localStorage.getItem('playtime') == '1'){
-          this.time_text = "3rd"
+        if (localStorage.getItem('playtime')) {
+            this.play_continue = true;
+            if (localStorage.getItem('playtime') == '3') {
+                this.time_text = "1st"
+            } else if (localStorage.getItem('playtime') == '2') {
+                this.time_text = "2nd"
+            } else if (localStorage.getItem('playtime') == '1') {
+                this.time_text = "3rd"
+            }
         }
-      }
     }
 
     showStart() {
@@ -48,7 +54,7 @@ export class SurveyConfigSetComponent implements OnInit {
         setTimeout(() => {
             let surveyJSON = {
                 showCompletedPage: false,
-                showQuestionNumbers  :'off',
+                showQuestionNumbers: 'off',
                 pages: [
                     {
                         questions: [
@@ -78,26 +84,44 @@ export class SurveyConfigSetComponent implements OnInit {
                             .router
                             .navigateByUrl('/image-data');
                     }
-                    if (this.contactForm.value.game_setting === '2') {
+                    if (this.contactForm.value.game_setting === '6') {
+                        console.log(this.contactForm.value)
+                        if (this.contactForm.value.badge_challange && !this.contactForm.value.leader_board && !this.contactForm.value.unlockable && !this.contactForm.value.virtural) {
+                            this
+                                .router
+                                .navigateByUrl('/image-c2-batch');
+                            return;
+                        }
+                        if (!this.contactForm.value.badge_challange && this.contactForm.value.leader_board && !this.contactForm.value.unlockable && !this.contactForm.value.virtural) {
+                            this
+                                .router
+                                .navigateByUrl('/image-c2-tag');
+                            return;
+                        }
+                        if (!this.contactForm.value.badge_challange && !this.contactForm.value.leader_board && this.contactForm.value.unlockable && !this.contactForm.value.virtural) {
+                            this
+                                .router
+                                .navigateByUrl('/image-c2-virtual');
+                            return;
+                        }
+                        if (!this.contactForm.value.badge_challange && !this.contactForm.value.leader_board && !this.contactForm.value.unlockable && this.contactForm.value.virtural) {
+                            this
+                                .router
+                                .navigateByUrl('/image-c2-monster');
+                            return;
+                        }
+
                         this
                             .router
-                            .navigateByUrl('/image-c2-tag');
+                            .navigateByUrl('/multi-tag-game');
+
+                        // this     .router     .navigateByUrl('/image-c2-tag');
                     }
-                    if (this.contactForm.value.game_setting === '3') {
-                        this
-                            .router
-                            .navigateByUrl('/image-c2-batch');
-                    }
-                    if (this.contactForm.value.game_setting === '4') {
-                        this
-                            .router
-                            .navigateByUrl('/image-c2-virtual');
-                    }
-                    if (this.contactForm.value.game_setting === '5') {
-                        this
-                            .router
-                            .navigateByUrl('/image-c2-monster');
-                    }
+                    // if (this.contactForm.value.game_setting === '3') {     this         .router
+                    // .navigateByUrl('/image-c2-batch'); } if (this.contactForm.value.game_setting
+                    // === '4') {     this         .router .navigateByUrl('/image-c2-virtual'); } if
+                    // (this.contactForm.value.game_setting === '5') {     this         .router
+                    // .navigateByUrl('/image-c2-monster'); }
                 });
         }, 111);
     }
@@ -106,23 +130,55 @@ export class SurveyConfigSetComponent implements OnInit {
         console.log(this.game_play_time);
         this.setting = true;
         this.message = false;
-        
-        if(!localStorage.getItem('playtime') && this.game_play_time){
-          localStorage.setItem('playtime','3');
+
+        if (!localStorage.getItem('playtime') && this.game_play_time) {
+            localStorage.setItem('playtime', '3');
         }
     }
 
-    onSubmit() {
+    onSubmit(e) {
+        e.preventDefault();
         if (!this.contactForm.valid) {
             alert("Please fill the required fields.");
             return;
         }
 
         localStorage.setItem('game_setting', this.contactForm.value.game_setting);
-        this.setting = false;
-        this.message = false;
-        this.start = true;
-        this.showStart();
 
+        if (this.contactForm.value.game_setting === '1') {
+            this.setting = false;
+            this.message = false;
+            this.start = true;
+            this.showStart();
+            console.log(this.contactForm.value)
+        }
+        if (this.contactForm.value.game_setting === '6') {
+            console.log(this.contactForm.value)
+            if (this.contactForm.value.badge_challange === '' && this.contactForm.value.leader_board === '' && this.contactForm.value.unlockable === '' && this.contactForm.value.virtural === '') {
+                // this     .router     .navigateByUrl('/image-c2-tag');
+                alert("Select at least a single game option.");
+                return;
+            }
+            if (this.contactForm.value.badge_challange === false && this.contactForm.value.leader_board === false && this.contactForm.value.unlockable === false && this.contactForm.value.virtural === false) {
+                // this     .router     .navigateByUrl('/image-c2-tag');
+                alert("Select at least a single game option.");
+                return;
+            }
+            if (this.contactForm.value.badge_challange && this.contactForm.value.leader_board && this.contactForm.value.unlockable && this.contactForm.value.virtural) {
+                // this     .router     .navigateByUrl('/image-c2-tag');
+                alert("Only 3 items can be selected.");
+                return;
+            }
+
+            localStorage.setItem('badge_challange', this.contactForm.value.badge_challange);
+            localStorage.setItem('leader_board', this.contactForm.value.leader_board);
+            localStorage.setItem('unlockable', this.contactForm.value.unlockable);
+            localStorage.setItem('virtural', this.contactForm.value.virtural);
+            this.setting = false;
+            this.message = false;
+            this.start = true;
+            this.showStart();
+            return false;
+        }
     }
 }

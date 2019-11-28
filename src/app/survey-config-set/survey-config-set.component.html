@@ -27,7 +27,6 @@
       top:11px;
       left:9.5%;
       display:block;
-      background-color:#efefef;
       height:4px;
       width:78%;
     }
@@ -98,7 +97,7 @@
                 <form
                     style="color: #757575;"
                     [formGroup]="contactForm"
-                    (ngSubmit)="onSubmit()">
+                    (ngSubmit)="onSubmit($event)">
     
                     
                         <div class="md-form mt-3">
@@ -112,26 +111,23 @@
                                 <h5 style="margin-bottom:25px">5- Virtual Monster</h5>
                                 <mdb-card>
                                     <div class="wrap">
-                                          <label class="statement">Select game option</label>
+                                          <label class="statement">Select Baseline game <input style="margin: 3px 15px;" type="radio" formControlName="game_setting" value="1"></label>
+                                          <label class="statement">Select multi-game option <input style="margin: 3px 15px;" type="radio" formControlName="game_setting" value="6"></label>
                                           <ul class='likert'>
-                                              <li>
-                                                  <input  type="radio" formControlName="game_setting" value="1">
-                                                  <label>1</label>
-                                                </li>
                                                 <li>
-                                                  <input type="radio" formControlName="game_setting" value="2">
+                                                  <input type="checkbox" formControlName="leader_board" >
                                                   <label>2</label>
                                                 </li>
                                                 <li>
-                                                  <input checked type="radio" formControlName="game_setting" value="3">
+                                                  <input checked type="checkbox" formControlName="badge_challange" >
                                                   <label>3</label>
                                                 </li>
                                                 <li>
-                                                  <input type="radio" formControlName="game_setting" value="4">
+                                                  <input type="checkbox" formControlName="unlockable">
                                                   <label>4</label>
                                                 </li>
                                                 <li>
-                                                  <input type="radio" formControlName="game_setting" value="5">
+                                                  <input type="checkbox" formControlName="virtural">
                                                   <label>5</label>
                                                 </li>
                                           </ul>
