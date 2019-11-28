@@ -30,7 +30,7 @@
                 style="max-width:600px;margin:20px;width: 100%;max-height:400px;"
                 class="img-fluid"
                 alt="Responsive image">
-                <h2 style="font-weight: 900;">Points:
+                <h2 *ngIf="leaderBoardEnable" style="font-weight: 900;">Points:
                   {{tagCount}}</h2>
                 <tag-input (onAdd)="onItemAdded($event)" [(ngModel)]='items' theme='bootstrap'></tag-input>
 
@@ -57,13 +57,13 @@
                     <strong>Tag Counter:
                         {{tagCount}}</strong>
                 </h5>
-                <div style="display: block;margin: 40px 0px;margin-top: 0;text-align: center;">
+                <div *ngIf="leaderBoardEnable" style="display: block;margin: 40px 0px;margin-top: 0;text-align: center;">
                   <div style="background-color:#1976d2;height:50px;width:100%;padding: 8px;">
                       <h3 style="color:white">Leaderboard
                       </h3>
                   </div>
               </div>
-              <div style="display: block">
+              <div *ngIf="leaderBoardEnable" style="display: block">
                   <canvas
                       mdbChart
                       [chartType]="chartType"
@@ -74,6 +74,7 @@
                       (chartHover)="chartHovered($event)"
                       (chartClick)="chartClicked($event)"></canvas>
               </div>
+            <div *ngIf="BadgeEnable">
               <div *ngIf="!bronzeShow" class="row badge-div" role="main">
                 <img style="text-align:center;margin: auto;-webkit-filter:blur(4px);filter:blur(4px);" width="50px" [src]="bronzeBagdeImg">
                 <span class="badge-span">Earn the bronze badge for adding {{THRESHOLD_1}} tags</span>
@@ -103,6 +104,8 @@
                   <img style="text-align:center;margin: auto;" width="50px" [src]="goldenBagdeImg">
                   <span class="badge-span">Earn the golden badge for adding {{THRESHOLD_3}} tags</span>
                 </div>
+            </div>
+            <div *ngIf="UnlockableItems">
                 <h5 style="font-weight: 500;">Earned Items</h5>
                 <div style="width: 100%;margin: 6px auto;height: 60px;">
 
@@ -150,6 +153,7 @@
                                             width="45px"
                                             height="45px"
                                             [src]="virtualSrc3"></div>
+              
                                         <div style="width: 220px;height: 220px;margin: auto;">
                                             <img
                                                 [ngStyle]="{'opacity': opacity}"
@@ -167,9 +171,10 @@
                                                     aria-valuemax="100">{{tagPercentage}}</div>
                                             </div>
                                         </div>
-
+                                      </div>
                                     </mdb-card>
                                     <div
+                                        *ngIf="virtualmonsterGameEnable"
                                         style="position: absolute;left: 0;padding: 20;"
                                         class="example-box"
                                         ngDraggable>

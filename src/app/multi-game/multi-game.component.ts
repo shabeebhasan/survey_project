@@ -8,6 +8,11 @@ import {AppSetting} from '../AppSetting';
 @Component({selector: 'app-multi-game', templateUrl: './multi-game.component.html', styleUrls: ['./multi-game.component.scss']})
 export class MultiGameComponent implements OnInit {
 
+    virtualmonsterGameEnable : boolean = false;
+    leaderBoardEnable : boolean = false;
+    UnlockableItems : boolean = false;
+    BadgeEnable : boolean = false;
+
     //monster
     imageForm : FormGroup;
     disabledSubmitButton : boolean = false;
@@ -78,6 +83,11 @@ export class MultiGameComponent implements OnInit {
 
         //batch
         this.tagRewardCount = 0;
+
+        this.BadgeEnable = (localStorage.getItem('badge_challange') === 'true')
+        this.leaderBoardEnable = (localStorage.getItem('leader_board') === 'true')
+        this.UnlockableItems = (localStorage.getItem('unlockable') === 'true')
+        this.virtualmonsterGameEnable = (localStorage.getItem('virtural') === 'true')
     }
 
     getTag() {
