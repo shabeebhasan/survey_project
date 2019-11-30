@@ -62,7 +62,7 @@ export class SurveyConfigSetComponent implements OnInit {
                                 type: "html",
                                 name: "complete",
                                 html: "<h3>Now you will start tagging 10 images. You are allowed to add as many tag as " +
-                                    "you want. Type anything you think of when seeing the pictures. Press enter to su" +
+                                    "you want. Type anything you think of when seeing the images. Press enter to su" +
                                     "ccessfully add the tag.</h3>"
                             }
                         ]

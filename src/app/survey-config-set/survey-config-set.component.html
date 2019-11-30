@@ -66,7 +66,6 @@
             <mdb-card-body class="col-md-12">
                 <h5>Before you continue with the experiment, ask the experiment supervisor to set it up.</h5>
                 <mdb-checkbox *ngIf="!play_continue" [(ngModel)]="game_play_time" name="game_play_time" [default]="true">Game Play 3 Times</mdb-checkbox>
-                <h6 *ngIf="play_continue" style="color: red;">* You're playing the game {{time_text}} time.</h6>
                 <button
                     mdbBtn
                     (click)="continue()"

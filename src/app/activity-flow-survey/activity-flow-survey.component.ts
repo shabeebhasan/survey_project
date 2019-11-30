@@ -34,7 +34,7 @@ export class ActivityFlowSurveyComponent implements OnInit {
                                     {
                                         type: "html",
                                         name: "info",
-                                        html: "<h3>Thank you for tagging the image. Please click on the button to proceed to the" +
+                                        html: "<h3>Thank you for tagging the images. Please click on the button to proceed to the" +
                                         " next page and fill out 3 questionnaires about your overall performance and satisfaction o" +
                                         "f the experiment.</h3>"
                                     }

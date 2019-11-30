@@ -36,7 +36,7 @@ export class QuestionsOneComponent implements OnInit {
                                     {
                                         type: "html",
                                         name: "info",
-                                        html: "<h3>Now you will fill out a 24-item questionnaire to learn more about your type.</h3>"
+                                        html: "<h3>Now you will fill out a 24-item questionnaire to learn more about your user type.</h3>"
                                     }
                                 ]
                             }, {
