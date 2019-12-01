@@ -103,35 +103,11 @@
                           </div>
     
                             <div class="wrap">
-                                <h5 style="margin-bottom:25px">1- Baseline, no game elements</h5>
-                                <h5 style="margin-bottom:25px">2- Points and Leaderboard</h5>
-                                <h5 style="margin-bottom:25px">3- Badges and Challenges</h5>
-                                <h5 style="margin-bottom:25px">4- Unlockable Content</h5>
-                                <h5 style="margin-bottom:25px">5- Virtual Monster</h5>
-                                <mdb-card>
-                                    <div class="wrap">
-                                          <label class="statement">Select Baseline game <input style="margin: 3px 15px;" type="radio" formControlName="game_setting" value="1"></label>
-                                          <label class="statement">Select multi-game option <input style="margin: 3px 15px;" type="radio" formControlName="game_setting" value="6"></label>
-                                          <ul class='likert'>
-                                                <li>
-                                                  <input type="checkbox" formControlName="leader_board" >
-                                                  <label>2</label>
-                                                </li>
-                                                <li>
-                                                  <input checked type="checkbox" formControlName="badge_challange" >
-                                                  <label>3</label>
-                                                </li>
-                                                <li>
-                                                  <input type="checkbox" formControlName="unlockable">
-                                                  <label>4</label>
-                                                </li>
-                                                <li>
-                                                  <input type="checkbox" formControlName="virtural">
-                                                  <label>5</label>
-                                                </li>
-                                          </ul>
-                                      </div>
-                                  </mdb-card>
+                                <h5 style="margin-bottom:25px"><input type="checkbox" (change)="changeBaselineData($event)" [(ngModel)]="no_game" formControlName="no_game"> Baseline, no game elements</h5>
+                                <h5 style="margin-bottom:25px"><input type="checkbox" (change)="changeData($event)" [(ngModel)]="leader_board" formControlName="leader_board" > Points and Leaderboard</h5>
+                                <h5 style="margin-bottom:25px"><input type="checkbox" (change)="changeData($event)" [(ngModel)]="badge_challange"  formControlName="badge_challange" > Badges and Challenges</h5>
+                                <h5 style="margin-bottom:25px"><input type="checkbox" (change)="changeData($event)" [(ngModel)]="unlockable" formControlName="unlockable"> Unlockable Content</h5>
+                                <h5 style="margin-bottom:25px"><input type="checkbox" (change)="changeData($event)" [(ngModel)]="virtural" formControlName="virtural"> Virtual Monster</h5>
                             </div>
     
                                     

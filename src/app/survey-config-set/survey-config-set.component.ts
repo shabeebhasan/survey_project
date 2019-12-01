@@ -21,13 +21,17 @@ export class SurveyConfigSetComponent implements OnInit {
     play_continue : boolean = false;
     time_text : any = '';
 
+    no_game : boolean = false;
+    leader_board : boolean = false;
+    badge_challange : boolean = false;
+    unlockable : boolean = false;
+    virtural : boolean = false;
+
     constructor(private fb : FormBuilder, private router : Router, http : HttpClient) {
         this.http = http;
         this.nationalities = nationalities;
         this.contactForm = fb.group({
-            'game_setting': [
-                '', Validators.required
-            ],
+            'no_game': [false],
             'leader_board': [false],
             'badge_challange': [false],
             'unlockable': [false],
@@ -79,12 +83,12 @@ export class SurveyConfigSetComponent implements OnInit {
                 .onComplete
                 .add((survey) => {
                     console.log(this.contactForm.value.game_setting)
-                    if (this.contactForm.value.game_setting === '1') {
+                    if (this.contactForm.value.no_game) {
                         this
                             .router
                             .navigateByUrl('/image-data');
                     }
-                    if (this.contactForm.value.game_setting === '6') {
+                    if (!this.contactForm.value.no_game) {
                         console.log(this.contactForm.value)
                         if (this.contactForm.value.badge_challange && !this.contactForm.value.leader_board && !this.contactForm.value.unlockable && !this.contactForm.value.virtural) {
                             this
@@ -136,6 +140,23 @@ export class SurveyConfigSetComponent implements OnInit {
         }
     }
 
+    changeData(e){
+      console.log(e.target.checked)
+      if(e.target.checked){
+        this.no_game = false;
+      }
+    }
+
+    changeBaselineData(e){
+      console.log('changeBaselineData:',e.target.checked)
+      if(e.target.checked){
+        this.badge_challange = false;
+        this.leader_board = false;
+        this.unlockable = false;
+        this.virtural = false;
+      }
+    }
+
     onSubmit(e) {
         e.preventDefault();
         if (!this.contactForm.valid) {
@@ -145,14 +166,14 @@ export class SurveyConfigSetComponent implements OnInit {
 
         localStorage.setItem('game_setting', this.contactForm.value.game_setting);
 
-        if (this.contactForm.value.game_setting === '1') {
+        if (this.contactForm.value.no_game) {
             this.setting = false;
             this.message = false;
             this.start = true;
             this.showStart();
             console.log(this.contactForm.value)
         }
-        if (this.contactForm.value.game_setting === '6') {
+        if (!this.contactForm.value.no_game) {
             console.log(this.contactForm.value)
             if (this.contactForm.value.badge_challange === '' && this.contactForm.value.leader_board === '' && this.contactForm.value.unlockable === '' && this.contactForm.value.virtural === '') {
                 // this     .router     .navigateByUrl('/image-c2-tag');
