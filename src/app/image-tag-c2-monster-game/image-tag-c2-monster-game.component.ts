@@ -20,7 +20,7 @@ export class ImageTagC2MonsterGameComponent implements OnInit {
     arrayIndex : any;
     httpClient : any;
     tagPercentage : any;
-    monsterMsg : any;
+    monsterMsg : any = "Your monster is feeling hungry.";
     feedShowCount : any = 0;
     @ViewChild('modal', null)modal : ModalDirective;
 

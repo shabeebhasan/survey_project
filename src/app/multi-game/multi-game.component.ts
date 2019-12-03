@@ -19,13 +19,14 @@ export class MultiGameComponent implements OnInit {
     optionsSelect : Array < any >;
     items : any;
     tagCount : any;
+    chewing : boolean = false;
     imgSrc : any;
     monsterSrc : any = "./assets/monster/idle.gif";
     imgeShuffleArray : Array < any >;
     arrayIndex : any;
     httpClient : any;
     tagPercentage : any;
-    monsterMsg : any;
+    monsterMsg : any = "Your monster is feeling hungry.";
     feedShowCount : any = 0;
     @ViewChild('modal', null)modal : ModalDirective;
 
@@ -116,7 +117,7 @@ export class MultiGameComponent implements OnInit {
     public onItemAdded(e) {
         this.feedShowCount++;
         this.tagCount += 1;
-        
+
         if (this.tagCount <= this.THRESHOLD_1) {
             this.tagPercentage = Math.trunc(((this.tagCount / this.THRESHOLD_1) * 100)) + "%"
         } else if (this.tagCount - this.THRESHOLD_1 <= this.THRESHOLD_2 - this.THRESHOLD_1) {
@@ -124,20 +125,25 @@ export class MultiGameComponent implements OnInit {
         } else if (this.tagCount - this.THRESHOLD_2 <= (this.THRESHOLD_3 - this.THRESHOLD_2)) {
             this.tagPercentage = Math.trunc((((this.tagCount - this.THRESHOLD_2) / (this.THRESHOLD_3 - this.THRESHOLD_2)) * 100)) + "%"
         }
-
         if (this.feedShowCount == AppSetting.THRESHOLD_1) {
-            this.monsterSrc = "./assets/monster/chewing.gif"
-            this.monsterMsg = "the monster is sad."
-        }
-
-        if (this.feedShowCount == AppSetting.THRESHOLD_2) {
-            this.monsterSrc = "./assets/monster/hovering.gif"
-            this.monsterMsg = "the monster is neutral."
-        }
-
-        if (this.feedShowCount == AppSetting.THRESHOLD_3) {
-            this.monsterSrc = "./assets/monster/dragging.gif"
-            this.monsterMsg = "the monster is happy."
+            this.monsterSrc = "./assets/monster/Idle.gif"
+            this.monsterMsg = "Your monster is feeling idle."
+            this.tagPercentage = 0;
+        } else if (this.feedShowCount == AppSetting.THRESHOLD_2) {
+            this.monsterSrc = "./assets/monster/Happy.gif"
+            this.monsterMsg = "Congrats! Your monster is feeling happy."
+            this.tagPercentage = 0;
+        } else if (this.feedShowCount == AppSetting.THRESHOLD_3) {
+            this.monsterSrc = "./assets/monster/Epic.gif"
+            this.monsterMsg = "Congrats! Your monster is feeling epic."
+        } else if (!this.chewing) {
+            var currentSrc = this.monsterSrc;
+            this.monsterSrc = "./assets/monster/Chewing.gif"
+            this.chewing = true;
+            setTimeout(() => {
+                this.chewing = false;
+                this.monsterSrc = currentSrc;
+            }, 1000)
         }
         // if (this.feedShowCount == 10) {     this.monsterSrc =
         // "./assets/monster/chewing.gif"     this         .modal         .show();
