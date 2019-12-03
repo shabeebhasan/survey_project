@@ -55,35 +55,26 @@
                         <strong>Tag Counter:
                             {{tagCount}}</strong>
                     </h5>
-                    <div *ngIf="!bronzeShow" class="row badge-div" role="main">
-                      <img style="text-align:center;margin: auto;-webkit-filter:blur(4px);filter:blur(4px);" width="50px" [src]="bronzeBagdeImg">
-                      <span class="badge-span">Earn the bronze badge for adding {{THRESHOLD_1}} tags</span>
-                    </div>
-                    
-                    <div *ngIf="bronzeShow" class="row badge-div" role="main">
+                    <div style="position: relative;"  class="row badge-div" role="main">
+                        <img *ngIf="bronzeShow" style="position: absolute;width: 46px;left: 14px;top: 12px;" width="50px" [src]="full">
                       <img style="text-align:center;margin: auto;" width="50px" [src]="bronzeBagdeImg">
+                      <img *ngIf="!bronzeShow" style="position: absolute;" width="50px" [src]="LockedBagdeImg">
                       <span class="badge-span">Earn the bronze badge for adding {{THRESHOLD_1}} tags</span>
                     </div>
 
-                    <div *ngIf="!silverShow" class="row badge-div" role="main">
-                      <img style="text-align:center;margin: auto;-webkit-filter:blur(4px);filter:blur(4px);" width="50px" [src]="silverBagdeImg">
+                    <div style="position: relative;"  class="row badge-div" role="main">
+                        <img *ngIf="silverShow" style="position: absolute;width: 46px;left: 14px;top: 12px;" width="50px" [src]="full">
+                      <img style="text-align:center;margin: auto;" width="50px" [src]="silverBagdeImg">
+                      <img *ngIf="!silverShow" style="position: absolute;" width="50px" [src]="LockedBagdeImg">
                       <span class="badge-span">Earn the silver badge for adding {{THRESHOLD_2}} tags</span>
                     </div>
                     
-                    <div *ngIf="silverShow" class="row badge-div" role="main">
-                        <img style="text-align:center;margin: auto;" width="50px" [src]="silverBagdeImg">
-                        <span class="badge-span">Earn the silver badge for adding {{THRESHOLD_2}} tags</span>
-                      </div>
-                    
-                    <div *ngIf="!goldShow" class="row badge-div" role="main">
-                      <img style="text-align:center;margin: auto;-webkit-filter:blur(4px);filter:blur(4px);" width="50px" [src]="goldenBagdeImg">
+                    <div style="position: relative;"  class="row badge-div" role="main">
+                      <img *ngIf="goldShow" style="position: absolute;width: 46px;left: 14px;top: 12px;" width="50px" [src]="full">
+                      <img style="text-align:center;margin: auto;" width="50px" [src]="goldenBagdeImg">
+                      <img *ngIf="!goldShow" style="position: absolute;" width="50px" [src]="LockedBagdeImg">
                       <span class="badge-span">Earn the golden badge for adding {{THRESHOLD_3}} tags</span>
                     </div>
-                    
-                    <div *ngIf="goldShow" class="row badge-div" role="main">
-                        <img style="text-align:center;margin: auto;" width="50px" [src]="goldenBagdeImg">
-                        <span class="badge-span">Earn the golden badge for adding {{THRESHOLD_3}} tags</span>
-                      </div>
 
                 </div>
             </div>
