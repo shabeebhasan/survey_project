@@ -31,11 +31,11 @@ export class ImageTagC2VirtualGameComponent implements OnInit {
 
     msgVirtual1 : any = "This is a common item.";
     msgVirtual2 : any = "Congrats! You’ve earned a common item.";
-    
+
     imgShow1 : boolean = false;
     imgShow2 : boolean = false;
     imgShow3 : boolean = false;
-    
+
     THRESHOLD_1 : any = AppSetting.THRESHOLD_1;
     THRESHOLD_2 : any = AppSetting.THRESHOLD_2;
     THRESHOLD_3 : any = AppSetting.THRESHOLD_3;
@@ -60,70 +60,67 @@ export class ImageTagC2VirtualGameComponent implements OnInit {
 
     public onItemAdded(e) {
         this.tagCount += 1;
-        if(this.tagCount <= this.THRESHOLD_3){
-          this.tagPercentage =  Math.trunc(((this.tagCount / this.THRESHOLD_3 ) * 100)) + "%"
+        if (this.tagCount <= this.THRESHOLD_1) {
+            this.tagPercentage = Math.trunc(((this.tagCount / this.THRESHOLD_1) * 100)) + "%"
+        } else if (this.tagCount - this.THRESHOLD_1 <= this.THRESHOLD_2 - this.THRESHOLD_1) {
+            this.tagPercentage = Math.trunc(((this.tagCount - this.THRESHOLD_1) / (this.THRESHOLD_2 - this.THRESHOLD_1) * 100)) + "%"
+        } else if (this.tagCount - this.THRESHOLD_2 <= (this.THRESHOLD_3 - this.THRESHOLD_2)) {
+            this.tagPercentage = Math.trunc((((this.tagCount - this.THRESHOLD_2) / (this.THRESHOLD_3 - this.THRESHOLD_2)) * 100)) + "%"
         }
 
-        if(this.tagCount == this.THRESHOLD_1){
-          this.msgVirtual1 = "This is a very rare item."
-          this.msgVirtual2 = "Congrats! You’ve earned a very rare item."
-          this.virtualSrc = this.virtualSrc2;
-          this.modalvirtualSrc = this.virtualSrc1;
-          this.imgShow1 = true;
-          this.opacity = 0.09;
-          this
+        if (this.tagCount == this.THRESHOLD_1) {
+            this.msgVirtual1 = "This is a very rare item."
+            this.msgVirtual2 = "Congrats! You’ve earned a very rare item."
+            this.virtualSrc = this.virtualSrc2;
+            this.modalvirtualSrc = this.virtualSrc1;
+            this.imgShow1 = true;
+            this.opacity = 0.09;
+            this
                 .modal
                 .show()
-        } else if(this.tagCount == this.THRESHOLD_2){
-          this.msgVirtual1 = "This is a legendary item."
-          this.msgVirtual2 = "Congrats! You’ve earned a legendary item."
-          this.virtualSrc = this.virtualSrc3;
-          this.modalvirtualSrc = this.virtualSrc2;
-          this.imgShow2 = true;
-          this.opacity = 0.09;
-          this
+            this.tagPercentage = 0;
+        } else if (this.tagCount == this.THRESHOLD_2) {
+            this.msgVirtual1 = "This is a legendary item."
+            this.msgVirtual2 = "Congrats! You’ve earned a legendary item."
+            this.virtualSrc = this.virtualSrc3;
+            this.modalvirtualSrc = this.virtualSrc2;
+            this.imgShow2 = true;
+            this.opacity = 0.09;
+            this
                 .modal
                 .show()
-        } else if(this.tagCount == this.THRESHOLD_3){
-          this.virtualSrc = this.virtualSrc3;
-          this.modalvirtualSrc = this.virtualSrc3;
-          this.imgShow3 = true;
-          this.opacity = 1;
-          this
+            this.tagPercentage = 0;
+        } else if (this.tagCount == this.THRESHOLD_3) {
+            this.virtualSrc = this.virtualSrc3;
+            this.modalvirtualSrc = this.virtualSrc3;
+            this.imgShow3 = true;
+            this.opacity = 1;
+            this
                 .modal
                 .show()
         }
 
-        if(this.tagCount < this.THRESHOLD_1){          
-          this.opacity =  this.tagCount / this.THRESHOLD_1
-          console.log(this.opacity)
+        if (this.tagCount < this.THRESHOLD_1) {
+            this.opacity = this.tagCount / this.THRESHOLD_1
+            console.log(this.opacity)
         }
 
-        if(this.tagCount < this.THRESHOLD_2 && this.tagCount > this.THRESHOLD_1 ){          
-          this.opacity =  (this.tagCount - this.THRESHOLD_1)  / (this.THRESHOLD_2 - this.THRESHOLD_1)
-          console.log(this.opacity)
+        if (this.tagCount < this.THRESHOLD_2 && this.tagCount > this.THRESHOLD_1) {
+            this.opacity = (this.tagCount - this.THRESHOLD_1) / (this.THRESHOLD_2 - this.THRESHOLD_1)
+            console.log(this.opacity)
         }
 
-        if(this.tagCount < this.THRESHOLD_3 && this.tagCount > this.THRESHOLD_2 ){ 
-          this.opacity =  (this.tagCount - this.THRESHOLD_2) / (this.THRESHOLD_3 - this.THRESHOLD_2)
-          console.log(this.opacity)
+        if (this.tagCount < this.THRESHOLD_3 && this.tagCount > this.THRESHOLD_2) {
+            this.opacity = (this.tagCount - this.THRESHOLD_2) / (this.THRESHOLD_3 - this.THRESHOLD_2)
+            console.log(this.opacity)
         }
 
-        // if (this.virtualItemShowCount == 0) {
-        //   this.virtualArrayIndex++;
-        //   this.opacity = parseFloat("0.1")
-        // }
-        // this.virtualItemShowCount++;
-        // if (this.virtualItemShowCount == 10) {
-        //     this
-        //         .modal
-        //         .show()
-        //     this.virtualItemShowCount = 0;
-        // }else if (this.virtualItemShowCount >= 10) {
-        //     this.opacity = 1;
-        // } else {
-        //     this.opacity = parseFloat("0." + this.virtualItemShowCount)
-        // }
+        // if (this.virtualItemShowCount == 0) {   this.virtualArrayIndex++;
+        // this.opacity = parseFloat("0.1") } this.virtualItemShowCount++; if
+        // (this.virtualItemShowCount == 10) {     this         .modal         .show()
+        //   this.virtualItemShowCount = 0; }else if (this.virtualItemShowCount >= 10) {
+        //     this.opacity = 1; } else {     this.opacity = parseFloat("0." +
+        // this.virtualItemShowCount) }
     }
 
     setImage() {
