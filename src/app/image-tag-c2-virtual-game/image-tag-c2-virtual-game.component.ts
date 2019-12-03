@@ -29,6 +29,8 @@ export class ImageTagC2VirtualGameComponent implements OnInit {
     virtualItemShowCount : any = 0;
     @ViewChild('modal', null)modal : ModalDirective;
 
+    msgVirtual1 : any = "This is a common item.";
+    msgVirtual2 : any = "Congrats! You’ve earned a common item.";
     
     imgShow1 : boolean = false;
     imgShow2 : boolean = false;
@@ -63,6 +65,8 @@ export class ImageTagC2VirtualGameComponent implements OnInit {
         }
 
         if(this.tagCount == this.THRESHOLD_1){
+          this.msgVirtual1 = "This is a very rare item."
+          this.msgVirtual2 = "Congrats! You’ve earned a very rare item."
           this.virtualSrc = this.virtualSrc2;
           this.modalvirtualSrc = this.virtualSrc1;
           this.imgShow1 = true;
@@ -71,6 +75,8 @@ export class ImageTagC2VirtualGameComponent implements OnInit {
                 .modal
                 .show()
         } else if(this.tagCount == this.THRESHOLD_2){
+          this.msgVirtual1 = "This is a legendary item."
+          this.msgVirtual2 = "Congrats! You’ve earned a legendary item."
           this.virtualSrc = this.virtualSrc3;
           this.modalvirtualSrc = this.virtualSrc2;
           this.imgShow2 = true;

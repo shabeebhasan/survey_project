@@ -99,7 +99,9 @@
                                                 class="img-fluid"
                                                 width="200px"
                                                 height="200px"
-                                                [src]="virtualSrc"></div>
+                                                [src]="virtualSrc">
+                                                <h6>{{msgVirtual1}}</h6>
+                                        </div>
                                             <div class="progress md-progress" style="margin:20px;height: 20px">
                                                 <div
                                                     class="progress-bar"
@@ -134,7 +136,7 @@
                                                 <h4 class="modal-title w-100" id="myModalLabel">Virtual Item</h4>
                                             </div>
                                             <div style="text-align:center" class="modal-body">
-                                                <h4 style="text-align:center">Congrats, you've earned a virtual item</h4>
+                                                <h4 style="text-align:center">{{msgVirtual2}}</h4>
                                                 <img style="text-align:center" width="200px" [src]="modalvirtualSrc"></div>
                                                 <div class="modal-footer">
                                                     <button
