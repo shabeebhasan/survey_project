@@ -38,7 +38,7 @@ export class ImageTagC2MonsterGameComponent implements OnInit {
         this.tagCount = 0;
         this.arrayIndex = 0;
         this.imgeShuffleArray = this.shuffle();
-        this.monsterSrc = "./assets/monster/idle.gif"
+        this.monsterSrc = "./assets/monster/Hungry.gif"
         this.setImage();
         this.getTag();
     }
@@ -71,20 +71,20 @@ export class ImageTagC2MonsterGameComponent implements OnInit {
           this.tagPercentage =  Math.trunc(((this.tagCount / this.THRESHOLD_3 ) * 100)) + "%"
         }
         if(this.feedShowCount == AppSetting.THRESHOLD_1){
-          this.monsterSrc = "./assets/monster/chewing.gif"
-          this.monsterMsg = "the monster is sad."
+          this.monsterSrc = "./assets/monster/Idle.gif"
+          this.monsterMsg = "Your monster is feeling idle."
           this.modal.show();
         }
         
         if(this.feedShowCount == AppSetting.THRESHOLD_2){
-          this.monsterSrc = "./assets/monster/hovering.gif"
-          this.monsterMsg = "the monster is neutral."
+          this.monsterSrc = "./assets/monster/Happy.gif"
+          this.monsterMsg = "Congrats! Your monster is feeling happy."
           this.modal.show();
         }
 
         if(this.feedShowCount == AppSetting.THRESHOLD_3){
-          this.monsterSrc = "./assets/monster/dragging.gif"
-          this.monsterMsg = "the monster is happy."
+          this.monsterSrc = "./assets/monster/Epic.gif"
+          this.monsterMsg = "Congrats! Your monster is feeling epic."
           this.modal.show();
         }
         // if (this.feedShowCount == 10) {
