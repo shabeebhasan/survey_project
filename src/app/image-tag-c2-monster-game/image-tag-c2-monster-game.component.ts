@@ -68,7 +68,11 @@ export class ImageTagC2MonsterGameComponent implements OnInit {
     public onItemAdded(e) {
         this.feedShowCount++;
         this.tagCount += 1;
-        if(this.tagCount <= this.THRESHOLD_3){
+        if(this.tagCount <= this.THRESHOLD_1){
+          this.tagPercentage =  Math.trunc(((this.tagCount / this.THRESHOLD_1 ) * 100)) + "%"
+        }else if(this.tagCount <= this.THRESHOLD_2){
+          this.tagPercentage =  Math.trunc(((this.tagCount / this.THRESHOLD_2 ) * 100)) + "%"
+        }else if(this.tagCount <= this.THRESHOLD_3){
           this.tagPercentage =  Math.trunc(((this.tagCount / this.THRESHOLD_3 ) * 100)) + "%"
         }
 
