@@ -116,9 +116,15 @@ export class MultiGameComponent implements OnInit {
     public onItemAdded(e) {
         this.feedShowCount++;
         this.tagCount += 1;
-        if (this.tagCount <= this.THRESHOLD_3) {
-            this.tagPercentage = Math.trunc(((this.tagCount / this.THRESHOLD_3) * 100)) + "%"
+        
+        if (this.tagCount <= this.THRESHOLD_1) {
+            this.tagPercentage = Math.trunc(((this.tagCount / this.THRESHOLD_1) * 100)) + "%"
+        } else if (this.tagCount - this.THRESHOLD_1 <= this.THRESHOLD_2 - this.THRESHOLD_1) {
+            this.tagPercentage = Math.trunc(((this.tagCount - this.THRESHOLD_1) / (this.THRESHOLD_2 - this.THRESHOLD_1) * 100)) + "%"
+        } else if (this.tagCount - this.THRESHOLD_2 <= (this.THRESHOLD_3 - this.THRESHOLD_2)) {
+            this.tagPercentage = Math.trunc((((this.tagCount - this.THRESHOLD_2) / (this.THRESHOLD_3 - this.THRESHOLD_2)) * 100)) + "%"
         }
+
         if (this.feedShowCount == AppSetting.THRESHOLD_1) {
             this.monsterSrc = "./assets/monster/chewing.gif"
             this.monsterMsg = "the monster is sad."
@@ -141,11 +147,13 @@ export class MultiGameComponent implements OnInit {
             this.modalvirtualSrc = this.virtualSrc1;
             this.imgShow1 = true;
             this.opacity = 0.09;
+            this.tagPercentage = 0;
         } else if (this.tagCount == this.THRESHOLD_2) {
             this.virtualSrc = this.virtualSrc3;
             this.modalvirtualSrc = this.virtualSrc2;
             this.imgShow2 = true;
             this.opacity = 0.09;
+            this.tagPercentage = 0;
         } else if (this.tagCount == this.THRESHOLD_3) {
             this.virtualSrc = this.virtualSrc3;
             this.modalvirtualSrc = this.virtualSrc3;
@@ -195,14 +203,11 @@ export class MultiGameComponent implements OnInit {
         }
     }
 
-    openSilverDialog() {
-    }
+    openSilverDialog() {}
 
-    opengoldenDialog() {
-    }
+    opengoldenDialog() {}
 
-    openbronzeBagdeDialog() {
-    }
+    openbronzeBagdeDialog() {}
 
     setVirtualImage() {
         this.virtualSrc1 = "./assets/virtual_items/1.png";
