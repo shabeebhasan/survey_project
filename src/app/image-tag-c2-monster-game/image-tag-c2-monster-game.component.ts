@@ -70,20 +70,22 @@ export class ImageTagC2MonsterGameComponent implements OnInit {
         this.tagCount += 1;
         if(this.tagCount <= this.THRESHOLD_1){
           this.tagPercentage =  Math.trunc(((this.tagCount / this.THRESHOLD_1 ) * 100)) + "%"
-        }else if(this.tagCount <= this.THRESHOLD_2){
-          this.tagPercentage =  Math.trunc(((this.tagCount / this.THRESHOLD_2 ) * 100)) + "%"
-        }else if(this.tagCount <= this.THRESHOLD_3){
-          this.tagPercentage =  Math.trunc(((this.tagCount / this.THRESHOLD_3 ) * 100)) + "%"
+        }else if(this.tagCount - this.THRESHOLD_1 <= this.THRESHOLD_2 - this.THRESHOLD_1){
+          this.tagPercentage =  Math.trunc(( (this.tagCount - this.THRESHOLD_1 ) / (this.THRESHOLD_2 - this.THRESHOLD_1) * 100)) + "%"
+        }else if(this.tagCount - this.THRESHOLD_2 <= (this.THRESHOLD_3 - this.THRESHOLD_2)){
+          this.tagPercentage =  Math.trunc((( (this.tagCount - this.THRESHOLD_2) / (this.THRESHOLD_3 - this.THRESHOLD_2) ) * 100)) + "%"
         }
 
         if(this.feedShowCount == AppSetting.THRESHOLD_1){
           this.monsterSrc = "./assets/monster/Idle.gif"
           this.monsterMsg = "Your monster is feeling idle."
           this.modal.show();
+          this.tagPercentage = 0;
         }else if(this.feedShowCount == AppSetting.THRESHOLD_2){
           this.monsterSrc = "./assets/monster/Happy.gif"
           this.monsterMsg = "Congrats! Your monster is feeling happy."
           this.modal.show();
+          this.tagPercentage = 0;
         }else if(this.feedShowCount == AppSetting.THRESHOLD_3){
           this.monsterSrc = "./assets/monster/Epic.gif"
           this.monsterMsg = "Congrats! Your monster is feeling epic."
