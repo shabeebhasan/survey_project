@@ -51,6 +51,8 @@ export class MultiGameComponent implements OnInit {
 
     //badge work
 
+    LockedBagdeImg : any = "./assets/badges/locked.png";
+    full : any = "./assets/badges/full.png";
     bronzeShow : boolean = false;
     goldShow : boolean = false;
     silverShow : boolean = false;
@@ -120,25 +122,16 @@ export class MultiGameComponent implements OnInit {
         if (this.feedShowCount == AppSetting.THRESHOLD_1) {
             this.monsterSrc = "./assets/monster/chewing.gif"
             this.monsterMsg = "the monster is sad."
-            this
-                .modal
-                .show();
         }
 
         if (this.feedShowCount == AppSetting.THRESHOLD_2) {
             this.monsterSrc = "./assets/monster/hovering.gif"
             this.monsterMsg = "the monster is neutral."
-            this
-                .modal
-                .show();
         }
 
         if (this.feedShowCount == AppSetting.THRESHOLD_3) {
             this.monsterSrc = "./assets/monster/dragging.gif"
             this.monsterMsg = "the monster is happy."
-            this
-                .modal
-                .show();
         }
         // if (this.feedShowCount == 10) {     this.monsterSrc =
         // "./assets/monster/chewing.gif"     this         .modal         .show();
@@ -148,25 +141,16 @@ export class MultiGameComponent implements OnInit {
             this.modalvirtualSrc = this.virtualSrc1;
             this.imgShow1 = true;
             this.opacity = 0.09;
-            this
-                .virtualModal
-                .show()
         } else if (this.tagCount == this.THRESHOLD_2) {
             this.virtualSrc = this.virtualSrc3;
             this.modalvirtualSrc = this.virtualSrc2;
             this.imgShow2 = true;
             this.opacity = 0.09;
-            this
-                .virtualModal
-                .show()
         } else if (this.tagCount == this.THRESHOLD_3) {
             this.virtualSrc = this.virtualSrc3;
             this.modalvirtualSrc = this.virtualSrc3;
             this.imgShow3 = true;
             this.opacity = 1;
-            this
-                .virtualModal
-                .show()
         }
 
         if (this.tagCount < this.THRESHOLD_1) {
@@ -212,21 +196,12 @@ export class MultiGameComponent implements OnInit {
     }
 
     openSilverDialog() {
-        this
-            .silverBagde
-            .show();
     }
 
     opengoldenDialog() {
-        this
-            .goldenBagde
-            .show();
     }
 
     openbronzeBagdeDialog() {
-        this
-            .bronzeBagde
-            .show();
     }
 
     setVirtualImage() {
