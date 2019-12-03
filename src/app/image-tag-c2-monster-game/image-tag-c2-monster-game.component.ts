@@ -10,6 +10,7 @@ export class ImageTagC2MonsterGameComponent implements OnInit {
 
     imageForm : FormGroup;
     disabledSubmitButton : boolean = false;
+    chewing : boolean = false;
     optionsSelect : Array < any >;
     items : any;
     tagCount : any;
@@ -70,22 +71,27 @@ export class ImageTagC2MonsterGameComponent implements OnInit {
         if(this.tagCount <= this.THRESHOLD_3){
           this.tagPercentage =  Math.trunc(((this.tagCount / this.THRESHOLD_3 ) * 100)) + "%"
         }
+
         if(this.feedShowCount == AppSetting.THRESHOLD_1){
           this.monsterSrc = "./assets/monster/Idle.gif"
           this.monsterMsg = "Your monster is feeling idle."
           this.modal.show();
-        }
-        
-        if(this.feedShowCount == AppSetting.THRESHOLD_2){
+        }else if(this.feedShowCount == AppSetting.THRESHOLD_2){
           this.monsterSrc = "./assets/monster/Happy.gif"
           this.monsterMsg = "Congrats! Your monster is feeling happy."
           this.modal.show();
-        }
-
-        if(this.feedShowCount == AppSetting.THRESHOLD_3){
+        }else if(this.feedShowCount == AppSetting.THRESHOLD_3){
           this.monsterSrc = "./assets/monster/Epic.gif"
           this.monsterMsg = "Congrats! Your monster is feeling epic."
           this.modal.show();
+        }else if(!this.chewing){
+          var currentSrc = this.monsterSrc;
+          this.monsterSrc = "./assets/monster/Chewing.gif"
+          this.chewing = true;
+          setTimeout(()=>{
+            this.chewing = false;
+            this.monsterSrc = currentSrc;
+          },1000)
         }
         // if (this.feedShowCount == 10) {
         //     this.monsterSrc = "./assets/monster/chewing.gif"
