@@ -23,7 +23,7 @@ export class ImageTagC2BadgeGameComponent implements OnInit {
     httpClient : any;
     bronzeBagdeImg : any = "./assets/badges/FrameLvl2@4x.png";
     silverBagdeImg : any = "./assets/badges/FrameLvl4@4x.png";
-    goldenBagdeImg : any = "./assets/badges/FrameLvl7@4x.png";
+    goldenBagdeImg : any = "./assets/badges/FrameLvl5@4x.png";
 
     LockedBagdeImg : any = "./assets/badges/locked.png";
     full : any = "./assets/badges/full.png";
