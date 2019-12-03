@@ -30,8 +30,10 @@
                 style="max-width:600px;margin:20px;width: 100%;max-height:400px;"
                 class="img-fluid"
                 alt="Responsive image">
-                <h2 *ngIf="leaderBoardEnable" style="font-weight: 900;">Points:
-                  {{tagCount}}</h2>
+                <h3 style="font-weight: 900;margin: 0;">Points</h3>
+                  <div style="margin:5px auto;padding:5px;width:100px;background:#1976d2">
+                    <h3 style="font-weight: 500;color:#fff;">{{tagCount}}</h3>
+                  </div>
                 <tag-input (onAdd)="onItemAdded($event)" [(ngModel)]='items' theme='bootstrap'></tag-input>
 
                 <button
