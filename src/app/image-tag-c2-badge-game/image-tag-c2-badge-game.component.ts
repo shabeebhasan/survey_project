@@ -15,6 +15,7 @@ export class ImageTagC2BadgeGameComponent implements OnInit {
     silverShow : boolean = false;
     optionsSelect : Array < any >;
     items : any;
+    tagPercentage : any;
     tagCount : any;
     tagRewardCount : any;
     imgSrc : any;
@@ -77,13 +78,23 @@ export class ImageTagC2BadgeGameComponent implements OnInit {
     public onItemAdded(e) {
         this.tagCount += 1;
         this.tagRewardCount += 1;
+        if (this.tagCount <= this.THRESHOLD_1) {
+            this.tagPercentage = Math.trunc(((this.tagCount / this.THRESHOLD_1) * 100)) + "%"
+        } else if (this.tagCount - this.THRESHOLD_1 <= this.THRESHOLD_2 - this.THRESHOLD_1) {
+            this.tagPercentage = Math.trunc(((this.tagCount - this.THRESHOLD_1) / (this.THRESHOLD_2 - this.THRESHOLD_1) * 100)) + "%"
+        } else if (this.tagCount - this.THRESHOLD_2 <= (this.THRESHOLD_3 - this.THRESHOLD_2)) {
+            this.tagPercentage = Math.trunc((((this.tagCount - this.THRESHOLD_2) / (this.THRESHOLD_3 - this.THRESHOLD_2)) * 100)) + "%"
+        }
+
         if (this.tagRewardCount == AppSetting.THRESHOLD_1) {
             this.openbronzeBagdeDialog();
             this.bronzeShow = true;
+            this.tagPercentage = 0;
         }
         if (this.tagRewardCount == AppSetting.THRESHOLD_2) {
-          this.openSilverDialog();
-          this.silverShow = true;
+            this.openSilverDialog();
+            this.silverShow = true;
+            this.tagPercentage = 0;
         }
         if (this.tagRewardCount == AppSetting.THRESHOLD_3) {
             this.opengoldenDialog();
@@ -104,9 +115,9 @@ export class ImageTagC2BadgeGameComponent implements OnInit {
     }
 
     openbronzeBagdeDialog() {
-      this
-          .bronzeBagde
-          .show();
+        this
+            .bronzeBagde
+            .show();
     }
 
     onSubmit() {

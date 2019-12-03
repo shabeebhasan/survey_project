@@ -75,7 +75,15 @@
                       <img *ngIf="!goldShow" style="position: absolute;" width="50px" [src]="LockedBagdeImg">
                       <span class="badge-span">Earn the golden badge for adding {{THRESHOLD_3}} tags</span>
                     </div>
-
+                    <div class="progress md-progress" style="margin:20px;height: 20px">
+                        <div
+                            class="progress-bar"
+                            role="progressbar"
+                            [ngStyle]="{'width':tagPercentage,'height':'20px'}"
+                            aria-valuenow="tagPercentage"
+                            aria-valuemin="0"
+                            aria-valuemax="100">{{tagPercentage}}</div>
+                    </div>
                 </div>
             </div>
         </mdb-card>
