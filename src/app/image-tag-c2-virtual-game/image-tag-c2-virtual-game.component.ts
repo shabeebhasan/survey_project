@@ -70,7 +70,7 @@ export class ImageTagC2VirtualGameComponent implements OnInit {
 
         if (this.tagCount == this.THRESHOLD_1) {
             this.msgVirtual1 = "This is a very rare item."
-            this.msgVirtual2 = "Congrats! You’ve earned a very rare item."
+            this.msgVirtual2 = "Congrats! You’ve earned a common item."
             this.virtualSrc = this.virtualSrc2;
             this.modalvirtualSrc = this.virtualSrc1;
             this.imgShow1 = true;
@@ -81,7 +81,7 @@ export class ImageTagC2VirtualGameComponent implements OnInit {
             this.tagPercentage = 0;
         } else if (this.tagCount == this.THRESHOLD_2) {
             this.msgVirtual1 = "This is a legendary item."
-            this.msgVirtual2 = "Congrats! You’ve earned a legendary item."
+            this.msgVirtual2 = "Congrats! You’ve earned a very rare item."
             this.virtualSrc = this.virtualSrc3;
             this.modalvirtualSrc = this.virtualSrc2;
             this.imgShow2 = true;
@@ -91,6 +91,7 @@ export class ImageTagC2VirtualGameComponent implements OnInit {
                 .show()
             this.tagPercentage = 0;
         } else if (this.tagCount == this.THRESHOLD_3) {
+            this.msgVirtual2 = "Congrats! You’ve earned a legendary item."
             this.virtualSrc = this.virtualSrc3;
             this.modalvirtualSrc = this.virtualSrc3;
             this.imgShow3 = true;
