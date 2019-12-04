@@ -79,7 +79,7 @@ export class MultiGameComponent implements OnInit {
         this.tagCount = 0;
         this.arrayIndex = 0;
         this.imgeShuffleArray = this.shuffle();
-        this.monsterSrc = "./assets/monster/idle.gif"
+        this.monsterSrc = "./assets/monster/Hungry.gif"
         this.setImage();
         this.getTag();
 
@@ -152,7 +152,7 @@ export class MultiGameComponent implements OnInit {
         // this.feedShowCount = 0; } virtual
         if (this.tagCount == this.THRESHOLD_1) {
             this.msgVirtual1 = "This is a very rare item."
-            this.msgVirtual2 = "Congrats! You’ve earned a very rare item."
+            this.msgVirtual2 = "Congrats! You’ve earned a common item."
             this.virtualSrc = this.virtualSrc2;
             this.modalvirtualSrc = this.virtualSrc1;
             this.imgShow1 = true;
@@ -160,13 +160,14 @@ export class MultiGameComponent implements OnInit {
             this.tagPercentage = 0;
         } else if (this.tagCount == this.THRESHOLD_2) {
             this.msgVirtual1 = "This is a legendary item."
-            this.msgVirtual2 = "Congrats! You’ve earned a legendary item."
+            this.msgVirtual2 = "Congrats! You’ve earned a very rare item."
             this.virtualSrc = this.virtualSrc3;
             this.modalvirtualSrc = this.virtualSrc2;
             this.imgShow2 = true;
             this.opacity = 0.09;
             this.tagPercentage = 0;
         } else if (this.tagCount == this.THRESHOLD_3) {
+            this.msgVirtual2 = "Congrats! You’ve earned a legendary item."
             this.virtualSrc = this.virtualSrc3;
             this.modalvirtualSrc = this.virtualSrc3;
             this.imgShow3 = true;
