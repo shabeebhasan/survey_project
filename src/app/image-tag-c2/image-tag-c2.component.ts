@@ -32,6 +32,10 @@ export class ImageTagC2Component implements OnInit {
         this.getTag();
     }
 
+    public onItemRemoved(e){
+      this.tagCount -= 1;
+    }
+
     getTag() {
         this
             .httpClient

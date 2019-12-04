@@ -48,7 +48,7 @@
                   <div style="margin:5px auto;padding:5px;width:100px;background:#1976d2">
                     <h3 style="font-weight: 500;color:#fff;">{{tagCount}}</h3>
                   </div>
-                <tag-input (onAdd)="onItemAdded($event)" [(ngModel)]='items' theme='bootstrap'></tag-input>
+                <tag-input (onRemove)="onItemRemoved($event)" (onAdd)="onItemAdded($event)" [(ngModel)]='items' theme='bootstrap'></tag-input>
 
                 <button
                     mdbBtn

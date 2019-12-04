@@ -74,6 +74,18 @@ export class ImageTagC2BadgeGameComponent implements OnInit {
         this.arrayIndex++;
         this.getTag();
     }
+    
+    public onItemRemoved(e){
+      this.tagCount -= 1;
+      this.tagRewardCount--;
+      if(this.tagCount <= this.THRESHOLD_1){
+        this.tagPercentage =  Math.trunc(((this.tagCount / this.THRESHOLD_1 ) * 100)) + "%"
+      }else if(this.tagCount - this.THRESHOLD_1 <= this.THRESHOLD_2 - this.THRESHOLD_1){
+        this.tagPercentage =  Math.trunc(( (this.tagCount - this.THRESHOLD_1 ) / (this.THRESHOLD_2 - this.THRESHOLD_1) * 100)) + "%"
+      }else if(this.tagCount - this.THRESHOLD_2 <= (this.THRESHOLD_3 - this.THRESHOLD_2)){
+        this.tagPercentage =  Math.trunc((( (this.tagCount - this.THRESHOLD_2) / (this.THRESHOLD_3 - this.THRESHOLD_2) ) * 100)) + "%"
+      }
+    }
 
     public onItemAdded(e) {
         this.tagCount += 1;
