@@ -116,6 +116,11 @@ export class MultiGameComponent implements OnInit {
         this.getTag();
     }
 
+    public onItemRemoved(e){
+      this.tagCount -= 1;
+      this.feedShowCount--;
+    }
+
     public onItemAdded(e) {
         this.feedShowCount++;
         this.tagCount += 1;
