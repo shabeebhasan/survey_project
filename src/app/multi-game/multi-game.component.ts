@@ -119,6 +119,13 @@ export class MultiGameComponent implements OnInit {
     public onItemRemoved(e){
       this.tagCount -= 1;
       this.feedShowCount--;
+      if(this.tagCount <= this.THRESHOLD_1){
+        this.tagPercentage =  Math.trunc(((this.tagCount / this.THRESHOLD_1 ) * 100)) + "%"
+      }else if(this.tagCount - this.THRESHOLD_1 <= this.THRESHOLD_2 - this.THRESHOLD_1){
+        this.tagPercentage =  Math.trunc(( (this.tagCount - this.THRESHOLD_1 ) / (this.THRESHOLD_2 - this.THRESHOLD_1) * 100)) + "%"
+      }else if(this.tagCount - this.THRESHOLD_2 <= (this.THRESHOLD_3 - this.THRESHOLD_2)){
+        this.tagPercentage =  Math.trunc((( (this.tagCount - this.THRESHOLD_2) / (this.THRESHOLD_3 - this.THRESHOLD_2) ) * 100)) + "%"
+      }
     }
 
     public onItemAdded(e) {

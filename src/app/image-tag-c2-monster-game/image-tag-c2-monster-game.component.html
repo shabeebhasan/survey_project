@@ -20,7 +20,7 @@
                 class="img-fluid"
                 alt="Responsive image">
 
-                <tag-input (onAdd)="onItemAdded($event)" [(ngModel)]='items' theme='bootstrap'></tag-input>
+                <tag-input (onRemove)="onItemRemoved($event)" (onAdd)="onItemAdded($event)" [(ngModel)]='items' theme='bootstrap'></tag-input>
 
                 <button
                     mdbBtn
