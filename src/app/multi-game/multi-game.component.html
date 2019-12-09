@@ -187,152 +187,162 @@
                                         </div>
                                     </div>
 
-                                    <div
-                                        mdbModal
-                                        #modalMonster="mdbModal"
-                                        class="modal fade"
-                                        tabindex="-1"
-                                        role="dialog"
-                                        aria-labelledby="myBasicModalLabel"
-                                        aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <button
-                                                        type="button"
-                                                        class="close pull-right"
-                                                        aria-label="Close"
-                                                        (click)="modal.hide()">
-                                                        <span aria-hidden="true">×</span>
-                                                    </button>
-                                                    <h4 class="modal-title w-100" id="myModalLabel">Monster.</h4>
-                                                </div>
-                                                <div style="text-align:center" class="modal-body">
-                                                    <h4 style="text-align:center">{{monsterMsg}}</h4>
-                                                    <img style="text-align:center" width="200px" [src]="monsterSrc"></div>
-                                                    <div class="modal-footer">
-                                                        <button
-                                                            type="button"
-                                                            mdbBtn
-                                                            color="secondary"
-                                                            class="waves-light"
-                                                            aria-label="Close"
-                                                            (click)="modal.hide()"
-                                                            mdbWavesEffect>Close</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+      <div
+        mdbModal
+        #bronzeBagde="mdbModal"
+        class="modal fade"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="myBasicModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button
+                        type="button"
+                        class="close pull-right"
+                        aria-label="Close"
+                        (click)="bronzeBagde.hide()">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title w-100" id="myModalLabel">Bronze Badge</h4>
+                </div>
+                <div style="text-align:center" class="modal-body">
+                    <h4 style="text-align:center">Congrats, you've earned a bronze badge</h4>
+                    <div style="position: relative;width: 218px;margin: auto;"  class="row badge-div" role="main">
+                        <img style="text-align:center;position: absolute;" width="200px" [src]="full">
+                        <img style="text-align:center" width="200px" [src]="bronzeBagdeImg">
+                    </div>
+                </div>
+                    <div class="modal-footer">
+                        <button
+                            type="button"
+                            mdbBtn
+                            color="secondary"
+                            class="waves-light"
+                            aria-label="Close"
+                            (click)="bronzeBagde.hide()"
+                            mdbWavesEffect>Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                                        <div
-                                            mdbModal
-                                            #silverBagde="mdbModal"
-                                            class="modal fade"
-                                            tabindex="-1"
-                                            role="dialog"
-                                            aria-labelledby="myBasicModalLabel"
-                                            aria-hidden="true">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <button
-                                                            type="button"
-                                                            class="close pull-right"
-                                                            aria-label="Close"
-                                                            (click)="silverBagde.hide()">
-                                                            <span aria-hidden="true">×</span>
-                                                        </button>
-                                                        <h4 class="modal-title w-100" id="myModalLabel">Silver Badge</h4>
-                                                    </div>
-                                                    <div style="text-align:center" class="modal-body">
-                                                        <h4 style="text-align:center">Congrats, you've earned a silver badge</h4>
-                                                        <img style="text-align:center" width="200px" [src]="silverBagdeImg"></div>
-                                                        <div class="modal-footer">
-                                                            <button
-                                                                type="button"
-                                                                mdbBtn
-                                                                color="secondary"
-                                                                class="waves-light"
-                                                                aria-label="Close"
-                                                                (click)="silverBagde.hide()"
-                                                                mdbWavesEffect>Close</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+    <div
+        mdbModal
+        #silverBagde="mdbModal"
+        class="modal fade"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="myBasicModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button
+                        type="button"
+                        class="close pull-right"
+                        aria-label="Close"
+                        (click)="silverBagde.hide()">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title w-100" id="myModalLabel">Silver Badge</h4>
+                </div>
+                <div style="text-align:center" class="modal-body">
+                    <h4 style="text-align:center">Congrats, you've earned a bronze badge</h4>
+                    <div style="position: relative;width: 218px;margin: auto;"  class="row badge-div" role="main">
+                        <img style="text-align:center;position: absolute;" width="200px" [src]="full">
+                        <img style="text-align:center" width="200px" [src]="silverBagdeImg">
+                    </div>
+                </div>
+                    <div class="modal-footer">
+                        <button
+                            type="button"
+                            mdbBtn
+                            color="secondary"
+                            class="waves-light"
+                            aria-label="Close"
+                            (click)="silverBagde.hide()"
+                            mdbWavesEffect>Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                                            <div
-                                                mdbModal
-                                                #goldenBagde="mdbModal"
-                                                class="modal fade"
-                                                tabindex="-1"
-                                                role="dialog"
-                                                aria-labelledby="myBasicModalLabel"
-                                                aria-hidden="true">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <button
-                                                                type="button"
-                                                                class="close pull-right"
-                                                                aria-label="Close"
-                                                                (click)="goldenBagde.hide()">
-                                                                <span aria-hidden="true">×</span>
-                                                            </button>
-                                                            <h4 class="modal-title w-100" id="myModalLabel">Golden Badge</h4>
-                                                        </div>
-                                                        <div style="text-align:center" class="modal-body">
-                                                            <h4 style="text-align:center">Congrats, you've earned a golden badge</h4>
-                                                            <img style="text-align:center" width="200px" [src]="goldenBagdeImg"></div>
-                                                            <div class="modal-footer">
-                                                                <button
-                                                                    type="button"
-                                                                    mdbBtn
-                                                                    color="secondary"
-                                                                    class="waves-light"
-                                                                    aria-label="Close"
-                                                                    (click)="goldenBagde.hide()"
-                                                                    mdbWavesEffect>Close</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+        <div
+            mdbModal
+            #goldenBagde="mdbModal"
+            class="modal fade"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="myBasicModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button
+                            type="button"
+                            class="close pull-right"
+                            aria-label="Close"
+                            (click)="goldenBagde.hide()">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                        <h4 class="modal-title w-100" id="myModalLabel">Golden Badge</h4>
+                    </div>
+                    <div style="text-align:center" class="modal-body">
+                        <h4 style="text-align:center">Congrats, you've earned a bronze badge</h4>
+                        <div style="position: relative;width: 218px;margin: auto;"  class="row badge-div" role="main">
+                            <img style="text-align:center;position: absolute;" width="200px" [src]="full">
+                            <img style="text-align:center" width="200px" [src]="goldenBagdeImg">
+                        </div>
+                    </div>
+                        <div class="modal-footer">
+                            <button
+                                type="button"
+                                mdbBtn
+                                color="secondary"
+                                class="waves-light"
+                                aria-label="Close"
+                                (click)="goldenBagde.hide()"
+                                mdbWavesEffect>Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                                                <div
-                                                    mdbModal
-                                                    #virtualModal="mdbModal"
-                                                    class="modal fade"
-                                                    tabindex="-1"
-                                                    role="dialog"
-                                                    aria-labelledby="myBasicModalLabel"
-                                                    aria-hidden="true">
-                                                    <div class="modal-dialog" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <button
-                                                                    type="button"
-                                                                    class="close pull-right"
-                                                                    aria-label="Close"
-                                                                    (click)="modal.hide()">
-                                                                    <span aria-hidden="true">×</span>
-                                                                </button>
-                                                                <h4 class="modal-title w-100" id="myModalLabel">Virtual Item</h4>
-                                                            </div>
-                                                            <div style="text-align:center" class="modal-body">
-                                                                <h4 style="text-align:center">Congrats, you've earned a virtual item</h4>
-                                                                <img style="text-align:center" width="200px" [src]="modalvirtualSrc"></div>
-                                                                <div class="modal-footer">
-                                                                    <button
-                                                                        type="button"
-                                                                        mdbBtn
-                                                                        color="secondary"
-                                                                        class="waves-light"
-                                                                        aria-label="Close"
-                                                                        (click)="modal.hide()"
-                                                                        mdbWavesEffect>Close</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    
+            <div
+            mdbModal
+            #modalMonster="mdbModal"
+            class="modal fade"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="myBasicModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button
+                            type="button"
+                            class="close pull-right"
+                            aria-label="Close"
+                            (click)="modal.hide()">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                        <h4 class="modal-title w-100" id="myModalLabel">Monster.</h4>
+                    </div>
+                    <div style="text-align:center" class="modal-body">
+                        <h4 style="text-align:center">{{monsterMsg}}</h4>
+                        <img style="text-align:center" width="200px" [src]="monsterSrc"></div>
+                        <div class="modal-footer">
+                            <button
+                                type="button"
+                                mdbBtn
+                                color="secondary"
+                                class="waves-light"
+                                aria-label="Close"
+                                (click)="modalMonster.hide()"
+                                mdbWavesEffect>Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>

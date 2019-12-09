@@ -28,7 +28,7 @@ export class MultiGameComponent implements OnInit {
     tagPercentage : any;
     monsterMsg : any = "Your monster is feeling hungry.";
     feedShowCount : any = 0;
-    @ViewChild('modal', null)modal : ModalDirective;
+    @ViewChild('modalMonster', null)modalMonster : ModalDirective;
 
     THRESHOLD_1 : any = AppSetting.THRESHOLD_1;
     THRESHOLD_2 : any = AppSetting.THRESHOLD_2;
@@ -116,16 +116,16 @@ export class MultiGameComponent implements OnInit {
         this.getTag();
     }
 
-    public onItemRemoved(e){
-      this.tagCount -= 1;
-      this.feedShowCount--;
-      if(this.tagCount <= this.THRESHOLD_1){
-        this.tagPercentage =  Math.trunc(((this.tagCount / this.THRESHOLD_1 ) * 100)) + "%"
-      }else if(this.tagCount - this.THRESHOLD_1 <= this.THRESHOLD_2 - this.THRESHOLD_1){
-        this.tagPercentage =  Math.trunc(( (this.tagCount - this.THRESHOLD_1 ) / (this.THRESHOLD_2 - this.THRESHOLD_1) * 100)) + "%"
-      }else if(this.tagCount - this.THRESHOLD_2 <= (this.THRESHOLD_3 - this.THRESHOLD_2)){
-        this.tagPercentage =  Math.trunc((( (this.tagCount - this.THRESHOLD_2) / (this.THRESHOLD_3 - this.THRESHOLD_2) ) * 100)) + "%"
-      }
+    public onItemRemoved(e) {
+        this.tagCount -= 1;
+        this.feedShowCount--;
+        if (this.tagCount <= this.THRESHOLD_1) {
+            this.tagPercentage = Math.trunc(((this.tagCount / this.THRESHOLD_1) * 100)) + "%"
+        } else if (this.tagCount - this.THRESHOLD_1 <= this.THRESHOLD_2 - this.THRESHOLD_1) {
+            this.tagPercentage = Math.trunc(((this.tagCount - this.THRESHOLD_1) / (this.THRESHOLD_2 - this.THRESHOLD_1) * 100)) + "%"
+        } else if (this.tagCount - this.THRESHOLD_2 <= (this.THRESHOLD_3 - this.THRESHOLD_2)) {
+            this.tagPercentage = Math.trunc((((this.tagCount - this.THRESHOLD_2) / (this.THRESHOLD_3 - this.THRESHOLD_2)) * 100)) + "%"
+        }
     }
 
     public onItemAdded(e) {
@@ -216,29 +216,76 @@ export class MultiGameComponent implements OnInit {
         console.log('this.tagRewardCount:', this.tagRewardCount);
         if (this.tagRewardCount == AppSetting.THRESHOLD_1) {
             this.bronzeShow = true;
-            this.openbronzeBagdeDialog();
+            this.openModal();
         }
         if (this.tagRewardCount == AppSetting.THRESHOLD_2) {
             this.silverShow = true;
-            this.openSilverDialog();
+            this.openModal();
         }
         if (this.tagRewardCount == AppSetting.THRESHOLD_3) {
             this.goldShow = true;
-            this.opengoldenDialog();
+            this.openModal();
         }
     }
 
-    openSilverDialog() {}
+    openSilverDialog() {
+        this
+            .silverBagde
+            .show();
+    }
 
-    opengoldenDialog() {}
+    opengoldenDialog() {
+        this
+            .goldenBagde
+            .show();
+    }
 
-    openbronzeBagdeDialog() {}
+    openbronzeBagdeDialog() {
+        this
+            .bronzeBagde
+            .show();
+    }
+
+    openmodalMonsterDialog() {
+      this
+          .modalMonster
+          .show();
+    }
 
     setVirtualImage() {
         this.virtualSrc1 = "./assets/virtual_items/1.png";
         this.virtualSrc2 = "./assets/virtual_items/2.png";
         this.virtualSrc3 = "./assets/virtual_items/3.png";
         this.virtualSrc = this.virtualSrc1;
+    }
+
+    openModal() {
+        console.log("openModal")
+        
+        if (this.tagRewardCount == AppSetting.THRESHOLD_1) {
+          if(this.BadgeEnable){
+            this.openbronzeBagdeDialog();
+          }
+          if(this.virtualmonsterGameEnable){
+            this.openmodalMonsterDialog();
+          }
+        }
+        if (this.tagRewardCount == AppSetting.THRESHOLD_2) {
+          if(this.BadgeEnable){
+            this.openSilverDialog();
+          }
+          if(this.virtualmonsterGameEnable){
+            this.openmodalMonsterDialog();
+          }
+        }
+        if (this.tagRewardCount == AppSetting.THRESHOLD_3) {
+          if(this.BadgeEnable){
+            this.opengoldenDialog();
+          }
+          if(this.virtualmonsterGameEnable){
+            this.openmodalMonsterDialog();
+          }
+        }
     }
 
     onSubmit() {
