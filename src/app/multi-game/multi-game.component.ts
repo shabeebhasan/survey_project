@@ -44,7 +44,7 @@ export class MultiGameComponent implements OnInit {
     virtualArrayIndex : any;
     opacity : any = 0.1;
     virtualItemShowCount : any = 0;
-    @ViewChild('modal', null)virtualModal : ModalDirective;
+    @ViewChild('virtualModal', null)virtualModal : ModalDirective;
 
     imgShow1 : boolean = false;
     imgShow2 : boolean = false;
@@ -252,6 +252,12 @@ export class MultiGameComponent implements OnInit {
           .show();
     }
 
+    openmodalVirtualDialog() {
+      this
+          .virtualModal
+          .show();
+    }
+
     setVirtualImage() {
         this.virtualSrc1 = "./assets/virtual_items/1.png";
         this.virtualSrc2 = "./assets/virtual_items/2.png";
@@ -269,6 +275,9 @@ export class MultiGameComponent implements OnInit {
           if(this.virtualmonsterGameEnable){
             this.openmodalMonsterDialog();
           }
+          if(this.UnlockableItems){
+            this.openmodalVirtualDialog();
+          }
         }
         if (this.tagRewardCount == AppSetting.THRESHOLD_2) {
           if(this.BadgeEnable){
@@ -277,6 +286,9 @@ export class MultiGameComponent implements OnInit {
           if(this.virtualmonsterGameEnable){
             this.openmodalMonsterDialog();
           }
+          if(this.UnlockableItems){
+            this.openmodalVirtualDialog();
+          }
         }
         if (this.tagRewardCount == AppSetting.THRESHOLD_3) {
           if(this.BadgeEnable){
@@ -284,6 +296,9 @@ export class MultiGameComponent implements OnInit {
           }
           if(this.virtualmonsterGameEnable){
             this.openmodalMonsterDialog();
+          }
+          if(this.UnlockableItems){
+            this.openmodalVirtualDialog();
           }
         }
     }

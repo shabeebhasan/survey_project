@@ -346,3 +346,40 @@
                     </div>
                 </div>
             </div>
+
+            <div
+            mdbModal
+            #virtualModal="mdbModal"
+            class="modal fade"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="myBasicModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button
+                            type="button"
+                            class="close pull-right"
+                            aria-label="Close"
+                            (click)="modal.hide()">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                        <h4 class="modal-title w-100" id="myModalLabel">Virtual Item</h4>
+                    </div>
+                    <div style="text-align:center" class="modal-body">
+                        <h4 style="text-align:center">{{msgVirtual2}}</h4>
+                        <img style="text-align:center" width="200px" [src]="modalvirtualSrc"></div>
+                        <div class="modal-footer">
+                            <button
+                                type="button"
+                                mdbBtn
+                                color="secondary"
+                                class="waves-light"
+                                aria-label="Close"
+                                (click)="virtualModal.hide()"
+                                mdbWavesEffect>Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
