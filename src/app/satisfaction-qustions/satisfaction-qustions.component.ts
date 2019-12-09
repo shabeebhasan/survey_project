@@ -33,8 +33,8 @@ var json = {
             ],
             rows: [
                 {
-                    value: "Instrested",
-                    text: "Instrested"
+                    value: "Interested",
+                    text: "Interested"
                 }, {
                     value: "Distressed",
                     text: "Distressed"

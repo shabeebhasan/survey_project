@@ -39,25 +39,25 @@ export class MotivationQuestionsComponent implements OnInit {
                                         columns: [
                                             {
                                                 value: 1,
-                                                text: "Not at all true (1)"
+                                                text: "Not at all true"
                                             }, {
                                                 value: 2,
-                                                text: ""
+                                                text: " "
                                             }, {
                                                 value: 3,
-                                                text: ""
+                                                text: " "
                                             }, {
                                                 value: 4,
-                                                text: "somewhat true (4)"
+                                                text: "somewhat true"
                                             }, {
                                                 value: 5,
-                                                text: ""
+                                                text: " "
                                             }, {
                                                 value: 6,
-                                                text: ""
+                                                text: " "
                                             }, {
                                                 value: 7,
-                                                text: "very true (7)"
+                                                text: "very true"
                                             }
                                         ],
                                         rows: []
