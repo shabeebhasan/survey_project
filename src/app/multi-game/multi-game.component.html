@@ -31,8 +31,8 @@
                 class="img-fluid"
                 alt="Responsive image">
                 <h3 *ngIf="leaderBoardEnable" style="font-weight: 900;margin: 0;">Points</h3>
-                  <div *ngIf="leaderBoardEnable" style="margin:5px auto;padding:5px;width:100px;background:#1976d2">
-                    <h3 style="font-weight: 500;color:#fff;">{{tagCount}}</h3>
+                  <div *ngIf="leaderBoardEnable" style="margin:5px auto">
+                    <h3 class="points">{{tagCount}}</h3>
                   </div>
                 <tag-input (onRemove)="onItemRemoved($event)" (onAdd)="onItemAdded($event)" [(ngModel)]='items' theme='bootstrap'></tag-input>
 

@@ -54,3 +54,20 @@ thead {
   margin: 25px;
   margin-bottom: 30px;
 }
+
+@font-face {
+  font-family: myFirstFont;
+  src: url(BPdots/Clubland.ttf);
+}
+@font-face {
+  font-family: myFirstFont;
+  src: url(BPdots/BPdotsBold.otf);
+  font-weight: bold;
+}
+
+
+.points{
+  font-family: myFirstFont;
+  color: #a52828;
+  font-size: 6em;
+}
