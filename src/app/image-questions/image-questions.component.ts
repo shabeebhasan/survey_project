@@ -32,7 +32,7 @@ export class ImageQuestionsComponent implements OnInit {
     }
 
     public onItemAdded(e) {
-      this.tagCount += 1;
+        this.tagCount += 1;
     }
 
     getTag() {
@@ -86,17 +86,57 @@ export class ImageQuestionsComponent implements OnInit {
 
     shuffle() {
         let a = [
-            '1',
-            '2',
-            '3',
             '4',
             '5',
             '6',
             '7',
             '8',
             '9',
-            '10'
+            '10',
+            '11',
+            '12',
+            '13'
         ];
+        if (localStorage.getItem('playtime') == '3') {
+            a = [
+                '4',
+                '5',
+                '6',
+                '7',
+                '8',
+                '9',
+                '10',
+                '11',
+                '12',
+                '13'
+            ];
+        } else if (localStorage.getItem('playtime') == '2') {
+            a = [
+                '14',
+                '15',
+                '16',
+                '17',
+                '18',
+                '19',
+                '20',
+                '21',
+                '22',
+                '23'
+            ];
+        } else if (localStorage.getItem('playtime') == '1') {
+            a = [
+                '23',
+                '24',
+                '25',
+                '26',
+                '27',
+                '28',
+                '29',
+                '30',
+                '31',
+                '32'
+            ];
+        }
         for (let i = a.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [a[i], a[j]] = [a[j], a[i]];

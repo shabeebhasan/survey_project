@@ -247,15 +247,15 @@ export class MultiGameComponent implements OnInit {
     }
 
     openmodalMonsterDialog() {
-      this
-          .modalMonster
-          .show();
+        this
+            .modalMonster
+            .show();
     }
 
     openmodalVirtualDialog() {
-      this
-          .virtualModal
-          .show();
+        this
+            .virtualModal
+            .show();
     }
 
     setVirtualImage() {
@@ -267,39 +267,39 @@ export class MultiGameComponent implements OnInit {
 
     openModal() {
         console.log("openModal")
-        
+
         if (this.tagRewardCount == AppSetting.THRESHOLD_1) {
-          if(this.BadgeEnable){
-            this.openbronzeBagdeDialog();
-          }
-          if(this.virtualmonsterGameEnable){
-            this.openmodalMonsterDialog();
-          }
-          if(this.UnlockableItems){
-            this.openmodalVirtualDialog();
-          }
+            if (this.BadgeEnable) {
+                this.openbronzeBagdeDialog();
+            }
+            if (this.virtualmonsterGameEnable) {
+                this.openmodalMonsterDialog();
+            }
+            if (this.UnlockableItems) {
+                this.openmodalVirtualDialog();
+            }
         }
         if (this.tagRewardCount == AppSetting.THRESHOLD_2) {
-          if(this.BadgeEnable){
-            this.openSilverDialog();
-          }
-          if(this.virtualmonsterGameEnable){
-            this.openmodalMonsterDialog();
-          }
-          if(this.UnlockableItems){
-            this.openmodalVirtualDialog();
-          }
+            if (this.BadgeEnable) {
+                this.openSilverDialog();
+            }
+            if (this.virtualmonsterGameEnable) {
+                this.openmodalMonsterDialog();
+            }
+            if (this.UnlockableItems) {
+                this.openmodalVirtualDialog();
+            }
         }
         if (this.tagRewardCount == AppSetting.THRESHOLD_3) {
-          if(this.BadgeEnable){
-            this.opengoldenDialog();
-          }
-          if(this.virtualmonsterGameEnable){
-            this.openmodalMonsterDialog();
-          }
-          if(this.UnlockableItems){
-            this.openmodalVirtualDialog();
-          }
+            if (this.BadgeEnable) {
+                this.opengoldenDialog();
+            }
+            if (this.virtualmonsterGameEnable) {
+                this.openmodalMonsterDialog();
+            }
+            if (this.UnlockableItems) {
+                this.openmodalVirtualDialog();
+            }
         }
     }
 
@@ -333,17 +333,57 @@ export class MultiGameComponent implements OnInit {
 
     shuffle() {
         let a = [
-            '1',
-            '2',
-            '3',
             '4',
             '5',
             '6',
             '7',
             '8',
             '9',
-            '10'
+            '10',
+            '11',
+            '12',
+            '13'
         ];
+        if (localStorage.getItem('playtime') == '3') {
+            a = [
+                '4',
+                '5',
+                '6',
+                '7',
+                '8',
+                '9',
+                '10',
+                '11',
+                '12',
+                '13'
+            ];
+        } else if (localStorage.getItem('playtime') == '2') {
+            a = [
+                '14',
+                '15',
+                '16',
+                '17',
+                '18',
+                '19',
+                '20',
+                '21',
+                '22',
+                '23'
+            ];
+        } else if (localStorage.getItem('playtime') == '1') {
+            a = [
+                '23',
+                '24',
+                '25',
+                '26',
+                '27',
+                '28',
+                '29',
+                '30',
+                '31',
+                '32'
+            ];
+        }
         for (let i = a.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [a[i], a[j]] = [a[j], a[i]];
