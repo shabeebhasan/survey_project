@@ -162,8 +162,10 @@ app.post('/add-tags', (req, res) => {
   console.log('/picture_tags',req.body);
   var user_id = req.body.user_id;
   var picture_id = req.body.picture_id;
+  var time_start	 = req.body.time_start;
+  var time_end	 = req.body.time_end;
   var tags = req.body.tags;
-  var sql = "INSERT INTO picture_tags ( user_id,picture_id,tags) VALUES ('"+  user_id + "','" + picture_id + "','" + tags + "') ON DUPLICATE KEY UPDATE tags='"+ tags + "'";
+  var sql = "INSERT INTO picture_tags ( user_id,picture_id,tags,time_start,time_end) VALUES ('"+  user_id + "','" + picture_id + "','" + tags + "','" + time_start + "','" + time_end +  "') ON DUPLICATE KEY UPDATE tags='"+ tags + "'";
 
   console.log(sql);
   con.query(sql, function (err, result) {

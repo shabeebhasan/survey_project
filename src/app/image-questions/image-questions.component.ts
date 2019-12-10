@@ -16,6 +16,10 @@ export class ImageQuestionsComponent implements OnInit {
     arrayIndex : any;
     httpClient : any;
 
+    //
+    startTime:any =  Date.now()
+    endTime:any;
+
     constructor(private fb : FormBuilder, private router : Router, private http : HttpClient) {
 
         this.httpClient = http;
@@ -56,16 +60,19 @@ export class ImageQuestionsComponent implements OnInit {
 
     setImage() {
         this.imgSrc = "./assets/pictures/" + this.imgeShuffleArray[this.arrayIndex] + ".jpg";
-        this.getTag();
     }
 
     onSubmit() {
+        this.endTime = Date.now()
+        
         this
             .httpClient
             .post('http://localhost:8088/add-tags', {
                 user_id: sessionStorage.getItem('user_id') + '-' + localStorage.getItem('playtime'),
                 picture_id: "c1-" + (this.imgeShuffleArray[this.arrayIndex]),
-                tags: JSON.stringify(this.items)
+                tags: JSON.stringify(this.items),
+                time_start:this.startTime,
+                time_end:this.endTime
             })
             .subscribe((data) => {});
         this.arrayIndex++;
@@ -73,6 +80,7 @@ export class ImageQuestionsComponent implements OnInit {
             console.log('onSubmit:: ', this.tagCount);
             this.items = '';
             this.setImage();
+            this.startTime = Date.now()
         } else {
             this
                 .httpClient
