@@ -307,8 +307,8 @@ export class MultiGameComponent implements OnInit {
         this
             .httpClient
             .post('http://localhost:8088/add-tags', {
-                user_id: sessionStorage.getItem('user_id'),
-                picture_id: "mul-" + this.arrayIndex,
+                user_id: sessionStorage.getItem('user_id')+ '-' + localStorage.getItem('playtime'),
+                picture_id: "mul-"  + (this.imgeShuffleArray[this.arrayIndex]),
                 tags: JSON.stringify(this.items)
             })
             .subscribe((data) => {});
@@ -321,7 +321,7 @@ export class MultiGameComponent implements OnInit {
             this
                 .httpClient
                 .post('http://localhost:8088/survey-picture', {
-                    user_id: sessionStorage.getItem('user_id'),
+                    user_id: sessionStorage.getItem('user_id')+ '-' + localStorage.getItem('playtime'),
                     points: this.tagCount
                 })
                 .subscribe((data) => {
