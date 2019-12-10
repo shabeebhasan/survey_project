@@ -27,7 +27,7 @@ export class MultiGameComponent implements OnInit {
     httpClient : any;
     tagPercentage : any;
     monsterMsg : any = "Your monster is feeling hungry.";
-    feedShowCount : any = 0;
+    tagCount : any = 0;
     @ViewChild('modalMonster', null)modalMonster : ModalDirective;
 
     THRESHOLD_1 : any = AppSetting.THRESHOLD_1;
@@ -59,7 +59,6 @@ export class MultiGameComponent implements OnInit {
     bronzeShow : boolean = false;
     goldShow : boolean = false;
     silverShow : boolean = false;
-    tagRewardCount : any;
     bronzeBagdeImg : any = "./assets/badges/FrameLvl2@4x.png";
     silverBagdeImg : any = "./assets/badges/FrameLvl4@4x.png";
     goldenBagdeImg : any = "./assets/badges/FrameLvl7@4x.png";
@@ -89,9 +88,6 @@ export class MultiGameComponent implements OnInit {
         //virtual
         this.setVirtualImage();
 
-        //batch
-        this.tagRewardCount = 0;
-
         this.BadgeEnable = (localStorage.getItem('badge_challange') === 'true')
         this.leaderBoardEnable = (localStorage.getItem('leader_board') === 'true')
         this.UnlockableItems = (localStorage.getItem('unlockable') === 'true')
@@ -120,7 +116,6 @@ export class MultiGameComponent implements OnInit {
 
     public onItemRemoved(e) {
         this.tagCount -= 1;
-        this.feedShowCount--;
         if (this.tagCount <= this.THRESHOLD_1) {
             this.tagPercentage = Math.trunc(((this.tagCount / this.THRESHOLD_1) * 100)) + "%"
         } else if (this.tagCount - this.THRESHOLD_1 <= this.THRESHOLD_2 - this.THRESHOLD_1) {
@@ -139,7 +134,6 @@ export class MultiGameComponent implements OnInit {
     }
 
     public onItemAdded(e) {
-        this.feedShowCount++;
         this.tagCount += 1;
 
         if (this.tagCount <= this.THRESHOLD_1) {
@@ -149,15 +143,15 @@ export class MultiGameComponent implements OnInit {
         } else if (this.tagCount - this.THRESHOLD_2 <= (this.THRESHOLD_3 - this.THRESHOLD_2)) {
             this.tagPercentage = Math.trunc((((this.tagCount - this.THRESHOLD_2) / (this.THRESHOLD_3 - this.THRESHOLD_2)) * 100)) + "%"
         }
-        if (this.feedShowCount == AppSetting.THRESHOLD_1) {
+        if (this.tagCount == AppSetting.THRESHOLD_1) {
             this.monsterSrc = "./assets/monster/Idle.gif"
             this.monsterMsg = "Your monster is feeling idle."
             this.tagPercentage = 0;
-        } else if (this.feedShowCount == AppSetting.THRESHOLD_2) {
+        } else if (this.tagCount == AppSetting.THRESHOLD_2) {
             this.monsterSrc = "./assets/monster/Happy.gif"
             this.monsterMsg = "Congrats! Your monster is feeling happy."
             this.tagPercentage = 0;
-        } else if (this.feedShowCount == AppSetting.THRESHOLD_3) {
+        } else if (this.tagCount == AppSetting.THRESHOLD_3) {
             this.monsterSrc = "./assets/monster/Epic.gif"
             this.monsterMsg = "Congrats! Your monster is feeling epic."
         } else if (!this.chewing) {
@@ -169,9 +163,9 @@ export class MultiGameComponent implements OnInit {
                 this.monsterSrc = currentSrc;
             }, 1000)
         }
-        // if (this.feedShowCount == 10) {     this.monsterSrc =
+        // if (this.tagCount == 10) {     this.monsterSrc =
         // "./assets/monster/chewing.gif"     this         .modal         .show();
-        // this.feedShowCount = 0; } virtual
+        // this.tagCount = 0; } virtual
         if (this.tagCount == this.THRESHOLD_1) {
             this.msgVirtual1 = "This is a very rare item."
             this.msgVirtual2 = "Congrats! You’ve earned a common item."
@@ -222,17 +216,16 @@ export class MultiGameComponent implements OnInit {
         ];
 
         //badge work
-        this.tagRewardCount += 1;
-        console.log('this.tagRewardCount:', this.tagRewardCount);
-        if (this.tagRewardCount == AppSetting.THRESHOLD_1) {
+        console.log('this.tagCount:', this.tagCount);
+        if (this.tagCount == AppSetting.THRESHOLD_1) {
             this.bronzeShow = true;
             this.openModal();
         }
-        if (this.tagRewardCount == AppSetting.THRESHOLD_2) {
+        if (this.tagCount == AppSetting.THRESHOLD_2) {
             this.silverShow = true;
             this.openModal();
         }
-        if (this.tagRewardCount == AppSetting.THRESHOLD_3) {
+        if (this.tagCount == AppSetting.THRESHOLD_3) {
             this.goldShow = true;
             this.openModal();
         }
@@ -278,7 +271,7 @@ export class MultiGameComponent implements OnInit {
     openModal() {
         console.log("openModal")
 
-        if (this.tagRewardCount == AppSetting.THRESHOLD_1) {
+        if (this.tagCount == AppSetting.THRESHOLD_1) {
             if (this.BadgeEnable) {
                 this.openbronzeBagdeDialog();
             }
@@ -289,7 +282,7 @@ export class MultiGameComponent implements OnInit {
                 this.openmodalVirtualDialog();
             }
         }
-        if (this.tagRewardCount == AppSetting.THRESHOLD_2) {
+        if (this.tagCount == AppSetting.THRESHOLD_2) {
             if (this.BadgeEnable) {
                 this.openSilverDialog();
             }
@@ -300,7 +293,7 @@ export class MultiGameComponent implements OnInit {
                 this.openmodalVirtualDialog();
             }
         }
-        if (this.tagRewardCount == AppSetting.THRESHOLD_3) {
+        if (this.tagCount == AppSetting.THRESHOLD_3) {
             if (this.BadgeEnable) {
                 this.opengoldenDialog();
             }
