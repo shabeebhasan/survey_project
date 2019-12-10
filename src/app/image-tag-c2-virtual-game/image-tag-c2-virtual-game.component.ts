@@ -137,7 +137,6 @@ export class ImageTagC2VirtualGameComponent implements OnInit {
 
     setImage() {
         this.imgSrc = "./assets/pictures/" + this.imgeShuffleArray[this.arrayIndex] + ".jpg";
-        this.arrayIndex++;
         this.getTag();
     }
 
@@ -164,15 +163,16 @@ export class ImageTagC2VirtualGameComponent implements OnInit {
     }
 
     onSubmit() {
+      this
+          .httpClient
+          .post('http://localhost:8088/add-tags', {
+              user_id: sessionStorage.getItem('user_id'),
+              picture_id: "vi-" + this.arrayIndex,
+              tags: JSON.stringify(this.items)
+          })
+          .subscribe((data) => {});
+          this.arrayIndex++;
         if (this.arrayIndex < this.imgeShuffleArray.length) {
-            this
-                .httpClient
-                .post('http://localhost:8088/add-tags', {
-                    user_id: sessionStorage.getItem('user_id'),
-                    picture_id: "vi-" + this.arrayIndex,
-                    tags: JSON.stringify(this.items)
-                })
-                .subscribe((data) => {});
             console.log('onSubmit:: ', this.tagCount);
             this.items = '';
             this.setImage();

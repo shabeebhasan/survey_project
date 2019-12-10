@@ -61,7 +61,6 @@ export class ImageTagC2MonsterGameComponent implements OnInit {
 
     setImage() {
         this.imgSrc = "./assets/pictures/" + this.imgeShuffleArray[this.arrayIndex] + ".jpg";
-        this.arrayIndex++;
         this.getTag();
     }
 
@@ -123,15 +122,16 @@ export class ImageTagC2MonsterGameComponent implements OnInit {
     }
 
     onSubmit() {
+        this
+            .httpClient
+            .post('http://localhost:8088/add-tags', {
+                user_id: sessionStorage.getItem('user_id')+ '-' + localStorage.getItem('playtime'),
+                picture_id: "mo-" + (this.imgeShuffleArray[this.arrayIndex]),
+                tags: JSON.stringify(this.items)
+            })
+            .subscribe((data) => {});
+        this.arrayIndex++;
         if (this.arrayIndex < this.imgeShuffleArray.length) {
-            this
-                .httpClient
-                .post('http://localhost:8088/add-tags', {
-                    user_id: sessionStorage.getItem('user_id'),
-                    picture_id: "mo-" + this.arrayIndex,
-                    tags: JSON.stringify(this.items)
-                })
-                .subscribe((data) => {});
             console.log('onSubmit:: ', this.tagCount);
             this.items = '';
             this.setImage();
@@ -139,7 +139,7 @@ export class ImageTagC2MonsterGameComponent implements OnInit {
             this
                 .httpClient
                 .post('http://localhost:8088/survey-picture', {
-                    user_id: sessionStorage.getItem('user_id'),
+                    user_id: sessionStorage.getItem('user_id')+ '-' + localStorage.getItem('playtime'),
                     points: this.tagCount
                 })
                 .subscribe((data) => {

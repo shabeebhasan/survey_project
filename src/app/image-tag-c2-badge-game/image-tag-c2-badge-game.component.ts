@@ -150,7 +150,7 @@ export class ImageTagC2BadgeGameComponent implements OnInit {
             this
                 .httpClient
                 .post('http://localhost:8088/survey-picture', {
-                    user_id: sessionStorage.getItem('user_id'),
+                    user_id: sessionStorage.getItem('user_id') + '-' + localStorage.getItem('playtime'),
                     points: this.tagCount
                 })
                 .subscribe((data) => {
