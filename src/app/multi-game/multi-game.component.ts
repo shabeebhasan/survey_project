@@ -67,6 +67,9 @@ export class MultiGameComponent implements OnInit {
     @ViewChild('silverBagde', null)silverBagde : ModalDirective;
     @ViewChild('goldenBagde', null)goldenBagde : ModalDirective;
     @ViewChild('bronzeBagde', null)bronzeBagde : ModalDirective;
+    //
+    startTime : any = Date.now()
+    endTime : any;
 
     constructor(private fb : FormBuilder, private router : Router, private http : HttpClient) {
 
@@ -303,13 +306,16 @@ export class MultiGameComponent implements OnInit {
     }
 
     onSubmit() {
+        this.endTime = Date.now()
 
         this
             .httpClient
             .post('http://localhost:8088/add-tags', {
-                user_id: sessionStorage.getItem('user_id')+ '-' + localStorage.getItem('playtime'),
-                picture_id: "mul-"  + (this.imgeShuffleArray[this.arrayIndex]),
-                tags: JSON.stringify(this.items)
+                user_id: sessionStorage.getItem('user_id') + '-' + localStorage.getItem('playtime'),
+                picture_id: "mul-" + (this.imgeShuffleArray[this.arrayIndex]),
+                tags: JSON.stringify(this.items),
+                time_start: this.startTime,
+                time_end: this.endTime
             })
             .subscribe((data) => {});
         this.arrayIndex++;
@@ -317,11 +323,12 @@ export class MultiGameComponent implements OnInit {
         if (this.arrayIndex < this.imgeShuffleArray.length) {
             this.items = '';
             this.setImage();
+            this.startTime = Date.now()
         } else {
             this
                 .httpClient
                 .post('http://localhost:8088/survey-picture', {
-                    user_id: sessionStorage.getItem('user_id')+ '-' + localStorage.getItem('playtime'),
+                    user_id: sessionStorage.getItem('user_id') + '-' + localStorage.getItem('playtime'),
                     points: this.tagCount
                 })
                 .subscribe((data) => {
