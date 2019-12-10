@@ -38,6 +38,14 @@ export class ImageTagC2Component implements OnInit {
 
     public onItemRemoved(e) {
         this.tagCount -= 1;
+        this.chartDatasets = [
+          {
+              data: [
+                  100, 50, 30, 10, this.tagCount
+              ],
+              label: ''
+          }
+      ];
     }
 
     getTag() {

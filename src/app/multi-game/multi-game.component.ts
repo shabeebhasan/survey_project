@@ -128,6 +128,14 @@ export class MultiGameComponent implements OnInit {
         } else if (this.tagCount - this.THRESHOLD_2 <= (this.THRESHOLD_3 - this.THRESHOLD_2)) {
             this.tagPercentage = Math.trunc((((this.tagCount - this.THRESHOLD_2) / (this.THRESHOLD_3 - this.THRESHOLD_2)) * 100)) + "%"
         }
+        this.chartDatasets = [
+            {
+                data: [
+                    100, 50, 30, 10, this.tagCount
+                ],
+                label: ''
+            }
+        ];
     }
 
     public onItemAdded(e) {
