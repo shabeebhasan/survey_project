@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 10, 2019 at 05:16 PM
+-- Generation Time: Dec 10, 2019 at 06:17 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -125,16 +125,13 @@ CREATE TABLE `picture_tags` (
 --
 
 INSERT INTO `picture_tags` (`picture_id`, `user_id`, `tags`, `id`, `time_start`, `time_end`) VALUES
-('vi-0', '1', '\"\"', 1, '', '0'),
-('vi-1', '1', '\"\"', 2, '', '0'),
-('vi-2', '1', '\"\"', 3, '', '0'),
-('vi-3', '1', '\"\"', 4, '', '0'),
-('vi-4', '1', '\"\"', 5, '', '0'),
-('vi-5', '1', '\"\"', 6, '', '0'),
-('vi-6', '1', '\"\"', 7, '', '0'),
-('vi-7', '1', '\"\"', 8, '', '0'),
-('vi-8', '1', '\"\"', 9, '', '0'),
-('vi-9', '1', '\"\"', 10, '', '0');
+('mul-10', '1-3', '[{\"display\":\"dfdsfsd\",\"value\":\"dfdsfsd\"},{\"display\":\"sfdfsfsdf\",\"value\":\"sfdfsfsdf\"}]', 1, '1575997225789', '1575997242920'),
+('mul-13', '1-3', '[{\"display\":\"ssgsdg\",\"value\":\"ssgsdg\"}]', 2, '1575997242923', '1575997245904'),
+('mul-12', '1-3', '[{\"display\":\"ds\",\"value\":\"ds\"},{\"display\":\"fds\",\"value\":\"fds\"},{\"display\":\"fs\",\"value\":\"fs\"},{\"display\":\"f\",\"value\":\"f\"},{\"display\":\"ef\",\"value\":\"ef\"},{\"display\":\"sf\",\"value\":\"sf\"},{\"display\":\"fd\",\"value\":\"fd\"},{\"display\":\"e\",\"value\":\"e\"},{\"display\":\"we\",\"value\":\"we\"}]', 3, '1575997245908', '1575997333448'),
+('mul-4', '1-3', '[{\"display\":\"sgs\",\"value\":\"sgs\"},{\"display\":\"gd\",\"value\":\"gd\"},{\"display\":\"g\",\"value\":\"g\"},{\"display\":\"drg\",\"value\":\"drg\"},{\"display\":\"dfgdf\",\"value\":\"dfgdf\"},{\"display\":\"gdfgd\",\"value\":\"gdfgd\"}]', 4, '1575997343876', '1575997365655'),
+('c2-12', '1-3', '[{\"display\":\"sdf\",\"value\":\"sdf\"},{\"display\":\"d\",\"value\":\"d\"},{\"display\":\"fd\",\"value\":\"fd\"},{\"display\":\"fsd\",\"value\":\"fsd\"},{\"display\":\"f\",\"value\":\"f\"},{\"display\":\"sf\",\"value\":\"sf\"},{\"display\":\"ef\",\"value\":\"ef\"},{\"display\":\"gsdg\",\"value\":\"gsdg\"},{\"display\":\"dg\",\"value\":\"dg\"},{\"display\":\"dsg\",\"value\":\"dsg\"},{\"display\":\"e\",\"value\":\"e\"},{\"display\":\"gdg\",\"value\":\"gdg\"},{\"display\":\"g\",\"value\":\"g\"}]', 5, '1575997612492', '1575997622279'),
+('mul-4', '1-3', '\"\"', 6, '1575997922898', '1575997924690'),
+('mul-9', '1-3', '[{\"display\":\"sdfgdsf\",\"value\":\"sdfgdsf\"},{\"display\":\"df\",\"value\":\"df\"},{\"display\":\"sd\",\"value\":\"sd\"},{\"display\":\"fe\",\"value\":\"fe\"},{\"display\":\"fdf\",\"value\":\"fdf\"}]', 7, '1575997924692', '1575997928655');
 
 -- --------------------------------------------------------
 
@@ -226,7 +223,7 @@ CREATE TABLE `user_survey_data` (
 --
 
 INSERT INTO `user_survey_data` (`user_id`, `survey_one_point`, `image_tags_point`, `image_tags_data`, `survey_2_data`, `survey_3_data`, `survey_1_data`, `activity_flow_data`) VALUES
-('1', 114, 0, NULL, NULL, NULL, '{\"Player_20\":\"1\",\"Achiever_4\":\"4\",\"Socialiser_23\":\"1\",\"Player_18\":\"5\",\"Disruptor_8\":\"5\",\"Socialiser_24\":\"5\",\"Achiever_1\":\"5\",\"Achiever_3\":\"5\",\"Free Spirit_10\":\"5\",\"Philantropist_16\":\"5\",\"Disruptor_6\":\"5\",\"Free Spirit_12\":\"5\",\"Free Spirit_11\":\"5\",\"Player_19\":\"5\",\"Philantropist_15\":\"5\",\"Socialiser_22\":\"5\",\"Socialiser_21\":\"5\",\"Free Spirit_9\":\"6\",\"Philantropist_14\":\"5\",\"Player_17\":\"6\",\"Achiever_2\":\"5\",\"Disruptor_5\":\"6\",\"Disruptor_7\":\"5\",\"Philantropist_13\":\"5\"}', ''),
+('1', 114, 2, NULL, NULL, NULL, '{\"Player_20\":\"1\",\"Achiever_4\":\"4\",\"Socialiser_23\":\"1\",\"Player_18\":\"5\",\"Disruptor_8\":\"5\",\"Socialiser_24\":\"5\",\"Achiever_1\":\"5\",\"Achiever_3\":\"5\",\"Free Spirit_10\":\"5\",\"Philantropist_16\":\"5\",\"Disruptor_6\":\"5\",\"Free Spirit_12\":\"5\",\"Free Spirit_11\":\"5\",\"Player_19\":\"5\",\"Philantropist_15\":\"5\",\"Socialiser_22\":\"5\",\"Socialiser_21\":\"5\",\"Free Spirit_9\":\"6\",\"Philantropist_14\":\"5\",\"Player_17\":\"6\",\"Achiever_2\":\"5\",\"Disruptor_5\":\"6\",\"Disruptor_7\":\"5\",\"Philantropist_13\":\"5\"}', ''),
 ('1-3', NULL, 2, NULL, NULL, NULL, NULL, '');
 
 --
@@ -289,7 +286,7 @@ ALTER TABLE `motivation_question`
 -- AUTO_INCREMENT for table `picture_tags`
 --
 ALTER TABLE `picture_tags`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `player_survey_1_questions`
