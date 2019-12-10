@@ -17,7 +17,7 @@ export class SurveyConfigSetComponent implements OnInit {
     setting : boolean = false;
     message : boolean = true;
     start : boolean = false;
-    game_play_time : boolean = false;
+    game_play_time : boolean = true;
     play_continue : boolean = false;
     time_text : any = '';
 

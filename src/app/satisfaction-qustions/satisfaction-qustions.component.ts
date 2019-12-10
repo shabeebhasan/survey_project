@@ -120,12 +120,11 @@ export class SatisfactionQustionsComponent implements OnInit {
                 this
                     .httpClient
                     .post('http://localhost:8088/survey-three-data', {
-                        user_id: sessionStorage.getItem('user_id'),
+                        user_id: sessionStorage.getItem('user_id')+ '-' + localStorage.getItem('playtime'),
                         survey_data: resultAsString
                     })
                     .subscribe((data) => {
                         setTimeout(() => {
-                            sessionStorage.removeItem('user_id');
                             if(localStorage.getItem('playtime') == '3'){
                               localStorage.setItem('playtime','2');
                               this
@@ -140,6 +139,7 @@ export class SatisfactionQustionsComponent implements OnInit {
                                   return;
                             }else if(localStorage.getItem('playtime') == '1'){
                               localStorage.removeItem('playtime');
+                              sessionStorage.removeItem('user_id');
                             }
                             this
                                 .router

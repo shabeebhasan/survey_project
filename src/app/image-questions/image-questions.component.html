@@ -7,7 +7,7 @@
   
     <mdb-card-header class="header-color white-text text-center py-12">
       <h5>
-        <strong>{{arrayIndex}} of 10</strong>
+        <strong>{{arrayIndex + 1}} of 10</strong>
       </h5>
     </mdb-card-header>
   
@@ -16,7 +16,7 @@
         <img [src]="imgSrc" style="max-width:600px;margin:20px;width: 100%;max-height:400px;" class="img-fluid" alt="Responsive image">
 
 
-        <tag-input (onAdd)="onItemAdded($event)" [(ngModel)]='items' theme='bootstrap'></tag-input>
+        <tag-input (onRemove)="onItemRemoved($event)" (onAdd)="onItemAdded($event)" [(ngModel)]='items' theme='bootstrap'></tag-input>
   
         <button mdbBtn (click)="onSubmit()" color="info" outline="true" rounded="true" block="true" class="z-depth-0 my-4 waves-effect"
           mdbWavesEffect type="submit" [disabled]="disabledSubmitButton">NEXT</button>

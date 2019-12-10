@@ -89,7 +89,7 @@ export class MotivationQuestionsComponent implements OnInit {
                                     console.log(resultAsString);
                                     httpClient
                                         .post('http://localhost:8088/survey-two-data', {
-                                            user_id: sessionStorage.getItem('user_id'),
+                                            user_id: sessionStorage.getItem('user_id')+ '-' + localStorage.getItem('playtime'),
                                             survey_data: resultAsString
                                         })
                                         .subscribe((data) => {

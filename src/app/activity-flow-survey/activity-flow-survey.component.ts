@@ -94,7 +94,7 @@ export class ActivityFlowSurveyComponent implements OnInit {
                                     var resultAsString = JSON.stringify(survey.data.questions_one);
                                     console.log(resultAsString);
                                     httpClient.post('http://localhost:8088/activity-flow-add', {
-                                        user_id: sessionStorage.getItem('user_id'),
+                                        user_id: sessionStorage.getItem('user_id')+ '-' + localStorage.getItem('playtime'),
                                         survey_data: resultAsString
                                     }).subscribe((data) => {
                                         router.navigateByUrl('/motivation-data');

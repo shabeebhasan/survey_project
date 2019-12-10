@@ -71,7 +71,6 @@ export class ImageTagC2BadgeGameComponent implements OnInit {
 
     setImage() {
         this.imgSrc = "./assets/pictures/" + this.imgeShuffleArray[this.arrayIndex] + ".jpg";
-        this.arrayIndex++;
         this.getTag();
     }
 
@@ -133,15 +132,17 @@ export class ImageTagC2BadgeGameComponent implements OnInit {
     }
 
     onSubmit() {
+
+        this
+            .httpClient
+            .post('http://localhost:8088/add-tags', {
+                user_id: sessionStorage.getItem('user_id') + '-' + localStorage.getItem('playtime'),
+                picture_id: "bg-" + (this.imgeShuffleArray[this.arrayIndex]),
+                tags: JSON.stringify(this.items)
+            })
+            .subscribe((data) => {});
+        this.arrayIndex++;
         if (this.arrayIndex < this.imgeShuffleArray.length) {
-            this
-                .httpClient
-                .post('http://localhost:8088/add-tags', {
-                    user_id: sessionStorage.getItem('user_id'),
-                    picture_id: "bg-" + this.arrayIndex,
-                    tags: JSON.stringify(this.items)
-                })
-                .subscribe((data) => {});
             console.log('onSubmit:: ', this.tagCount);
             this.items = '';
             this.setImage();
