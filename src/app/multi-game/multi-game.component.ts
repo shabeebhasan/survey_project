@@ -42,7 +42,7 @@ export class MultiGameComponent implements OnInit {
     modalvirtualSrc : any;
     virturlImgeShuffleArray : Array < any >;
     virtualArrayIndex : any;
-    opacity : any = 0.1;
+    opacity : any = 0.09;
     virtualItemShowCount : any = 0;
     @ViewChild('virtualModal', null)virtualModal : ModalDirective;
 

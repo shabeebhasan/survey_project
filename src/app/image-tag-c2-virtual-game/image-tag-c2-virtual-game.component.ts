@@ -25,7 +25,7 @@ export class ImageTagC2VirtualGameComponent implements OnInit {
     arrayIndex : any;
     virtualArrayIndex : any;
     httpClient : any;
-    opacity : any = 0.1;
+    opacity : any = 0.09;
     virtualItemShowCount : any = 0;
     @ViewChild('modal', null)modal : ModalDirective;
 

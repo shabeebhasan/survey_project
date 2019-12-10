@@ -102,6 +102,15 @@
                                         <div
                                             style="width: 220px;height: 220px;margin: auto;">
                                             <img
+                                                *ngIf="opacity !== 1"
+                                                [ngStyle]="{'opacity': opacity}"
+                                                style="-webkit-filter:blur(4px);filter:blur(4px);"
+                                                class="img-fluid"
+                                                width="200px"
+                                                height="200px"
+                                                [src]="virtualSrc">
+                                              <img
+                                                *ngIf="opacity === 1"
                                                 [ngStyle]="{'opacity': opacity}"
                                                 class="img-fluid"
                                                 width="200px"
