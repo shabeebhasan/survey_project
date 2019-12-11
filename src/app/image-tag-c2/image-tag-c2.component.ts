@@ -18,9 +18,9 @@ export class ImageTagC2Component implements OnInit {
     start : boolean = false;
 
     //
-    startTime:any =  Date.now()
-    endTime:any;
-    
+    startTime : any = Date.now()
+    endTime : any;
+
     constructor(private fb : FormBuilder, private router : Router, private http : HttpClient) {
 
         this.httpClient = http;
@@ -38,14 +38,7 @@ export class ImageTagC2Component implements OnInit {
 
     public onItemRemoved(e) {
         this.tagCount -= 1;
-        this.chartDatasets = [
-          {
-              data: [
-                  100, 50, 30, 10, this.tagCount
-              ],
-              label: ''
-          }
-      ];
+        this.updateLeaderBoard()
     }
 
     getTag() {
@@ -74,18 +67,11 @@ export class ImageTagC2Component implements OnInit {
 
     public onItemAdded(e) {
         this.tagCount += 1;
-        this.chartDatasets = [
-            {
-                data: [
-                    100, 50, 30, 10, this.tagCount
-                ],
-                label: ''
-            }
-        ];
+        this.updateLeaderBoard()
     }
 
     onSubmit() {
-      this.endTime = Date.now()
+        this.endTime = Date.now()
 
         this
             .httpClient
@@ -179,12 +165,139 @@ export class ImageTagC2Component implements OnInit {
         return a;
     }
 
+    updateLeaderBoard() {
+        if (this.tagCount <= 10) {
+            this.chartDatasets = [
+                {
+                    data: [
+                        70, 50, 30, 10, this.tagCount
+                    ],
+                    label: ''
+                }
+            ];
+        }
+        
+        if (this.tagCount == 9) {
+            this.chartLabels = ['verdandi', 'neo23', 'legolas', 'snork85', 'you'];
+            this.chartColors = [
+                {
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)'
+                    ],
+                    borderWidth: 2
+                }
+            ];
+        }
+
+        if (this.tagCount == 11 || this.tagCount == 29) {
+            this.chartLabels = ['verdandi', 'neo23', 'legolas', 'you', 'snork85'];
+            this.chartColors = [
+                {
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(75, 192, 192, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(153, 102, 255, 1)', 'rgba(75, 192, 192, 1)'
+                    ],
+                    borderWidth: 2
+                }
+            ];
+        }
+
+        if (this.tagCount == 31 || this.tagCount == 49) {
+            this.chartLabels = ['verdandi', 'neo23', 'you', 'legolas', 'snork85'];
+            this.chartColors = [
+                {
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)', 'rgba(54, 162, 235, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'
+                    ],
+                    borderWidth: 2
+                }
+            ];
+        }
+        if (this.tagCount == 51 || this.tagCount == 69) {
+            this.chartLabels = ['verdandi', 'you', 'neo23', 'legolas', 'snork85'];
+            this.chartColors = [
+                {
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)', 'rgba(153, 102, 255, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'
+                    ],
+                    borderWidth: 2
+                }
+            ];
+        }
+        if (this.tagCount == (70 + 1)) {
+            this.chartLabels = ['you', 'verdandi', 'neo23', 'legolas', 'snork85'];
+            this.chartColors = [
+                {
+                    backgroundColor: [
+                        'rgba(153, 102, 255, 0.2)', 'rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(153, 102, 255, 1)', 'rgba(255,99,132,1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'
+                    ],
+                    borderWidth: 2
+                }
+            ];
+        }
+
+        if (this.tagCount > 10) {
+            this.chartDatasets = [
+                {
+                    data: [
+                        70, 50, 30, this.tagCount, 10
+                    ],
+                    label: ''
+                }
+            ];
+        }
+        if (this.tagCount > 30) {
+            this.chartDatasets = [
+                {
+                    data: [
+                        70, 50, this.tagCount, 30, 10
+                    ],
+                    label: ''
+                }
+            ];
+        }
+        if (this.tagCount > 50) {
+            this.chartDatasets = [
+                {
+                    data: [
+                        70, this.tagCount, 50, 30, 10
+                    ],
+                    label: ''
+                }
+            ];
+        }
+        if (this.tagCount > 70) {
+            this.chartDatasets = [
+                {
+                    data: [
+                        this.tagCount, 70, 50, 30, 10
+                    ],
+                    label: ''
+                }
+            ];
+        }
+    }
+
     public chartType : string = 'bar';
 
     public chartDatasets : Array < any > = [
         {
             data: [
-                100, 50, 30, 10
+                70, 50, 30, 10
             ],
             label: ''
         }
@@ -195,20 +308,10 @@ export class ImageTagC2Component implements OnInit {
     public chartColors : Array < any > = [
         {
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+                'rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)'
             ],
             borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+                'rgba(255,99,132,1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)'
             ],
             borderWidth: 2
         }
