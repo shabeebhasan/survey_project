@@ -3,6 +3,15 @@
     background-color: #1976d2!important;
     color: #fff;
   }
+  .badge-span{
+    margin: auto;
+    font-style: oblique;
+    width: 220px;
+  }
+  .badge-div{
+  margin-top: 10px;
+  padding: 10px;
+}
   </style>
 <div class="row" role="main">
     <h4 class="jumbotron-heading">Type anything that you think of when seeing this
@@ -53,51 +62,63 @@
                 <h5 style="font-weight: 500;">Earned Items</h5>
                 <div
                     style="width: 100%;margin: 6px auto;height: 60px;">
-
+                  
+                  <div class="row badge-div">
                     <img
-                        style="-webkit-filter:blur(4px);filter:blur(4px);"
-                        class="img-fluid"
-                        width="45px"
-                        height="45px"
-                        *ngIf="!imgShow1"
-                        [src]="virtualSrc1">
-
-                        <img
+                      style="-webkit-filter:blur(4px);filter:blur(4px);"
+                      class="img-fluid"
+                      width="45px"
+                      height="45px"
+                      *ngIf="!imgShow1"
+                      [src]="virtualSrc1">
+                      <img
                             *ngIf="imgShow1"
                             class="img-fluid"
                             width="45px"
                             height="45px"
                             [src]="virtualSrc1">
+                      <span class="badge-span">Earn the common item for adding {{THRESHOLD_1}} tags</span>
+                    
+                  </div>
+                    
+                  <div class="row badge-div">
+                    <img
+                      style="-webkit-filter:blur(4px);filter:blur(4px);"
+                      class="img-fluid"
+                      width="45px"
+                      height="45px"
+                      *ngIf="!imgShow2"
+                      [src]="virtualSrc2">
+                      <img
+                        *ngIf="imgShow2"
+                        class="img-fluid"
+                        width="45px"
+                        height="45px"
+                        [src]="virtualSrc2">
+                      <span class="badge-span">Earn the rare item for adding {{THRESHOLD_2}} tags</span>
+                    
+                  </div>
 
+                  <div class="row badge-div">
                             <img
-                                style="-webkit-filter:blur(4px);filter:blur(4px);"
-                                class="img-fluid"
-                                width="45px"
-                                height="45px"
-                                *ngIf="!imgShow2"
-                                [src]="virtualSrc2">
-
-                                <img
-                                    *ngIf="imgShow2"
-                                    class="img-fluid"
-                                    width="45px"
-                                    height="45px"
-                                    [src]="virtualSrc2">
-
-                                    <img
-                                        style="-webkit-filter:blur(4px);filter:blur(4px);"
-                                        class="img-fluid"
-                                        width="45px"
-                                        height="45px"
-                                        *ngIf="!imgShow3"
-                                        [src]="virtualSrc3">
-
-                                        <img
-                                            *ngIf="imgShow3"
-                                            class="img-fluid"
-                                            width="45px"
-                                            height="45px"
-                                            [src]="virtualSrc3"></div>
+                              style="-webkit-filter:blur(4px);filter:blur(4px);"
+                              class="img-fluid"
+                              width="45px"
+                              height="45px"
+                              *ngIf="!imgShow3"
+                              [src]="virtualSrc3">
+                            
+                            <img
+                              *ngIf="imgShow3"
+                              class="img-fluid"
+                              width="45px"
+                              height="45px"
+                              [src]="virtualSrc3">
+                              <span class="badge-span">Earn the legendary item  for adding {{THRESHOLD_2}} tags</span>
+                    
+                    </div>
+                         
+                                        
 
                                         <div
                                             style="width: 220px;height: 220px;margin: auto;">
@@ -129,6 +150,7 @@
                                             </div>
                                         </div>
 
+                                      </div>
                                     </mdb-card>
                                 </div>
                                 <div
