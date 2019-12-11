@@ -18,7 +18,6 @@ export class MultiGameComponent implements OnInit {
     disabledSubmitButton : boolean = false;
     optionsSelect : Array < any >;
     items : any;
-    tagCount : any;
     chewing : boolean = false;
     imgSrc : any;
     monsterSrc : any = "./assets/monster/idle.gif";
