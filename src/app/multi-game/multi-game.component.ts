@@ -122,14 +122,7 @@ export class MultiGameComponent implements OnInit {
         } else if (this.tagCount - this.THRESHOLD_2 <= (this.THRESHOLD_3 - this.THRESHOLD_2)) {
             this.tagPercentage = Math.trunc((((this.tagCount - this.THRESHOLD_2) / (this.THRESHOLD_3 - this.THRESHOLD_2)) * 100)) + "%"
         }
-        this.chartDatasets = [
-            {
-                data: [
-                    100, 50, 30, 10, this.tagCount
-                ],
-                label: ''
-            }
-        ];
+        this.updateLeaderBoard();
     }
 
     public onItemAdded(e) {
@@ -205,14 +198,8 @@ export class MultiGameComponent implements OnInit {
         }
 
         //leaderBoard
-        this.chartDatasets = [
-            {
-                data: [
-                    100, 50, 30, 10, this.tagCount
-                ],
-                label: ''
-            }
-        ];
+
+        this.updateLeaderBoard();
 
         //badge work
         console.log('this.tagCount:', this.tagCount);
@@ -397,6 +384,133 @@ export class MultiGameComponent implements OnInit {
             [a[i], a[j]] = [a[j], a[i]];
         }
         return a;
+    }
+
+    updateLeaderBoard() {
+        if (this.tagCount <= 10) {
+            this.chartDatasets = [
+                {
+                    data: [
+                        70, 50, 30, 10, this.tagCount
+                    ],
+                    label: ''
+                }
+            ];
+        }
+
+        if (this.tagCount == 9) {
+            this.chartLabels = ['verdandi', 'neo23', 'legolas', 'snork85', 'you'];
+            this.chartColors = [
+                {
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)'
+                    ],
+                    borderWidth: 2
+                }
+            ];
+        }
+
+        if (this.tagCount == 11 || this.tagCount == 29) {
+            this.chartLabels = ['verdandi', 'neo23', 'legolas', 'you', 'snork85'];
+            this.chartColors = [
+                {
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(75, 192, 192, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(153, 102, 255, 1)', 'rgba(75, 192, 192, 1)'
+                    ],
+                    borderWidth: 2
+                }
+            ];
+        }
+
+        if (this.tagCount == 31 || this.tagCount == 49) {
+            this.chartLabels = ['verdandi', 'neo23', 'you', 'legolas', 'snork85'];
+            this.chartColors = [
+                {
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)', 'rgba(54, 162, 235, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'
+                    ],
+                    borderWidth: 2
+                }
+            ];
+        }
+        if (this.tagCount == 51 || this.tagCount == 69) {
+            this.chartLabels = ['verdandi', 'you', 'neo23', 'legolas', 'snork85'];
+            this.chartColors = [
+                {
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)', 'rgba(153, 102, 255, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'
+                    ],
+                    borderWidth: 2
+                }
+            ];
+        }
+        if (this.tagCount == (70 + 1)) {
+            this.chartLabels = ['you', 'verdandi', 'neo23', 'legolas', 'snork85'];
+            this.chartColors = [
+                {
+                    backgroundColor: [
+                        'rgba(153, 102, 255, 0.2)', 'rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(153, 102, 255, 1)', 'rgba(255,99,132,1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'
+                    ],
+                    borderWidth: 2
+                }
+            ];
+        }
+
+        if (this.tagCount > 10) {
+            this.chartDatasets = [
+                {
+                    data: [
+                        70, 50, 30, this.tagCount, 10
+                    ],
+                    label: ''
+                }
+            ];
+        }
+        if (this.tagCount > 30) {
+            this.chartDatasets = [
+                {
+                    data: [
+                        70, 50, this.tagCount, 30, 10
+                    ],
+                    label: ''
+                }
+            ];
+        }
+        if (this.tagCount > 50) {
+            this.chartDatasets = [
+                {
+                    data: [
+                        70, this.tagCount, 50, 30, 10
+                    ],
+                    label: ''
+                }
+            ];
+        }
+        if (this.tagCount > 70) {
+            this.chartDatasets = [
+                {
+                    data: [
+                        this.tagCount, 70, 50, 30, 10
+                    ],
+                    label: ''
+                }
+            ];
+        }
     }
 
     public chartType : string = 'bar';
