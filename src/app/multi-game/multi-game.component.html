@@ -105,53 +105,58 @@
             </div>
             <div style="margin-top:15px" *ngIf="UnlockableItems">
                 <h5 style="font-weight: 500;">Earned Items</h5>
-                <div style="width: 100%;margin: 6px auto;height: 60px;">
-
+                <div class="row badge-div">
+                  <img
+                    style="-webkit-filter:blur(4px);filter:blur(4px);"
+                    class="img-fluid"
+                    width="45px"
+                    height="45px"
+                    *ngIf="!imgShow1"
+                    [src]="virtualSrc1">
                     <img
-                        style="-webkit-filter:blur(4px);filter:blur(4px);"
-                        class="img-fluid"
-                        width="45px"
-                        height="45px"
-                        *ngIf="!imgShow1"
-                        [src]="virtualSrc1">
-
-                        <img
-                            *ngIf="imgShow1"
-                            class="img-fluid"
-                            width="45px"
-                            height="45px"
-                            [src]="virtualSrc1">
-
-                            <img
-                                style="-webkit-filter:blur(4px);filter:blur(4px);"
-                                class="img-fluid"
-                                width="45px"
-                                height="45px"
-                                *ngIf="!imgShow2"
-                                [src]="virtualSrc2">
-
-                                <img
-                                    *ngIf="imgShow2"
-                                    class="img-fluid"
-                                    width="45px"
-                                    height="45px"
-                                    [src]="virtualSrc2">
-
-                                    <img
-                                        style="-webkit-filter:blur(4px);filter:blur(4px);"
-                                        class="img-fluid"
-                                        width="45px"
-                                        height="45px"
-                                        *ngIf="!imgShow3"
-                                        [src]="virtualSrc3">
-
-                                        <img
-                                            *ngIf="imgShow3"
-                                            class="img-fluid"
-                                            width="45px"
-                                            height="45px"
-                                            [src]="virtualSrc3"></div>
-              
+                          *ngIf="imgShow1"
+                          class="img-fluid"
+                          width="45px"
+                          height="45px"
+                          [src]="virtualSrc1">
+                    <span class="badge-span">Earn the common item for adding {{THRESHOLD_1}} tags</span>
+                  
+                </div>       
+                <div class="row badge-div">
+                  <img
+                    style="-webkit-filter:blur(4px);filter:blur(4px);"
+                    class="img-fluid"
+                    width="45px"
+                    height="45px"
+                    *ngIf="!imgShow2"
+                    [src]="virtualSrc2">
+                    <img
+                      *ngIf="imgShow2"
+                      class="img-fluid"
+                      width="45px"
+                      height="45px"
+                      [src]="virtualSrc2">
+                    <span class="badge-span">Earn the rare item for adding {{THRESHOLD_2}} tags</span>
+                  
+                </div>
+                <div class="row badge-div">
+                  <img
+                    style="-webkit-filter:blur(4px);filter:blur(4px);"
+                    class="img-fluid"
+                    width="45px"
+                    height="45px"
+                    *ngIf="!imgShow3"
+                    [src]="virtualSrc3">
+                  
+                  <img
+                    *ngIf="imgShow3"
+                    class="img-fluid"
+                    width="45px"
+                    height="45px"
+                    [src]="virtualSrc3">
+                    <span class="badge-span">Earn the legendary item  for adding {{THRESHOLD_3}} tags</span>
+          
+                </div>       
                                         <div style="width: 220px;height: 220px;margin: auto;">
                                           <img
                                                 *ngIf="opacity !== 1"
@@ -184,7 +189,7 @@
                                     </mdb-card>
                                     <div
                                         *ngIf="virtualmonsterGameEnable"
-                                        style="position: absolute;left: 0;padding: 20;"
+                                        style="position: absolute;left: 0;padding: 20px;"
                                         class="example-box"
                                         ngDraggable>
                                         <img [src]="monsterSrc" width="200px" height="200px">
@@ -198,7 +203,7 @@
                                                     aria-valuemax="100">{{tagPercentage}}</div>
 
                                             </div>
-                                            <h6>{{monsterMsg}}</h6>
+                                            <h6 style="width:120px;margin:auto">{{monsterMsg}}</h6>
                                         </div>
                                     </div>
 
