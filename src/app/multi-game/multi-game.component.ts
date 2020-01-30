@@ -136,8 +136,8 @@ export class MultiGameComponent implements OnInit {
             this.tagPercentage = Math.trunc((((this.tagCount - this.THRESHOLD_2) / (this.THRESHOLD_3 - this.THRESHOLD_2)) * 100)) + "%"
         }
         if (this.tagCount == AppSetting.THRESHOLD_1) {
-            this.monsterSrc = "./assets/monster/Idle.gif"
-            this.monsterMsg = "Your monster is feeling idle."
+            this.monsterSrc = "./assets/monster/idle.gif"
+            this.monsterMsg = "Your monster is feeling neutral."
             this.tagPercentage = 0;
         } else if (this.tagCount == AppSetting.THRESHOLD_2) {
             this.monsterSrc = "./assets/monster/Happy.gif"
@@ -148,7 +148,7 @@ export class MultiGameComponent implements OnInit {
             this.monsterMsg = "Congrats! Your monster is feeling epic."
         } else if (!this.chewing) {
             var currentSrc = this.monsterSrc;
-            this.monsterSrc = "./assets/monster/Chewing.gif"
+            this.monsterSrc = "./assets/monster/chewing.gif"
             this.chewing = true;
             setTimeout(() => {
                 this.chewing = false;

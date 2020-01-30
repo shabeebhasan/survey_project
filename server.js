@@ -164,7 +164,7 @@ app.post('/add-tags', (req, res) => {
   var picture_id = req.body.picture_id;
   var time_start	 = req.body.time_start;
   var time_end	 = req.body.time_end;
-  var tags = req.body.tags;
+  var tags = escape(req.body.tags);
   var sql = "INSERT INTO picture_tags ( user_id,picture_id,tags,time_start,time_end) VALUES ('"+  user_id + "','" + picture_id + "','" + tags + "','" + time_start + "','" + time_end +  "') ON DUPLICATE KEY UPDATE tags='"+ tags + "'";
 
   console.log(sql);

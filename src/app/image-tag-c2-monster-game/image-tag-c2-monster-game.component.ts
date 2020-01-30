@@ -92,8 +92,8 @@ export class ImageTagC2MonsterGameComponent implements OnInit {
         }
 
         if (this.feedShowCount == AppSetting.THRESHOLD_1) {
-            this.monsterSrc = "./assets/monster/Idle.gif"
-            this.monsterMsg = "Your monster is feeling idle."
+            this.monsterSrc = "./assets/monster/idle.gif"
+            this.monsterMsg = "Your monster is feeling neutral."
             this
                 .modal
                 .show();
@@ -113,7 +113,7 @@ export class ImageTagC2MonsterGameComponent implements OnInit {
                 .show();
         } else if (!this.chewing) {
             var currentSrc = this.monsterSrc;
-            this.monsterSrc = "./assets/monster/Chewing.gif"
+            this.monsterSrc = "./assets/monster/chewing.gif"
             this.chewing = true;
             setTimeout(() => {
                 this.chewing = false;
